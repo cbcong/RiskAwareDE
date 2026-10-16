@@ -1,0 +1,241 @@
+{
+  "math_checks": [
+    "Binomial threshold maximality over 16 sample/risk combinations",
+    "Continuous segment crossing, parallel miss, and tangent contact"
+  ],
+  "official_demo": {
+    "source": "D:\\WorkSpace\\pycharm\\uav_path_planning\\experiments\\external_comparison_20261015\\cc_vpsto\\vp-sto\\examples\\2D_collision_avoidance_set_final_position.ipynb",
+    "source_sha256": "72898c73075f8aa92e8e145ccb6315e013654c6cce3fd523d2a64e7308954f44",
+    "changes": [
+      "Headless execution of code cells 0-5",
+      "CMA random seed fixed at 9",
+      "Progress printing disabled"
+    ],
+    "seconds": 0.44713039999987814,
+    "native_duration": 5.1531430840655945,
+    "native_cost": 5.17460329872997,
+    "sampled_polyline_intersection_length": 4.713907217211908e-06,
+    "endpoint_max_error": 1.1102230246251565e-16,
+    "max_abs_velocity": [
+      0.1000359177013866,
+      0.10006565303549983
+    ],
+    "max_abs_acceleration": [
+      0.16576606805834393,
+      0.19717139907187098
+    ],
+    "note": "Official example collision metric is its sampled polyline; not a continuous-curve certificate."
+  },
+  "demo_3d": {
+    "scene": {
+      "start": [
+        1,
+        1,
+        1
+      ],
+      "goal": [
+        19,
+        19,
+        8
+      ],
+      "bounds": {
+        "minimum": [
+          0,
+          0,
+          0
+        ],
+        "maximum": [
+          20,
+          20,
+          10
+        ]
+      },
+      "obstacles": [
+        {
+          "minimum": [
+            7,
+            6,
+            0
+          ],
+          "maximum": [
+            10,
+            10,
+            7
+          ]
+        },
+        {
+          "minimum": [
+            12,
+            11,
+            0
+          ],
+          "maximum": [
+            15,
+            15,
+            8
+          ]
+        }
+      ]
+    },
+    "stats": {
+      "wall_seconds": 3.005643700000064,
+      "optimization_seconds": 3.0005190000001676,
+      "budget_seconds": 3.0,
+      "budget_overrun_seconds": 0.0056437000000642,
+      "objective_evaluations": 1039,
+      "complete_generations": 41,
+      "training_collision_count": 10,
+      "n_samples": 100,
+      "eta": 0.175,
+      "beta": 0.05,
+      "k_threshold": 10,
+      "training_surrogate_feasible": true,
+      "nominal_collision": false,
+      "boundary_violation": 0.0,
+      "approximate_length": 27.995259382689625,
+      "optimization_curve_error": 0.02,
+      "export_curve_error_bound": 0.0009907994983491914,
+      "seed": 9,
+      "n_via": 5,
+      "sigma_init": 60.0,
+      "pop_size": 25,
+      "sigma": 0.6,
+      "safety_certificate": false,
+      "status": "surrogate_feasible",
+      "history": [
+        {
+          "seconds": 0.012432300000000396,
+          "evaluations": 1,
+          "cost": 5800026.400757564,
+          "length": 26.40075756488819,
+          "collision_count": 100
+        },
+        {
+          "seconds": 0.015888300000142408,
+          "evaluations": 2,
+          "cost": 5090659.151819781,
+          "length": 36.180661427786006,
+          "collision_count": 54
+        },
+        {
+          "seconds": 0.02196530000014718,
+          "evaluations": 4,
+          "cost": 2326263.086370724,
+          "length": 39.88925614112834,
+          "collision_count": 0
+        },
+        {
+          "seconds": 0.02774560000011661,
+          "evaluations": 6,
+          "cost": 2171442.0995854298,
+          "length": 39.61276708943253,
+          "collision_count": 0
+        },
+        {
+          "seconds": 0.041828900000155045,
+          "evaluations": 11,
+          "cost": 2006776.987071894,
+          "length": 30.54875836759611,
+          "collision_count": 4
+        },
+        {
+          "seconds": 0.08708090000004631,
+          "evaluations": 27,
+          "cost": 31.139054431233248,
+          "length": 31.139054431233248,
+          "collision_count": 3
+        },
+        {
+          "seconds": 0.2915685000000394,
+          "evaluations": 91,
+          "cost": 30.542564575462954,
+          "length": 30.542564575462954,
+          "collision_count": 3
+        },
+        {
+          "seconds": 0.418516800000134,
+          "evaluations": 133,
+          "cost": 30.318116744278427,
+          "length": 30.318116744278427,
+          "collision_count": 0
+        },
+        {
+          "seconds": 0.8431499000000713,
+          "evaluations": 265,
+          "cost": 30.004604607899605,
+          "length": 30.004604607899605,
+          "collision_count": 8
+        },
+        {
+          "seconds": 0.9232460000000628,
+          "evaluations": 290,
+          "cost": 29.98192840098235,
+          "length": 29.98192840098235,
+          "collision_count": 0
+        },
+        {
+          "seconds": 1.0721088000000236,
+          "evaluations": 336,
+          "cost": 29.27455741138847,
+          "length": 29.27455741138847,
+          "collision_count": 4
+        },
+        {
+          "seconds": 1.2876694999999927,
+          "evaluations": 406,
+          "cost": 28.93076113689226,
+          "length": 28.93076113689226,
+          "collision_count": 1
+        },
+        {
+          "seconds": 1.3761861000000408,
+          "evaluations": 438,
+          "cost": 28.600674865957934,
+          "length": 28.600674865957934,
+          "collision_count": 6
+        },
+        {
+          "seconds": 1.5723766000000978,
+          "evaluations": 507,
+          "cost": 28.512985471395382,
+          "length": 28.512985471395382,
+          "collision_count": 2
+        },
+        {
+          "seconds": 1.7469461000000592,
+          "evaluations": 572,
+          "cost": 28.333434441230636,
+          "length": 28.333434441230636,
+          "collision_count": 6
+        },
+        {
+          "seconds": 1.9990038000000823,
+          "evaluations": 665,
+          "cost": 28.247556818096665,
+          "length": 28.247556818096665,
+          "collision_count": 8
+        },
+        {
+          "seconds": 2.020637699999952,
+          "evaluations": 673,
+          "cost": 28.18670997562032,
+          "length": 28.18670997562032,
+          "collision_count": 8
+        },
+        {
+          "seconds": 2.4258395000001656,
+          "evaluations": 821,
+          "cost": 27.993659221536287,
+          "length": 27.993659221536287,
+          "collision_count": 10
+        }
+      ]
+    },
+    "success": true,
+    "independent_mc_samples": 10000,
+    "independent_cfr": 0.8915,
+    "polynomial_vs_official_basis_max_error": 1.4210854715202004e-14,
+    "endpoint_max_error": 1.0658141036401503e-14,
+    "seed_isolated_from_training": true
+  }
+}

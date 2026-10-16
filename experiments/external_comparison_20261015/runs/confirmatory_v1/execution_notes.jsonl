@@ -1,0 +1,5 @@
+{"event": "automatic_low_memory_pause_then_resume", "completed": 171, "available_memory_restored_mb": 5304, "time": "2026-10-15T11:09:07.435540", "protocol_changed": false}
+{"event": "automatic_low_memory_pause_then_resume", "completed": 288, "available_memory_restored_mb": 5242, "time": "2026-10-15T11:18:58.140731", "protocol_changed": false}
+{"event": "automatic_low_memory_pause_then_resume", "completed": 328, "available_memory_restored_bytes": 5583245312, "time": "2026-10-15T11:23:29.923814", "protocol_changed": false}
+{"event": "automatic_low_memory_pause_then_resume", "completed": 359, "available_memory_restored_bytes": 5939662848, "time": "2026-10-15T11:27:16.821411", "protocol_changed": false}
+{"event": "automatic_low_memory_pause_then_resume", "completed": 374, "available_memory_restored_bytes": 5379325952, "time": "2026-10-15T11:29:33.914705", "protocol_changed": false}

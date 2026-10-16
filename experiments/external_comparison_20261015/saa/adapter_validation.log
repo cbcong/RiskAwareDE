@@ -1,0 +1,10 @@
+{
+  "continuous_loss_vs_independent_LP_cases": 480,
+  "maximum_loss_error": 1.3322676295501878e-15,
+  "collision_vs_independent_slab_all_agree": true,
+  "analytic_gradient_vs_finite_difference_max_error": 3.049065444571397e-10,
+  "empirical_AVaR_vs_independent_LP_error": 0.0,
+  "passed": true
+}
+empty feasible 0.0042687000000114494 -1000000.0 2
+single_box feasible 0.15152489999991303 -1.027736930747647e-05 21

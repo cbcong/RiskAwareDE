@@ -1,0 +1,49 @@
+{
+  "created_at_utc": "2026-10-15T09:43:18.155835+00:00",
+  "stage": "Post hoc follow-up planned after the primary sigma=.6 outcomes; before follow-up scoring.",
+  "question": "How does empirical collision-free reliability of the same fixed paths change when obstacle translation sigma increases from .6 to .9?",
+  "design": "Saved-path stress evaluation; zero new planner runs and zero method retuning.",
+  "original_study": "runs/confirmatory_v1",
+  "original_protocol_sha256": "6e04b4f5bf63495ba016350c45548588af1c35d9940506452f2d3e4f7f5b512e",
+  "input_audit_sha256": "dedb46cdeadf698ec312e5592b2dc1e4859d2d62edc514de60b233c54e92d9a1",
+  "code_sha256": "1c8f14fa69bb1e71c11397b9a23c0a25d3b315819fa5e9fa931c46e8b0f071a2",
+  "expected_paths": 384,
+  "maps": 24,
+  "maps_per_family": 8,
+  "methods": [
+    "ours",
+    "cc_vpsto",
+    "saa",
+    "astar"
+  ],
+  "seeds_per_risk_planner_per_map": 5,
+  "astar_paths_per_map": 1,
+  "external_samples": 20000,
+  "external_root": 202610150901,
+  "sigmas": [
+    0.6,
+    0.9
+  ],
+  "randomization": "The same standard-normal array is shared by all paths of a map and both sigma values; shifts = sigma * Z. The new root is independent of the original evaluation bank.",
+  "curve_tolerance": 0.002,
+  "geometry": "Original continuous-polyline closed-box predicate; native CC cubic is converted to conservative chords with maximum coordinate error .002. Exact native extrema determine workspace bounds.",
+  "failure_policy": "Every original job remains in the denominator. Nominally infeasible or absent paths have joint CFR zero at both scales. Raw incumbent CFR is retained separately.",
+  "aggregation": "Average seeds within each map first; average 24 map means for overall results and 8 map means for each family. No seed-level pseudoreplication.",
+  "primary_descriptions": "Per-method joint CFR at .6 and .9, signed change (.9 minus .6) in percentage points, nominal-and-CFR>=.825 counts, and family-specific mean CFR.",
+  "uncertainty_description": "Within-path paired Monte Carlo standard error; descriptive 95% percentile bootstrap CI for each method mean stress change using 20000 map resamples stratified by family. No hypothesis tests or superiority claims.",
+  "bootstrap_replicates": 20000,
+  "bootstrap_root": 202610150902,
+  "interpretation": "A distribution-shift stress test at fixed planning assumptions sigma=.6, not a re-optimized sigma=.9 benchmark or an independent set of 384 planner runs. CFR need not decrease monotonically for every path.",
+  "stopping": "Evaluate every one of the 384 prespecified saved paths at both sigma values. Resume allowed only with matching protocol and source hashes. No outcome-based exclusions.",
+  "synthetic_checks": {
+    "passed": true,
+    "checks": [
+      "sigma_zero_hit",
+      "sigma_zero_free",
+      "paired_standard_normal_bank",
+      "standalone_sigma_identity",
+      "compiled_vs_vectorized_closed_AABB",
+      "non_byte_aligned_packing"
+    ]
+  }
+}

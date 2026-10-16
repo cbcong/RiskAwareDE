@@ -1,0 +1,153 @@
+{
+  "purpose": "heldout",
+  "root_seed": 202610150701,
+  "maps": [
+    {
+      "name": "heldout_202610150701_ood_dense_clutter_00",
+      "family": "dense_clutter",
+      "file": "heldout_202610150701_ood_dense_clutter_00.json",
+      "sha256": "9aeab914050b29ccbbb6347ac66d76ae865821abe747ef438e61b2b059fcb080"
+    },
+    {
+      "name": "heldout_202610150701_ood_dense_clutter_01",
+      "family": "dense_clutter",
+      "file": "heldout_202610150701_ood_dense_clutter_01.json",
+      "sha256": "2e23196e7bfcf20fb42af159ddc2ad751d013dbd063efc97ccf2287153b7bf32"
+    },
+    {
+      "name": "heldout_202610150701_ood_dense_clutter_02",
+      "family": "dense_clutter",
+      "file": "heldout_202610150701_ood_dense_clutter_02.json",
+      "sha256": "c0f4fc29ea8bf7344e769b613e66fbf703ab3b1651322e48c2d985be25e38108"
+    },
+    {
+      "name": "heldout_202610150701_ood_dense_clutter_03",
+      "family": "dense_clutter",
+      "file": "heldout_202610150701_ood_dense_clutter_03.json",
+      "sha256": "a7fce12bb0af484e0da339719ebc4cc171fb775e224ce5e30a75383768fbcb06"
+    },
+    {
+      "name": "heldout_202610150701_ood_dense_clutter_04",
+      "family": "dense_clutter",
+      "file": "heldout_202610150701_ood_dense_clutter_04.json",
+      "sha256": "008f52a19bd21c154ef00b514b9dae90e87df3e525298b8e2788b386e7569a8b"
+    },
+    {
+      "name": "heldout_202610150701_ood_dense_clutter_05",
+      "family": "dense_clutter",
+      "file": "heldout_202610150701_ood_dense_clutter_05.json",
+      "sha256": "d7b20e87bf4298e38ecaa417991742f48e3b3bbb9d7d6c2ab1ce46291d34729b"
+    },
+    {
+      "name": "heldout_202610150701_ood_dense_clutter_06",
+      "family": "dense_clutter",
+      "file": "heldout_202610150701_ood_dense_clutter_06.json",
+      "sha256": "8a839255269310c1009fadab576ba6c1776d2ca51ddd48f3009d79038261e075"
+    },
+    {
+      "name": "heldout_202610150701_ood_dense_clutter_07",
+      "family": "dense_clutter",
+      "file": "heldout_202610150701_ood_dense_clutter_07.json",
+      "sha256": "33be90fbc6b36a291e5c4beb89266bba6924a7371ec2abfe6c53e247345c2297"
+    },
+    {
+      "name": "heldout_202610150701_ood_highrise_urban_00",
+      "family": "highrise_urban",
+      "file": "heldout_202610150701_ood_highrise_urban_00.json",
+      "sha256": "bea0067583032d787792f8a8f285efeadfd149dabe44011e070330d9aedc4cf1"
+    },
+    {
+      "name": "heldout_202610150701_ood_highrise_urban_01",
+      "family": "highrise_urban",
+      "file": "heldout_202610150701_ood_highrise_urban_01.json",
+      "sha256": "5563cda19d0a299779042a51a5b37f2acac00d22748301f02b1d624ebd2408e6"
+    },
+    {
+      "name": "heldout_202610150701_ood_highrise_urban_02",
+      "family": "highrise_urban",
+      "file": "heldout_202610150701_ood_highrise_urban_02.json",
+      "sha256": "f74d161ca8c1a2c03aa91b0391baaaafb15aa13c40502d0b5a04f23aaf49bcc1"
+    },
+    {
+      "name": "heldout_202610150701_ood_highrise_urban_03",
+      "family": "highrise_urban",
+      "file": "heldout_202610150701_ood_highrise_urban_03.json",
+      "sha256": "1fb71d53766c834343f0a40b4683156883551383181b37bcdde5eac30f22bb18"
+    },
+    {
+      "name": "heldout_202610150701_ood_highrise_urban_04",
+      "family": "highrise_urban",
+      "file": "heldout_202610150701_ood_highrise_urban_04.json",
+      "sha256": "e2936e8980499f04601a8c4dc3c292d650979db325e68324157d3ca5af95b653"
+    },
+    {
+      "name": "heldout_202610150701_ood_highrise_urban_05",
+      "family": "highrise_urban",
+      "file": "heldout_202610150701_ood_highrise_urban_05.json",
+      "sha256": "d839971e53caddc3a3986560dba0c8caf4e95e374da77d80538d3539ad08d8da"
+    },
+    {
+      "name": "heldout_202610150701_ood_highrise_urban_06",
+      "family": "highrise_urban",
+      "file": "heldout_202610150701_ood_highrise_urban_06.json",
+      "sha256": "6dbdb3d118e53b563ad5c98226dc93f7c5028e0f8c941744cdec77261463391a"
+    },
+    {
+      "name": "heldout_202610150701_ood_highrise_urban_07",
+      "family": "highrise_urban",
+      "file": "heldout_202610150701_ood_highrise_urban_07.json",
+      "sha256": "26a56db69b70a1aed953f7ec330b04f1e6735c45a0e4014b41137a20c2429d84"
+    },
+    {
+      "name": "heldout_202610150701_ood_narrow_barriers_00",
+      "family": "narrow_barriers",
+      "file": "heldout_202610150701_ood_narrow_barriers_00.json",
+      "sha256": "9149682c88f551a6d57791bbcd40cafd1d2bfc4d82ed11a997e0a6e01fb38e7a"
+    },
+    {
+      "name": "heldout_202610150701_ood_narrow_barriers_01",
+      "family": "narrow_barriers",
+      "file": "heldout_202610150701_ood_narrow_barriers_01.json",
+      "sha256": "13d0a12c9b517068e884fb0a3257e85749f128abcb29daa8457e723564a8780d"
+    },
+    {
+      "name": "heldout_202610150701_ood_narrow_barriers_02",
+      "family": "narrow_barriers",
+      "file": "heldout_202610150701_ood_narrow_barriers_02.json",
+      "sha256": "5fb781b1030d4d417eebf359a46e58adc66a57db8227ac01bedcfad9d23dda79"
+    },
+    {
+      "name": "heldout_202610150701_ood_narrow_barriers_03",
+      "family": "narrow_barriers",
+      "file": "heldout_202610150701_ood_narrow_barriers_03.json",
+      "sha256": "409540af2e1e705eb29dafd2ceeaeac20dcaeaf5594229adbf45ef3f3568b581"
+    },
+    {
+      "name": "heldout_202610150701_ood_narrow_barriers_04",
+      "family": "narrow_barriers",
+      "file": "heldout_202610150701_ood_narrow_barriers_04.json",
+      "sha256": "43fd2a2d3a8fb333b376cda6afdf556c3a45fc81aa612c96760780f7adc53142"
+    },
+    {
+      "name": "heldout_202610150701_ood_narrow_barriers_05",
+      "family": "narrow_barriers",
+      "file": "heldout_202610150701_ood_narrow_barriers_05.json",
+      "sha256": "9c26b20bc550acb9b91d16645762904ec8c85d141d771d164183322e89395466"
+    },
+    {
+      "name": "heldout_202610150701_ood_narrow_barriers_06",
+      "family": "narrow_barriers",
+      "file": "heldout_202610150701_ood_narrow_barriers_06.json",
+      "sha256": "c70fdc20baa9838800646a33659cd3223977ce14a43db9f64974d24c4f479a6a"
+    },
+    {
+      "name": "heldout_202610150701_ood_narrow_barriers_07",
+      "family": "narrow_barriers",
+      "file": "heldout_202610150701_ood_narrow_barriers_07.json",
+      "sha256": "d25f0696cef3dc22dc85fb4415ddb57cc7adc1a26aa528b757c167a338acab4c"
+    }
+  ],
+  "geometry_only_filter": true,
+  "planner_called_during_generation": false,
+  "interpretation": "Fresh instances from existing three-family generator; not a new generator distribution."
+}

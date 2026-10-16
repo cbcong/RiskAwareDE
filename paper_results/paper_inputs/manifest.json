@@ -1,0 +1,88 @@
+{
+  "schema": 1,
+  "source_run": "D:\\WorkSpace\\pycharm\\uav_path_planning\\outputs\\fixed_env_20261016",
+  "environment_lock_sha256": "6f407d6f75b8622f367b99d21aff77d86b75234300c4ec6976a768c1c8cbeb2d",
+  "scope": "All numerical inputs from the completed current run. Figure 1 is the author's unchanged conceptual diagram.",
+  "inputs": {
+    "E_map_summary.csv": {
+      "sha256": "09b195d00c1a0541a61a421b4187864366f673b6c66ad05b3c445564ebd6f7b1"
+    },
+    "E_paired_statistics.csv": {
+      "sha256": "af6e606771ee4bcc40a3a9a8e71ee85d2d1cf93451626d412309fc0d53346af5"
+    },
+    "E_run_rows.csv": {
+      "sha256": "26c6523a82a19215fdcdf9b4d6ae608908cd715a3087540596bbd41ae425505d"
+    },
+    "fig01_framework.drawio": {
+      "sha256": "f5a46428232f65fcb57a91dbc27f8af4eff1e39d81d36feaa37114cd75cce915"
+    },
+    "fig01_framework.pdf": {
+      "sha256": "2e2ef972c1e2476983cc9270d4a18c9f6ce375964b6bb912fd4c7f8442af3cfa"
+    },
+    "fig01_framework.png": {
+      "sha256": "286f47169e60124a8140e24b7d196464c61465ca89031240504ef99f18a82653"
+    },
+    "fig01_framework.svg": {
+      "sha256": "c2bcf1ce43df870804b86369f99995a8ca3916d7e8ce382f78058e2ced698684"
+    },
+    "P0_estimator_summary.csv": {
+      "sha256": "0971acf4900b11d81fc544840e48f096aca19947063d4daeab7b0e8c95652238"
+    },
+    "P0_metrics.csv": {
+      "sha256": "04ad8c6df28eab0a0fadd70ddde8f8aa4b89da9c1d6e6f2bd777c050ee332152"
+    },
+    "P1_replay_rows.csv": {
+      "sha256": "89e4c8c08c21e266efa79089d99035030e214308fb783bed2fa6f3d17c49bac9"
+    },
+    "P2_per_map.csv": {
+      "sha256": "50500b1b5d70078867f079ca31cf0067f9d13813812902e7a33e76adbbe601f0"
+    },
+    "P3_local_sensitivity_summary.csv": {
+      "sha256": "7123a45ee22f36cd37cc938bc3b71d606e3990041291ffa93892a6fc2d2a6bcf"
+    },
+    "P6_map_summary.csv": {
+      "sha256": "7e8843c0892282179737574317c4b79a384386ed82808ba1e96312688dfe25fb"
+    },
+    "P6_paired_statistics.csv": {
+      "sha256": "c15b30fe7faaddc1932eeac3db2159bb63e26c1811782943d6894970d7223c6d"
+    },
+    "P6_run_rows.csv": {
+      "sha256": "46b36a8d964ce77deb0ba5f0c0846c54c4167e597430b31bad05ef057ea11753"
+    },
+    "P6_terminal_curve_summary.csv": {
+      "sha256": "1898d261ac3c3916917decb46c8f1eb435e83d2786a25bb824ea8e0e6ec3216b"
+    },
+    "P6_terminal_traces.npz": {
+      "sha256": "7d965619c1aed83490d98e90a95a87c93d7b3af0f26fa69c94ea6e45f779f64c"
+    },
+    "P6_terminal_trace_provenance.csv": {
+      "sha256": "9f98faa473ccdaa418e281a52a7ef19c11cd4b2966f6241b204417afbb0bcf9f"
+    },
+    "path_grid_examples.json": {
+      "sha256": "b971316717ed6387ef8334def93530ac4bf4dfc6200f323c9d81b39a8d34c5eb"
+    }
+  },
+  "diagnostic_and_example_sources": {
+    "D:\\WorkSpace\\pycharm\\uav_path_planning\\outputs\\fixed_env_20261016\\diagnostics\\p0\\attempt_01\\fixed_path_metrics.csv": "04ad8c6df28eab0a0fadd70ddde8f8aa4b89da9c1d6e6f2bd777c050ee332152",
+    "D:\\WorkSpace\\pycharm\\uav_path_planning\\outputs\\fixed_env_20261016\\diagnostics\\p0\\attempt_01\\summary.csv": "0971acf4900b11d81fc544840e48f096aca19947063d4daeab7b0e8c95652238",
+    "D:\\WorkSpace\\pycharm\\uav_path_planning\\outputs\\fixed_env_20261016\\diagnostics\\p1_replay\\attempt_01\\run_rows.csv": "89e4c8c08c21e266efa79089d99035030e214308fb783bed2fa6f3d17c49bac9",
+    "D:\\WorkSpace\\pycharm\\uav_path_planning\\outputs\\fixed_env_20261016\\diagnostics\\p1_p2_p4_p5\\attempt_01\\P2_per_map.csv": "50500b1b5d70078867f079ca31cf0067f9d13813812902e7a33e76adbbe601f0",
+    "D:\\WorkSpace\\pycharm\\uav_path_planning\\outputs\\fixed_env_20261016\\diagnostics\\p3\\attempt_01\\P3_summary.csv": "7123a45ee22f36cd37cc938bc3b71d606e3990041291ffa93892a6fc2d2a6bcf",
+    "D:\\WorkSpace\\pycharm\\uav_path_planning\\outputs\\fixed_env_20261016\\p6\\results\\r202610101835_m00_full_s0009.json": "1b49a5314f22b75f051b5fb3ce3af31164f8d0ff9b60509113c297fad77233e3",
+    "D:\\WorkSpace\\pycharm\\uav_path_planning\\outputs\\fixed_env_20261016\\p6\\results\\r202610101835_m00_risk_polish_lshade_s0009.json": "0d0dac745a96c44a8d228aaab667b5abe1538b8b2eca5ec302178e0934f7c556",
+    "D:\\WorkSpace\\pycharm\\uav_path_planning\\outputs\\fixed_env_20261016\\p6\\results\\r202610101835_m00_bare_de_s0009.json": "0c1eba1f7b5a465e964d398649fb7c929e8ce90b5971806c33c819053a5f8567",
+    "D:\\WorkSpace\\pycharm\\uav_path_planning\\outputs\\fixed_env_20261016\\p6\\results\\r202610101835_m08_full_s0009.json": "3f10d77a6503c44291b6ec643de1d412c56bff17990838328c7a9c641885f771",
+    "D:\\WorkSpace\\pycharm\\uav_path_planning\\outputs\\fixed_env_20261016\\p6\\results\\r202610101835_m08_risk_polish_lshade_s0009.json": "9b15a52108a919dec69831c9e91ada69d0b1948ea0ef6a800a0a063b5dea53b2",
+    "D:\\WorkSpace\\pycharm\\uav_path_planning\\outputs\\fixed_env_20261016\\p6\\results\\r202610101835_m08_bare_de_s0009.json": "22b81536c8648cbe0a6030ec7aacfbbcea015ca8ec43603ebe9bb23085c4aa04",
+    "D:\\WorkSpace\\pycharm\\uav_path_planning\\outputs\\fixed_env_20261016\\p6\\results\\r202610101835_m16_full_s0009.json": "bac1f4f107c0dd31dc99e0d60517f7507fe5db4bd1994ef5b59486bebcb3b407",
+    "D:\\WorkSpace\\pycharm\\uav_path_planning\\outputs\\fixed_env_20261016\\p6\\results\\r202610101835_m16_risk_polish_lshade_s0009.json": "dfb7e4281e5a0312d8d1b0cf0e42b3b5c47e99badffc280a99765054bee4883d",
+    "D:\\WorkSpace\\pycharm\\uav_path_planning\\outputs\\fixed_env_20261016\\p6\\results\\r202610101835_m16_bare_de_s0009.json": "25080cdf73d68d80a9f647d89e34ddcf4afad292e7d5b6064429438d36f90378",
+    "D:\\WorkSpace\\pycharm\\uav_path_planning\\outputs\\fixed_env_20261016\\p6\\results\\r202610101835_m01_full_s0009.json": "550d743091eb9fc2464125917224697666a9c2e2331748de1362b2b1701cb6e4",
+    "D:\\WorkSpace\\pycharm\\uav_path_planning\\outputs\\fixed_env_20261016\\p6\\results\\r202610101835_m01_risk_polish_lshade_s0009.json": "5948b97b184c86ae77a5c0d862b6efa13f4b6847dabe70807619bde3a9317f1a",
+    "D:\\WorkSpace\\pycharm\\uav_path_planning\\outputs\\fixed_env_20261016\\p6\\results\\r202610101835_m01_bare_de_s0009.json": "704e87b96fa147c71adf3e377c751c70f3ebcd491cbad815a1c8698116e9adac"
+  },
+  "cohort_receipts": {
+    "e": "b7a09f254053d0f76427fd1fad181cd63a5e789eb60a1cd63698b68899b180e7",
+    "p6": "69866bb0680041b6b34850c61b6e67d51873fd48832c296887e7dc98ed2d7693"
+  }
+}

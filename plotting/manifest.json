@@ -1,0 +1,120 @@
+{
+  "version": "2.7.0",
+  "input_root": "data/plot_inputs",
+  "inputs": {
+    "E_map_summary.csv": {
+      "sha256": "42ae8c0444caee4c2276eda723dbc63c423a22638cf0cc169e3afa4ad4dfca5f",
+      "bytes": 74811
+    },
+    "E_run_rows.csv": {
+      "sha256": "d8380ded14c44cbb7b91a46da6864b1367e4128a11a812a37422f2d0f39b15da",
+      "bytes": 1764379
+    },
+    "fig01_framework.drawio": {
+      "sha256": "f5a46428232f65fcb57a91dbc27f8af4eff1e39d81d36feaa37114cd75cce915",
+      "bytes": 61773
+    },
+    "fig01_framework.pdf": {
+      "sha256": "2e2ef972c1e2476983cc9270d4a18c9f6ce375964b6bb912fd4c7f8442af3cfa",
+      "bytes": 91025
+    },
+    "fig01_framework.png": {
+      "sha256": "286f47169e60124a8140e24b7d196464c61465ca89031240504ef99f18a82653",
+      "bytes": 140672
+    },
+    "fig01_framework.svg": {
+      "sha256": "c2bcf1ce43df870804b86369f99995a8ca3916d7e8ce382f78058e2ced698684",
+      "bytes": 13335
+    },
+    "P0_estimator_summary.csv": {
+      "sha256": "b34aba8db4c9e4ae112aefb895db07b4dc3c37e2a870646cd6442d466387c6f2",
+      "bytes": 4881
+    },
+    "P0_metrics.csv": {
+      "sha256": "8d5dddc554438be281bc5f7ebf8082766d7916f63e0629f468dd2a27856e261e",
+      "bytes": 81147
+    },
+    "P1_replay_rows.csv": {
+      "sha256": "b6e6818e481707b85381694f8dd8ae868b1c29786a3e787161cc675816546fa4",
+      "bytes": 61738
+    },
+    "P2_per_map.csv": {
+      "sha256": "62c1e3f50fc4e0b4a15482adda9fe1c73c12f2da4e80bea57dce18a21ac9d502",
+      "bytes": 33040
+    },
+    "P3_local_sensitivity_summary.csv": {
+      "sha256": "05f393b0ac6daa7d79f3fd7b8b33a928890cfffa5278b40d22cd0e7441513ac0",
+      "bytes": 1061
+    },
+    "P6_map_summary.csv": {
+      "sha256": "bab22689ca6c184439f2a3f49e6e17f37814d65e6b9af6aba2f20bebc766fc22",
+      "bytes": 30046
+    },
+    "P6_paired_statistics.csv": {
+      "sha256": "c15b30fe7faaddc1932eeac3db2159bb63e26c1811782943d6894970d7223c6d",
+      "bytes": 4109
+    },
+    "P6_run_rows.csv": {
+      "sha256": "8dd50a3d0d8ca3404f71a8f3ee5fee54a707573a7537c6575f0921d304c9ce2c",
+      "bytes": 743903
+    },
+    "P6_terminal_curve_summary.csv": {
+      "sha256": "f6f43bdbc28d291dd1ff553516884991426c39ca569ed6001e8c2fe9783f7d2d",
+      "bytes": 1026
+    },
+    "P6_terminal_trace_provenance.csv": {
+      "sha256": "53c8d36393bc6f5e4d500ce9867bb5f99cf765ee457a53f642cacc6069450c1a",
+      "bytes": 274676
+    },
+    "P6_terminal_traces.npz": {
+      "sha256": "7d965619c1aed83490d98e90a95a87c93d7b3af0f26fa69c94ea6e45f779f64c",
+      "bytes": 91539
+    },
+    "path_grid_examples.json": {
+      "sha256": "2e4a0cc4787ea13c1ae8a359f7a37a161360b9b12fd491fa9c5bc35df3b90592",
+      "bytes": 30706
+    },
+    "E_paired_statistics.csv": {
+      "sha256": "b258516288721c0d74e6e9d142a09947cbefe618352d5e33b30b8494cba0a847",
+      "bytes": 27785
+    }
+  },
+  "source_root": "plotting",
+  "scripts": {
+    "estimator_sensitivity.py": "ca9c42d7c519b7d87407a832840e1331a01ddb7a6271dc7cd50181e3be115840",
+    "map_heatmap.py": "89df705bd26a25fc2180f33ad56270a4aca2c14d46c732f853bdd1e53fdb5228",
+    "paths_3d.py": "a74dfb44838eb620fb815af0209885aa1bb173b0d762e0497202e50e678cd18e",
+    "render.py": "950845fbfc38753ba664fee2eb91ebbc9561424417b83adda3e4193125946232",
+    "statistical.py": "3032119e32498c1a8cd4069f89f842e035e6ba45116fad4ca00ad9a51d4b7fb1"
+  },
+  "dependencies": [
+    "numpy",
+    "pandas",
+    "matplotlib",
+    "Pillow"
+  ],
+  "notes": [
+    "Frozen data copied byte-for-byte from the released manuscript inputs.",
+    "Figure 1 is the author-provided asset; draw.io retained for editing.",
+    "Plotting does not regenerate planner runs or mutate numerical inputs."
+  ],
+  "validation": {
+    "all_figures_rendered": 10,
+    "all_exports_rendered": 30,
+    "input_files_unchanged": true,
+    "original_function_AST_identical": {
+      "estimator": true,
+      "sensitivity": true
+    },
+    "raster_comparison": "8 of 10 current PNGs pixel-identical; Figures 5 and 8 retain original exact plotting functions with 2 and 5 pixels of vertical crop difference in the current renderer; no visual-design or numerical changes",
+    "reference_release": "2.7.0",
+    "relocated_copy_all_figures_rendered": 10,
+    "relocated_copy_passed": true
+  },
+  "validated_package_versions": {
+    "numpy": "2.0.2",
+    "pandas": "3.0.6",
+    "matplotlib": "3.11.2",
+    "Pillow": "12.3.0"
+  }
+}

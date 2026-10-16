@@ -1,0 +1,9 @@
+{
+  "scope": "independent small synthetic verification, no held-out results inspected",
+  "gradient_cases": 108,
+  "max_gradient_error": 3.2750202549891583e-10,
+  "world_collision_sign_checks": 36,
+  "all_world_checks_agree": true,
+  "avar_sorted_tail_value": 5.714285714285714,
+  "avar_epigraph_value": 5.714285714285714
+}

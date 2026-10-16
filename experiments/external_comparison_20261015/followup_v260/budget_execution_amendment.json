@@ -1,0 +1,17 @@
+{
+  "date_utc": "2026-10-15T10:11:14.430263+00:00",
+  "failed_attempt": {
+    "study": "budget_v260_1s",
+    "id": "cc_vpsto_heldout_202610150701_ood_dense_clutter_01_s101",
+    "exit_code": 3221225658,
+    "hard_timeout": false,
+    "process_seconds": 0.5259813000011491,
+    "peak_process_tree_rss_bytes": 6549504
+  },
+  "output_existed": false,
+  "log_bytes": 0,
+  "log_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "raw_process_log_before_retry_sha256": "df74c84fb767859c32e7d5044a036d27994520dad3427b3ab6ba51f546e9e082",
+  "decision": "One retry with identical frozen code, map, seed and allowance. No planner output existed and process exited in0.526s at6.25MiB RSS. Cause unknown; treat as execution interruption, never a method outcome selected for poor score. Preserve failed receipt and log. No method aggregates inspected. If retry fails again, stop for explicit failure accounting.",
+  "analysis_amendment": "Retain all raw attempts; require exactly one successful receipt per planned job and disclose failed attempts separately. Primary score definitions and queue unchanged."
+}

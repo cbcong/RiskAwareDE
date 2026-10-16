@@ -1,0 +1,4722 @@
+{
+  "protocol_version": "seven-categories-ood-v2",
+  "profile": "p6",
+  "smoke_test": false,
+  "methods": {
+    "full": {
+      "category": "reference",
+      "label": "锁定主方法：soft_beta050（软风险 + 条件风险 + 切向精修）",
+      "kind": "soft_projected",
+      "options": {
+        "reserve_fraction": 0.2,
+        "active_margin": 0.02,
+        "initial_step": 0.03,
+        "axis": 2,
+        "global_method": "risk_de",
+        "projection": "tangent",
+        "risk_estimator": "conditional",
+        "max_line_steps": 1,
+        "beta": 0.05
+      },
+      "risk_estimator": "conditional-z",
+      "adaptation": "locked main method; fixed gate; beta=.05; original terminal polish"
+    },
+    "risk_polish_de": {
+      "category": "E3",
+      "label": "DE + 条件风险 + 切向精修（软风险权重与主方法一致）",
+      "kind": "paper_matched",
+      "options": {
+        "reserve_fraction": 0.2,
+        "active_margin": 0.02,
+        "initial_step": 0.03,
+        "axis": 2,
+        "projection": "tangent",
+        "max_line_steps": 1,
+        "beta": 0.05,
+        "family": "de",
+        "experiment_kind": "projected_baseline"
+      },
+      "risk_estimator": "conditional-z",
+      "adaptation": "same conditional estimator/gate/within-gate soft cost; native optimizer; exact shared archive key; outside-gate scalar adapter"
+    },
+    "risk_polish_jade": {
+      "category": "E3",
+      "label": "JADE + 条件风险 + 切向精修（软风险权重与主方法一致）",
+      "kind": "paper_matched",
+      "options": {
+        "reserve_fraction": 0.2,
+        "active_margin": 0.02,
+        "initial_step": 0.03,
+        "axis": 2,
+        "projection": "tangent",
+        "max_line_steps": 1,
+        "beta": 0.05,
+        "family": "jade",
+        "experiment_kind": "projected_baseline"
+      },
+      "risk_estimator": "conditional-z",
+      "adaptation": "same conditional estimator/gate/within-gate soft cost; native optimizer; exact shared archive key; outside-gate scalar adapter"
+    },
+    "risk_polish_shade": {
+      "category": "E3",
+      "label": "SHADE + 条件风险 + 切向精修（软风险权重与主方法一致）",
+      "kind": "paper_matched",
+      "options": {
+        "reserve_fraction": 0.2,
+        "active_margin": 0.02,
+        "initial_step": 0.03,
+        "axis": 2,
+        "projection": "tangent",
+        "max_line_steps": 1,
+        "beta": 0.05,
+        "family": "shade",
+        "experiment_kind": "projected_baseline"
+      },
+      "risk_estimator": "conditional-z",
+      "adaptation": "same conditional estimator/gate/within-gate soft cost; native optimizer; exact shared archive key; outside-gate scalar adapter"
+    },
+    "risk_polish_lshade": {
+      "category": "E3",
+      "label": "L-SHADE + 条件风险 + 切向精修（软风险权重与主方法一致）",
+      "kind": "paper_matched",
+      "options": {
+        "reserve_fraction": 0.2,
+        "active_margin": 0.02,
+        "initial_step": 0.03,
+        "axis": 2,
+        "projection": "tangent",
+        "max_line_steps": 1,
+        "beta": 0.05,
+        "family": "lshade",
+        "experiment_kind": "projected_baseline"
+      },
+      "risk_estimator": "conditional-z",
+      "adaptation": "same conditional estimator/gate/within-gate soft cost; native optimizer; exact shared archive key; outside-gate scalar adapter"
+    },
+    "risk_polish_pso": {
+      "category": "E3",
+      "label": "PSO + 条件风险 + 切向精修（软风险权重与主方法一致）",
+      "kind": "paper_matched",
+      "options": {
+        "reserve_fraction": 0.2,
+        "active_margin": 0.02,
+        "initial_step": 0.03,
+        "axis": 2,
+        "projection": "tangent",
+        "max_line_steps": 1,
+        "beta": 0.05,
+        "family": "pso",
+        "experiment_kind": "projected_baseline"
+      },
+      "risk_estimator": "conditional-z",
+      "adaptation": "same conditional estimator/gate/within-gate soft cost; native optimizer; exact shared archive key; outside-gate scalar adapter"
+    },
+    "bare_de": {
+      "category": "E1",
+      "label": "DE",
+      "kind": "bare",
+      "family": "de",
+      "risk_estimator": null
+    },
+    "bare_lshade": {
+      "category": "E1",
+      "label": "L-SHADE",
+      "kind": "bare",
+      "family": "lshade",
+      "risk_estimator": null
+    }
+  },
+  "benchmark_config": {
+    "seeds": [
+      9,
+      10,
+      11,
+      12,
+      13,
+      14,
+      15,
+      16,
+      17,
+      18,
+      19,
+      20,
+      21,
+      22,
+      23,
+      24,
+      25,
+      26,
+      27,
+      28
+    ],
+    "intermediate_waypoints": 3,
+    "segment_step": 0.5,
+    "grid_resolution": 1.0,
+    "de_population": 20,
+    "de_generations": 40,
+    "de_max_evaluations": 820,
+    "jade_population": 20,
+    "jade_generations": 40,
+    "shade_population": 20,
+    "shade_generations": 40,
+    "jade_max_evaluations": 820,
+    "shade_max_evaluations": 820,
+    "lshade_population": 20,
+    "lshade_min_population": 4,
+    "lshade_generations": 40,
+    "lshade_max_evaluations": 820,
+    "pso_particles": 20,
+    "pso_iterations": 40,
+    "pso_max_evaluations": 820,
+    "adaptive_population": 20,
+    "adaptive_generations": 40,
+    "adaptive_mutation_factor": 0.7,
+    "adaptive_crossover_rate": 0.9,
+    "adaptive_p_best_rate": 0.2,
+    "adaptive_diversity_threshold": 0.08,
+    "adaptive_stagnation_generations": 12,
+    "adaptive_restart_fraction": 0.25,
+    "adaptive_max_evaluations": 820,
+    "uad_difficulty_gain": 0.8,
+    "uad_uncertainty_sigma": 1.0,
+    "uad_risk_sampling_step": 1.0,
+    "uad_risk_gate": 0.1,
+    "uad_collision_risk_weight": 0.75,
+    "uad_clearance_risk_weight": 0.25,
+    "uad_max_evaluations": null,
+    "risk_aware_population": 20,
+    "risk_aware_generations": 40,
+    "risk_aware_max_evaluations": 820,
+    "risk_aware_perturbation_sigma": 0.6,
+    "risk_aware_perturbation_sigmas": null,
+    "risk_aware_perturbation_samples": 16,
+    "risk_aware_risk_aggregation": "pooled",
+    "risk_aware_chance_alpha": 0.1,
+    "risk_aware_perturbation_seed": 6301,
+    "risk_aware_selection_mode": "risk_budgeted",
+    "risk_aware_gate_schedule": "fixed",
+    "risk_aware_gate_start": null,
+    "risk_aware_tradeoff": 0.0,
+    "risk_aware_nominal_tolerance": 0.0,
+    "risk_aware_mutation_strategy": "current_to_pbest1",
+    "risk_aware_p_best_rate": 0.15,
+    "risk_aware_pbest_selection": "risk_first",
+    "risk_aware_pbest_length_fraction": 0.5,
+    "risk_aware_archive_size": 0,
+    "risk_aware_parameter_adaptation": "risk_success",
+    "risk_aware_adaptation_learning_rate": 0.1,
+    "risk_aware_skip_risk_for_nominal_infeasible": false,
+    "risk_aware_local_refinement": true,
+    "risk_aware_local_refinement_probability": 0.7,
+    "risk_aware_local_refinement_scale": 0.7,
+    "risk_aware_local_refinement_min_scale": 0.05,
+    "risk_aware_local_refinement_shrink": 0.5,
+    "risk_aware_local_refinement_grow": 1.2,
+    "risk_aware_local_refinement_mode": "partial_shortcut",
+    "collision_penalty": 10000.0,
+    "safety_margin": 0.0
+  },
+  "map_roots": [
+    202610101835
+  ],
+  "planner_seeds": [
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15,
+    16,
+    17,
+    18,
+    19,
+    20,
+    21,
+    22,
+    23,
+    24,
+    25,
+    26,
+    27,
+    28
+  ],
+  "scenarios": {
+    "202610101835": [
+      {
+        "name": "ood_dense_clutter_00",
+        "bounds": {
+          "minimum": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "maximum": [
+            20.0,
+            20.0,
+            10.0
+          ]
+        },
+        "obstacles": [
+          {
+            "minimum": [
+              6.2960053824619395,
+              6.060195537792106,
+              3.0334991273804013
+            ],
+            "maximum": [
+              9.084592117261437,
+              9.32040196193127,
+              7.847893473771085
+            ]
+          },
+          {
+            "minimum": [
+              10.047161501573067,
+              6.3570701713268605,
+              1.1899151413903293
+            ],
+            "maximum": [
+              12.481178590116905,
+              7.655613692766217,
+              9.214825677997261
+            ]
+          },
+          {
+            "minimum": [
+              3.1723401954306922,
+              4.7899183758384485,
+              0.22121657958501292
+            ],
+            "maximum": [
+              5.625598035847788,
+              7.957005938113451,
+              4.447839772871859
+            ]
+          },
+          {
+            "minimum": [
+              13.368345491293363,
+              8.415765021850618,
+              1.252682738830006
+            ],
+            "maximum": [
+              14.609337936786554,
+              11.10703203422372,
+              6.362592318080861
+            ]
+          },
+          {
+            "minimum": [
+              6.734190978562049,
+              7.876028937441717,
+              0.4620964489770526
+            ],
+            "maximum": [
+              8.115653913344998,
+              10.603473262144256,
+              9.939154116515624
+            ]
+          },
+          {
+            "minimum": [
+              10.627810999797074,
+              15.01955692603453,
+              0.8424845099276868
+            ],
+            "maximum": [
+              13.398673722171589,
+              17.937886155239237,
+              4.756622521754867
+            ]
+          },
+          {
+            "minimum": [
+              8.53612596680016,
+              12.60027493280657,
+              0.4684982293454451
+            ],
+            "maximum": [
+              11.310628102024955,
+              14.381729432893366,
+              6.404396277419873
+            ]
+          },
+          {
+            "minimum": [
+              5.060248415463404,
+              6.329282938416464,
+              1.190977892895467
+            ],
+            "maximum": [
+              8.08557422741248,
+              8.930137576234902,
+              10.0
+            ]
+          },
+          {
+            "minimum": [
+              7.455529446633432,
+              15.116972250520055,
+              0.15379252011195516
+            ],
+            "maximum": [
+              9.058139599273048,
+              17.26311146237079,
+              5.7889208377394965
+            ]
+          },
+          {
+            "minimum": [
+              8.963234542789332,
+              13.176320786845958,
+              0.16542803524694205
+            ],
+            "maximum": [
+              12.066823495908022,
+              15.334310432073167,
+              9.5778710170217
+            ]
+          },
+          {
+            "minimum": [
+              3.4427324189956705,
+              13.430061937353727,
+              1.3076160748335643
+            ],
+            "maximum": [
+              5.380881181214106,
+              16.54643358789252,
+              9.175715527435248
+            ]
+          },
+          {
+            "minimum": [
+              14.37005396077135,
+              7.6818117155395,
+              0.4023571753445469
+            ],
+            "maximum": [
+              16.508425130318003,
+              9.460592315403252,
+              8.589287716683154
+            ]
+          },
+          {
+            "minimum": [
+              14.139583776076972,
+              7.476957655436524,
+              1.014745410912993
+            ],
+            "maximum": [
+              15.660086959110005,
+              8.908086444335133,
+              7.472040343609978
+            ]
+          }
+        ],
+        "start": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "goal": [
+          19.0,
+          19.0,
+          8.0
+        ],
+        "metadata": {
+          "generator": "research-scenarios-v2-ood",
+          "domain_shift": "density-height-topology",
+          "rootseed": 202610101835,
+          "family": "dense_clutter",
+          "family_index": 0,
+          "obstacle_count": 13,
+          "max_obstacle_z": 10.0,
+          "roof_touching_obstacles": 1,
+          "bounds_preserved_from_v1": true,
+          "endpoints_preserved_from_v1": true,
+          "planner_dependent_filtering": false
+        }
+      },
+      {
+        "name": "ood_dense_clutter_01",
+        "bounds": {
+          "minimum": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "maximum": [
+            20.0,
+            20.0,
+            10.0
+          ]
+        },
+        "obstacles": [
+          {
+            "minimum": [
+              9.610340960513579,
+              9.236760446370447,
+              4.037691549536907
+            ],
+            "maximum": [
+              12.84260755332891,
+              13.216188067472043,
+              9.092319967510448
+            ]
+          },
+          {
+            "minimum": [
+              4.854071075778265,
+              14.091484693928814,
+              0.7944449512601417
+            ],
+            "maximum": [
+              6.837185446103131,
+              16.139732165301194,
+              8.342524271817481
+            ]
+          },
+          {
+            "minimum": [
+              3.9201173305577273,
+              12.22073242124485,
+              0.11383537606950235
+            ],
+            "maximum": [
+              6.941369919203587,
+              14.147624151461756,
+              9.523820765957147
+            ]
+          },
+          {
+            "minimum": [
+              5.151651422059427,
+              7.706044966993228,
+              1.298106535079318
+            ],
+            "maximum": [
+              7.023022175316517,
+              10.464827235949878,
+              9.867614392350067
+            ]
+          },
+          {
+            "minimum": [
+              12.67154280926603,
+              15.263168724633807,
+              1.2177986010169082
+            ],
+            "maximum": [
+              15.446406347701362,
+              17.319595747770926,
+              7.6064309220714765
+            ]
+          },
+          {
+            "minimum": [
+              15.083729616423497,
+              3.0609302747068114,
+              0.008238265885119266
+            ],
+            "maximum": [
+              16.56587265768869,
+              6.240950092100947,
+              8.85883085273709
+            ]
+          },
+          {
+            "minimum": [
+              8.305243304138703,
+              15.524228033657447,
+              0.19745564791293607
+            ],
+            "maximum": [
+              10.91538927177934,
+              17.142910712607026,
+              9.85077622565342
+            ]
+          },
+          {
+            "minimum": [
+              12.632987741154729,
+              15.140625949042914,
+              1.3247177131141108
+            ],
+            "maximum": [
+              15.16311462007802,
+              17.613632425182065,
+              5.012613769591941
+            ]
+          },
+          {
+            "minimum": [
+              3.7612508319603393,
+              12.15042159217307,
+              0.7487807389263259
+            ],
+            "maximum": [
+              5.837119821811762,
+              14.918404484690035,
+              7.3247428376836465
+            ]
+          },
+          {
+            "minimum": [
+              6.429074082592475,
+              5.198381675033964,
+              0.6146587028837063
+            ],
+            "maximum": [
+              9.355547729183947,
+              7.649380817871294,
+              10.0
+            ]
+          },
+          {
+            "minimum": [
+              3.6989018025313625,
+              5.937473299896643,
+              1.3978429919851991
+            ],
+            "maximum": [
+              6.237207836149543,
+              7.751025885819198,
+              5.371546387615407
+            ]
+          },
+          {
+            "minimum": [
+              4.776838723112604,
+              5.385465717563781,
+              0.9347874517646272
+            ],
+            "maximum": [
+              7.205448972470204,
+              7.4459410551934955,
+              6.07916353526451
+            ]
+          },
+          {
+            "minimum": [
+              11.299748100007731,
+              12.649384879481469,
+              0.4932132141751195
+            ],
+            "maximum": [
+              12.842834752265361,
+              15.299066413576625,
+              8.873831128868135
+            ]
+          },
+          {
+            "minimum": [
+              12.13151402075348,
+              4.075460342989656,
+              0.9866314615723093
+            ],
+            "maximum": [
+              14.792184206341421,
+              5.425328764684947,
+              7.197469465474342
+            ]
+          }
+        ],
+        "start": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "goal": [
+          19.0,
+          19.0,
+          8.0
+        ],
+        "metadata": {
+          "generator": "research-scenarios-v2-ood",
+          "domain_shift": "density-height-topology",
+          "rootseed": 202610101835,
+          "family": "dense_clutter",
+          "family_index": 1,
+          "obstacle_count": 14,
+          "max_obstacle_z": 10.0,
+          "roof_touching_obstacles": 1,
+          "bounds_preserved_from_v1": true,
+          "endpoints_preserved_from_v1": true,
+          "planner_dependent_filtering": false
+        }
+      },
+      {
+        "name": "ood_dense_clutter_02",
+        "bounds": {
+          "minimum": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "maximum": [
+            20.0,
+            20.0,
+            10.0
+          ]
+        },
+        "obstacles": [
+          {
+            "minimum": [
+              7.909085945694016,
+              8.530907182775508,
+              3.900210279710163
+            ],
+            "maximum": [
+              11.680920963933211,
+              11.05909972685172,
+              9.970019216496366
+            ]
+          },
+          {
+            "minimum": [
+              8.434636671089912,
+              10.447325230000715,
+              0.12170285429431464
+            ],
+            "maximum": [
+              10.258995760721296,
+              12.527298653335555,
+              9.549361689622966
+            ]
+          },
+          {
+            "minimum": [
+              4.2462737859007245,
+              10.134721845311287,
+              0.5256412313000626
+            ],
+            "maximum": [
+              6.426873980836477,
+              11.351150105580901,
+              9.654242518242858
+            ]
+          },
+          {
+            "minimum": [
+              8.195462584778657,
+              12.480753014101946,
+              0.7016806665576116
+            ],
+            "maximum": [
+              9.55393238113924,
+              15.493207533858683,
+              9.355442211496507
+            ]
+          },
+          {
+            "minimum": [
+              11.99779821719759,
+              15.095871192963015,
+              0.5396863659396711
+            ],
+            "maximum": [
+              13.620008115917289,
+              16.821427359894482,
+              9.93608558111499
+            ]
+          },
+          {
+            "minimum": [
+              13.639299449228243,
+              4.397595447473779,
+              0.49018246501140866
+            ],
+            "maximum": [
+              15.892693469037313,
+              6.8976699623241124,
+              5.366192803866529
+            ]
+          },
+          {
+            "minimum": [
+              12.362042280222813,
+              7.307065946304284,
+              1.1410437300952927
+            ],
+            "maximum": [
+              14.137938455069753,
+              10.408562583116183,
+              8.588889162045238
+            ]
+          },
+          {
+            "minimum": [
+              10.765630716839377,
+              8.333221317128718,
+              0.854707534329263
+            ],
+            "maximum": [
+              12.495938940886655,
+              9.97223110902378,
+              9.796394933938855
+            ]
+          },
+          {
+            "minimum": [
+              5.521820191343136,
+              4.431782007614305,
+              0.5089027082835075
+            ],
+            "maximum": [
+              8.6842893374819,
+              6.646472787770043,
+              7.655356799057964
+            ]
+          },
+          {
+            "minimum": [
+              14.823406008761829,
+              10.147181993659075,
+              0.8631487395146511
+            ],
+            "maximum": [
+              16.614487436280548,
+              13.200471682421739,
+              7.191589328404261
+            ]
+          },
+          {
+            "minimum": [
+              4.272654095619567,
+              5.427970170270928,
+              0.07227563898977696
+            ],
+            "maximum": [
+              6.927148706548821,
+              8.288249090213503,
+              6.6523945390014525
+            ]
+          },
+          {
+            "minimum": [
+              3.208875143870344,
+              3.8865289283875484,
+              0.05200817671814717
+            ],
+            "maximum": [
+              4.873760245956448,
+              5.835455432188407,
+              10.0
+            ]
+          },
+          {
+            "minimum": [
+              13.332744157314254,
+              6.258477084201225,
+              0.6443595797764302
+            ],
+            "maximum": [
+              15.408428842068806,
+              8.632937631779024,
+              9.166023952259472
+            ]
+          },
+          {
+            "minimum": [
+              7.231701561135956,
+              4.874191994461826,
+              0.7348249678048175
+            ],
+            "maximum": [
+              10.075397572595193,
+              6.167385491127179,
+              4.541712134075796
+            ]
+          }
+        ],
+        "start": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "goal": [
+          19.0,
+          19.0,
+          8.0
+        ],
+        "metadata": {
+          "generator": "research-scenarios-v2-ood",
+          "domain_shift": "density-height-topology",
+          "rootseed": 202610101835,
+          "family": "dense_clutter",
+          "family_index": 2,
+          "obstacle_count": 14,
+          "max_obstacle_z": 10.0,
+          "roof_touching_obstacles": 1,
+          "bounds_preserved_from_v1": true,
+          "endpoints_preserved_from_v1": true,
+          "planner_dependent_filtering": false
+        }
+      },
+      {
+        "name": "ood_dense_clutter_03",
+        "bounds": {
+          "minimum": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "maximum": [
+            20.0,
+            20.0,
+            10.0
+          ]
+        },
+        "obstacles": [
+          {
+            "minimum": [
+              6.75500092991269,
+              6.633122325550684,
+              3.3054199116107417
+            ],
+            "maximum": [
+              10.33920389401619,
+              10.461082498378197,
+              8.83298968617602
+            ]
+          },
+          {
+            "minimum": [
+              12.087178017878845,
+              14.915374652802676,
+              1.2581751381571793
+            ],
+            "maximum": [
+              14.86464476131432,
+              16.663714317715954,
+              6.957371129603793
+            ]
+          },
+          {
+            "minimum": [
+              11.359194974452441,
+              12.36502468993173,
+              0.4653436445762203
+            ],
+            "maximum": [
+              14.37613192108692,
+              13.663854997432116,
+              10.0
+            ]
+          },
+          {
+            "minimum": [
+              9.493509129571333,
+              5.252013941212452,
+              1.2033567160633878
+            ],
+            "maximum": [
+              12.211862040088576,
+              8.044221373485243,
+              8.796091119850601
+            ]
+          },
+          {
+            "minimum": [
+              15.729058255840538,
+              10.248068050649842,
+              1.3054851590555667
+            ],
+            "maximum": [
+              18.2,
+              12.900127767864873,
+              6.560877789920756
+            ]
+          },
+          {
+            "minimum": [
+              10.83445056584798,
+              12.405192507240532,
+              1.3204514889176635
+            ],
+            "maximum": [
+              13.287153799959562,
+              13.892225306505772,
+              4.280559210998724
+            ]
+          },
+          {
+            "minimum": [
+              14.741389593003708,
+              11.382658767161589,
+              1.3670216753387643
+            ],
+            "maximum": [
+              17.011072662628905,
+              13.654689746986538,
+              9.667964237717918
+            ]
+          },
+          {
+            "minimum": [
+              12.28241124893153,
+              9.946666690359393,
+              0.07674649829732973
+            ],
+            "maximum": [
+              13.934716742117857,
+              12.311963307915015,
+              8.602749652877108
+            ]
+          },
+          {
+            "minimum": [
+              7.095308484119423,
+              7.036901294812455,
+              1.3242665826150846
+            ],
+            "maximum": [
+              8.887202043933303,
+              9.461975025547133,
+              9.098065883419768
+            ]
+          },
+          {
+            "minimum": [
+              5.442458537806774,
+              9.870020356238038,
+              0.5942996478370701
+            ],
+            "maximum": [
+              8.019900563771095,
+              11.224528072039691,
+              7.696221833454775
+            ]
+          },
+          {
+            "minimum": [
+              15.590928808181294,
+              12.208043763997201,
+              1.1804631431393102
+            ],
+            "maximum": [
+              17.522074956505065,
+              15.32834057189356,
+              8.164517109897552
+            ]
+          },
+          {
+            "minimum": [
+              6.540487580694068,
+              12.151242979714626,
+              0.7968292589523662
+            ],
+            "maximum": [
+              7.857145717114095,
+              14.188262242630355,
+              5.589502667996295
+            ]
+          },
+          {
+            "minimum": [
+              15.441094503104217,
+              8.111651929900571,
+              1.002694806590989
+            ],
+            "maximum": [
+              18.188662891537295,
+              10.307539444525872,
+              6.8321027967392665
+            ]
+          },
+          {
+            "minimum": [
+              12.359931514214683,
+              5.667253696246895,
+              1.3043792109125418
+            ],
+            "maximum": [
+              15.533774428964488,
+              7.01326397164161,
+              8.60680196859834
+            ]
+          },
+          {
+            "minimum": [
+              13.071929888920057,
+              11.074256055026677,
+              1.1223907561896154
+            ],
+            "maximum": [
+              16.052226933694122,
+              12.967821998490672,
+              4.874284062997253
+            ]
+          }
+        ],
+        "start": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "goal": [
+          19.0,
+          19.0,
+          8.0
+        ],
+        "metadata": {
+          "generator": "research-scenarios-v2-ood",
+          "domain_shift": "density-height-topology",
+          "rootseed": 202610101835,
+          "family": "dense_clutter",
+          "family_index": 3,
+          "obstacle_count": 15,
+          "max_obstacle_z": 10.0,
+          "roof_touching_obstacles": 1,
+          "bounds_preserved_from_v1": true,
+          "endpoints_preserved_from_v1": true,
+          "planner_dependent_filtering": false
+        }
+      },
+      {
+        "name": "ood_dense_clutter_04",
+        "bounds": {
+          "minimum": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "maximum": [
+            20.0,
+            20.0,
+            10.0
+          ]
+        },
+        "obstacles": [
+          {
+            "minimum": [
+              8.086253337627735,
+              7.306445379993267,
+              3.2747471700952318
+            ],
+            "maximum": [
+              10.34176979708295,
+              11.121577754717418,
+              9.797351155937712
+            ]
+          },
+          {
+            "minimum": [
+              9.377760204667933,
+              7.713327554402646,
+              0.279688784226337
+            ],
+            "maximum": [
+              11.8973658125879,
+              9.01685165553333,
+              6.508437480902645
+            ]
+          },
+          {
+            "minimum": [
+              6.406140874906516,
+              9.966521662200286,
+              1.062954187380192
+            ],
+            "maximum": [
+              7.795689433567448,
+              11.771559640309654,
+              10.0
+            ]
+          },
+          {
+            "minimum": [
+              3.5505058125666578,
+              3.468742947447751,
+              0.3013069122662974
+            ],
+            "maximum": [
+              4.98485639173242,
+              5.315156750488075,
+              6.732389045112367
+            ]
+          },
+          {
+            "minimum": [
+              5.6562104224858345,
+              15.795735328854201,
+              0.5849954157032516
+            ],
+            "maximum": [
+              7.474146817247284,
+              17.122932045685502,
+              5.847931443677424
+            ]
+          },
+          {
+            "minimum": [
+              12.047903109042906,
+              6.455730399549144,
+              1.3307234390423306
+            ],
+            "maximum": [
+              13.298792143839263,
+              7.931293664186791,
+              9.490414416190973
+            ]
+          },
+          {
+            "minimum": [
+              7.276641516498116,
+              15.705779098716981,
+              0.44518850820666794
+            ],
+            "maximum": [
+              9.066211440495122,
+              18.2,
+              6.974500357323574
+            ]
+          },
+          {
+            "minimum": [
+              8.461953229513336,
+              7.615028383481864,
+              1.200105775998123
+            ],
+            "maximum": [
+              11.069172256345713,
+              9.359553102311331,
+              6.44682826844988
+            ]
+          },
+          {
+            "minimum": [
+              7.904159820255832,
+              4.1388391395934985,
+              0.5116797262431577
+            ],
+            "maximum": [
+              9.994135935325493,
+              7.10738135061116,
+              7.55935952548358
+            ]
+          },
+          {
+            "minimum": [
+              14.053921266869873,
+              6.079414904395508,
+              0.480997619361248
+            ],
+            "maximum": [
+              15.345931004559882,
+              8.90000855514048,
+              7.875166480373333
+            ]
+          },
+          {
+            "minimum": [
+              10.280889266059443,
+              15.096506062023288,
+              0.6629844420978439
+            ],
+            "maximum": [
+              12.01829574225609,
+              18.008021395387637,
+              5.476038112703452
+            ]
+          },
+          {
+            "minimum": [
+              11.196995191820418,
+              9.255698162576717,
+              0.8961264095239905
+            ],
+            "maximum": [
+              12.973857474780553,
+              11.609906091771826,
+              6.300453425912254
+            ]
+          },
+          {
+            "minimum": [
+              5.24934394132171,
+              15.722552953011155,
+              0.9929234553607138
+            ],
+            "maximum": [
+              7.687022722242688,
+              17.3163089280971,
+              9.6169623622963
+            ]
+          },
+          {
+            "minimum": [
+              9.538275949113029,
+              5.750183621326845,
+              1.200773448405614
+            ],
+            "maximum": [
+              12.386061020162913,
+              7.457380320773525,
+              9.703760865112624
+            ]
+          }
+        ],
+        "start": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "goal": [
+          19.0,
+          19.0,
+          8.0
+        ],
+        "metadata": {
+          "generator": "research-scenarios-v2-ood",
+          "domain_shift": "density-height-topology",
+          "rootseed": 202610101835,
+          "family": "dense_clutter",
+          "family_index": 4,
+          "obstacle_count": 14,
+          "max_obstacle_z": 10.0,
+          "roof_touching_obstacles": 1,
+          "bounds_preserved_from_v1": true,
+          "endpoints_preserved_from_v1": true,
+          "planner_dependent_filtering": false
+        }
+      },
+      {
+        "name": "ood_dense_clutter_05",
+        "bounds": {
+          "minimum": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "maximum": [
+            20.0,
+            20.0,
+            10.0
+          ]
+        },
+        "obstacles": [
+          {
+            "minimum": [
+              8.181234682589674,
+              8.017449656801315,
+              3.5991430217333718
+            ],
+            "maximum": [
+              10.735155546699419,
+              10.898940572487778,
+              7.983324663789729
+            ]
+          },
+          {
+            "minimum": [
+              6.854489083220703,
+              3.089802113908887,
+              1.296166593888903
+            ],
+            "maximum": [
+              8.388817057150996,
+              4.693205709827617,
+              4.731299622520313
+            ]
+          },
+          {
+            "minimum": [
+              5.993555928744955,
+              15.119239838024944,
+              0.7002386534541293
+            ],
+            "maximum": [
+              8.180115384492838,
+              16.54256643695863,
+              9.656750239207465
+            ]
+          },
+          {
+            "minimum": [
+              5.248600464371961,
+              6.1825438681142835,
+              0.0668695415013659
+            ],
+            "maximum": [
+              7.394997759682645,
+              8.270639425196396,
+              8.500391277071317
+            ]
+          },
+          {
+            "minimum": [
+              6.731222377769042,
+              10.821079794096669,
+              1.1201559356777508
+            ],
+            "maximum": [
+              9.152633724199571,
+              13.454406717754964,
+              8.374935622768227
+            ]
+          },
+          {
+            "minimum": [
+              11.287868046442366,
+              9.147043057487576,
+              1.1682927933064522
+            ],
+            "maximum": [
+              12.715891783691516,
+              11.842225054625661,
+              7.316667267807507
+            ]
+          },
+          {
+            "minimum": [
+              6.919218914294783,
+              11.903150331850435,
+              1.1161349822832194
+            ],
+            "maximum": [
+              8.40083682974195,
+              13.176988724694668,
+              5.368699157914037
+            ]
+          },
+          {
+            "minimum": [
+              4.7322385195756755,
+              13.693514220823122,
+              1.373458529701822
+            ],
+            "maximum": [
+              6.053908769127608,
+              15.028837030551147,
+              7.066787835343012
+            ]
+          },
+          {
+            "minimum": [
+              14.576309724228992,
+              5.081473524492109,
+              0.8364972298462701
+            ],
+            "maximum": [
+              16.085348290168042,
+              8.132053961164285,
+              4.32196102897469
+            ]
+          },
+          {
+            "minimum": [
+              14.686504243182519,
+              12.831951059874008,
+              0.2903975979627396
+            ],
+            "maximum": [
+              17.60906548083124,
+              15.753595437382439,
+              6.074485171939893
+            ]
+          },
+          {
+            "minimum": [
+              10.671941090361424,
+              11.407128364752202,
+              0.6526091230430769
+            ],
+            "maximum": [
+              13.484561144535352,
+              14.166670186411455,
+              10.0
+            ]
+          },
+          {
+            "minimum": [
+              8.010519729654462,
+              6.522687220090537,
+              0.7535126116671994
+            ],
+            "maximum": [
+              10.38951467527431,
+              8.504427497419494,
+              4.74720353426793
+            ]
+          },
+          {
+            "minimum": [
+              12.97758371871133,
+              14.14290915003808,
+              1.023868654559945
+            ],
+            "maximum": [
+              14.760287619157522,
+              15.526456127362938,
+              6.032339064900879
+            ]
+          }
+        ],
+        "start": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "goal": [
+          19.0,
+          19.0,
+          8.0
+        ],
+        "metadata": {
+          "generator": "research-scenarios-v2-ood",
+          "domain_shift": "density-height-topology",
+          "rootseed": 202610101835,
+          "family": "dense_clutter",
+          "family_index": 5,
+          "obstacle_count": 13,
+          "max_obstacle_z": 10.0,
+          "roof_touching_obstacles": 1,
+          "bounds_preserved_from_v1": true,
+          "endpoints_preserved_from_v1": true,
+          "planner_dependent_filtering": false
+        }
+      },
+      {
+        "name": "ood_dense_clutter_06",
+        "bounds": {
+          "minimum": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "maximum": [
+            20.0,
+            20.0,
+            10.0
+          ]
+        },
+        "obstacles": [
+          {
+            "minimum": [
+              5.73114380644264,
+              6.273675277519496,
+              3.1915277622176657
+            ],
+            "maximum": [
+              9.715530816340253,
+              9.172999345263397,
+              6.542278264953007
+            ]
+          },
+          {
+            "minimum": [
+              11.094562268632252,
+              14.179846184007108,
+              0.08534593216319136
+            ],
+            "maximum": [
+              13.09485282810006,
+              15.855362034616615,
+              9.395353731709573
+            ]
+          },
+          {
+            "minimum": [
+              3.2110025501010826,
+              7.397418356841169,
+              0.22907101127393562
+            ],
+            "maximum": [
+              6.367068294798748,
+              9.959110023584582,
+              9.021692794593369
+            ]
+          },
+          {
+            "minimum": [
+              11.747845243342756,
+              5.851676848902416,
+              0.47442996814131266
+            ],
+            "maximum": [
+              14.054693000690648,
+              8.69166331353256,
+              8.89275874915906
+            ]
+          },
+          {
+            "minimum": [
+              8.463362685148356,
+              5.486987740825347,
+              1.2083969452150687
+            ],
+            "maximum": [
+              10.260499841618593,
+              6.928092621049545,
+              5.99788967331354
+            ]
+          },
+          {
+            "minimum": [
+              10.753766281591783,
+              8.655096998625272,
+              1.3352775330338786
+            ],
+            "maximum": [
+              12.419156911190655,
+              11.562866050066848,
+              7.083240886294572
+            ]
+          },
+          {
+            "minimum": [
+              11.69571621786016,
+              12.526812914995888,
+              0.7159323440853353
+            ],
+            "maximum": [
+              13.904912408024959,
+              13.95015495541371,
+              9.100185432943055
+            ]
+          },
+          {
+            "minimum": [
+              13.438316110798104,
+              6.654121348211559,
+              0.27860810686993326
+            ],
+            "maximum": [
+              15.550295816462066,
+              9.624680321135518,
+              9.13283701279809
+            ]
+          },
+          {
+            "minimum": [
+              10.657207608796364,
+              6.350766001981624,
+              0.6523622028395935
+            ],
+            "maximum": [
+              12.86786818412716,
+              7.94653596649477,
+              8.380826039661702
+            ]
+          },
+          {
+            "minimum": [
+              8.46643155784313,
+              3.830696192794842,
+              0.43380104829429567
+            ],
+            "maximum": [
+              10.70397977586897,
+              6.969753612495178,
+              10.0
+            ]
+          },
+          {
+            "minimum": [
+              6.908789305777178,
+              9.13106040652027,
+              0.4760068699956437
+            ],
+            "maximum": [
+              9.717056535823907,
+              11.175027381022415,
+              6.24006039147144
+            ]
+          },
+          {
+            "minimum": [
+              15.12466797521679,
+              4.542828562754103,
+              0.7245552874063292
+            ],
+            "maximum": [
+              17.02478252594083,
+              6.11002446296378,
+              4.272123807742005
+            ]
+          },
+          {
+            "minimum": [
+              6.415812472968563,
+              3.3974929829594203,
+              0.504743759741458
+            ],
+            "maximum": [
+              9.261611482249544,
+              5.749863206317375,
+              7.411568501484881
+            ]
+          }
+        ],
+        "start": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "goal": [
+          19.0,
+          19.0,
+          8.0
+        ],
+        "metadata": {
+          "generator": "research-scenarios-v2-ood",
+          "domain_shift": "density-height-topology",
+          "rootseed": 202610101835,
+          "family": "dense_clutter",
+          "family_index": 6,
+          "obstacle_count": 13,
+          "max_obstacle_z": 10.0,
+          "roof_touching_obstacles": 1,
+          "bounds_preserved_from_v1": true,
+          "endpoints_preserved_from_v1": true,
+          "planner_dependent_filtering": false
+        }
+      },
+      {
+        "name": "ood_dense_clutter_07",
+        "bounds": {
+          "minimum": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "maximum": [
+            20.0,
+            20.0,
+            10.0
+          ]
+        },
+        "obstacles": [
+          {
+            "minimum": [
+              6.9207428858791005,
+              7.6156364134526315,
+              3.2745197488557274
+            ],
+            "maximum": [
+              10.623475170718724,
+              9.928581643145193,
+              9.547098638164929
+            ]
+          },
+          {
+            "minimum": [
+              6.384149283863172,
+              7.234807788359994,
+              0.4077665538484047
+            ],
+            "maximum": [
+              9.27167858902082,
+              9.058837994550224,
+              5.927866691359109
+            ]
+          },
+          {
+            "minimum": [
+              6.7340340380554515,
+              3.932729948136283,
+              0.6943574986760329
+            ],
+            "maximum": [
+              9.29993804242275,
+              6.008969537938535,
+              5.4281941745295965
+            ]
+          },
+          {
+            "minimum": [
+              5.775077556680291,
+              14.383478987713078,
+              1.338993554584812
+            ],
+            "maximum": [
+              7.160967756365042,
+              17.575257567305837,
+              5.303819153945806
+            ]
+          },
+          {
+            "minimum": [
+              5.85860258559664,
+              6.686481376340774,
+              0.483941807052249
+            ],
+            "maximum": [
+              8.257616545050293,
+              8.283751877987974,
+              5.239703409421198
+            ]
+          },
+          {
+            "minimum": [
+              3.615009349241724,
+              4.82323025832824,
+              0.39906299448331284
+            ],
+            "maximum": [
+              5.6113819248908685,
+              7.072422722617286,
+              9.200027440836173
+            ]
+          },
+          {
+            "minimum": [
+              7.330312149616731,
+              10.492801591266204,
+              0.10756715086875168
+            ],
+            "maximum": [
+              8.96829877172379,
+              11.786493920397804,
+              6.017546238641766
+            ]
+          },
+          {
+            "minimum": [
+              7.121346545546527,
+              4.100533839311993,
+              1.0747348453087522
+            ],
+            "maximum": [
+              8.83862121391272,
+              6.4928678652216,
+              6.6507572372145916
+            ]
+          },
+          {
+            "minimum": [
+              11.263842353300975,
+              8.804903432591935,
+              0.18640300556068345
+            ],
+            "maximum": [
+              13.537390936159628,
+              10.130266325136452,
+              10.0
+            ]
+          },
+          {
+            "minimum": [
+              14.38232017048687,
+              10.012040458052207,
+              1.3172423354308886
+            ],
+            "maximum": [
+              15.647541395255088,
+              12.330142439415987,
+              7.035797456565783
+            ]
+          },
+          {
+            "minimum": [
+              10.010520700063786,
+              5.27885778236912,
+              0.5417276894025711
+            ],
+            "maximum": [
+              12.123074277354888,
+              7.023170184945604,
+              9.864644668150987
+            ]
+          },
+          {
+            "minimum": [
+              14.128421045674763,
+              5.4228134342573195,
+              1.2888865425060976
+            ],
+            "maximum": [
+              16.103100531502466,
+              6.676884785498823,
+              7.224055199871918
+            ]
+          },
+          {
+            "minimum": [
+              4.1294651347487505,
+              8.799859452295927,
+              1.0870362455918308
+            ],
+            "maximum": [
+              6.592955474271011,
+              11.507083498988171,
+              9.709206737334274
+            ]
+          },
+          {
+            "minimum": [
+              7.0735397188450255,
+              5.635562572722151,
+              0.1039078582751351
+            ],
+            "maximum": [
+              8.737979025838984,
+              7.709253072946417,
+              5.228557555959191
+            ]
+          },
+          {
+            "minimum": [
+              9.303248208845524,
+              11.030050303050961,
+              0.335313982843373
+            ],
+            "maximum": [
+              11.095039674037281,
+              14.087994355188822,
+              7.740566603893573
+            ]
+          }
+        ],
+        "start": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "goal": [
+          19.0,
+          19.0,
+          8.0
+        ],
+        "metadata": {
+          "generator": "research-scenarios-v2-ood",
+          "domain_shift": "density-height-topology",
+          "rootseed": 202610101835,
+          "family": "dense_clutter",
+          "family_index": 7,
+          "obstacle_count": 15,
+          "max_obstacle_z": 10.0,
+          "roof_touching_obstacles": 1,
+          "bounds_preserved_from_v1": true,
+          "endpoints_preserved_from_v1": true,
+          "planner_dependent_filtering": false
+        }
+      },
+      {
+        "name": "ood_highrise_urban_00",
+        "bounds": {
+          "minimum": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "maximum": [
+            20.0,
+            20.0,
+            10.0
+          ]
+        },
+        "obstacles": [
+          {
+            "minimum": [
+              7.154581519134902,
+              6.690788409442373,
+              3.485191718091964
+            ],
+            "maximum": [
+              10.124302564482411,
+              10.58809567417494,
+              6.967583245480506
+            ]
+          },
+          {
+            "minimum": [
+              3.297363240510478,
+              3.0,
+              0.0
+            ],
+            "maximum": [
+              6.037008812901854,
+              4.822639462072603,
+              9.320452173855426
+            ]
+          },
+          {
+            "minimum": [
+              14.255195206593555,
+              3.0,
+              0.0
+            ],
+            "maximum": [
+              17.064015605166862,
+              6.0367516595736195,
+              10.0
+            ]
+          },
+          {
+            "minimum": [
+              6.928601469805237,
+              14.902337887084967,
+              0.0
+            ],
+            "maximum": [
+              9.5732885805296,
+              17.26982903430622,
+              9.793500687385249
+            ]
+          },
+          {
+            "minimum": [
+              3.3155818307972837,
+              10.421963773583135,
+              0.0
+            ],
+            "maximum": [
+              6.009814172370074,
+              13.420417199931132,
+              5.49316869987691
+            ]
+          },
+          {
+            "minimum": [
+              11.046607337848705,
+              3.0,
+              0.0
+            ],
+            "maximum": [
+              13.383839057091826,
+              5.32351467136866,
+              5.2913469279221825
+            ]
+          },
+          {
+            "minimum": [
+              3.0,
+              6.8496172626886755,
+              0.0
+            ],
+            "maximum": [
+              4.87475295646242,
+              9.01253880298075,
+              7.607693041392679
+            ]
+          },
+          {
+            "minimum": [
+              14.515650166837986,
+              14.231152234579065,
+              0.0
+            ],
+            "maximum": [
+              17.114887608319208,
+              16.968944166178574,
+              9.96546663760805
+            ]
+          },
+          {
+            "minimum": [
+              6.843042680868617,
+              3.0,
+              0.0
+            ],
+            "maximum": [
+              8.962636099090519,
+              4.947470139929142,
+              9.246348967984616
+            ]
+          },
+          {
+            "minimum": [
+              10.840776861183228,
+              9.99874757871638,
+              0.0
+            ],
+            "maximum": [
+              12.848707642097095,
+              13.097911926233243,
+              9.30006294489996
+            ]
+          },
+          {
+            "minimum": [
+              11.238261398233254,
+              6.727694548784415,
+              0.0
+            ],
+            "maximum": [
+              13.165718411832806,
+              9.19028836171164,
+              6.9437193771636245
+            ]
+          },
+          {
+            "minimum": [
+              14.381224294514938,
+              6.539290004753695,
+              0.0
+            ],
+            "maximum": [
+              16.513893433728526,
+              9.54838218071406,
+              9.990479514611277
+            ]
+          },
+          {
+            "minimum": [
+              6.9909591042575245,
+              10.491307377909301,
+              0.0
+            ],
+            "maximum": [
+              9.622906343076387,
+              12.442766420871648,
+              7.288190024308371
+            ]
+          }
+        ],
+        "start": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "goal": [
+          19.0,
+          19.0,
+          8.0
+        ],
+        "metadata": {
+          "generator": "research-scenarios-v2-ood",
+          "domain_shift": "density-height-topology",
+          "rootseed": 202610101835,
+          "family": "highrise_urban",
+          "family_index": 0,
+          "obstacle_count": 13,
+          "max_obstacle_z": 10.0,
+          "roof_touching_obstacles": 1,
+          "bounds_preserved_from_v1": true,
+          "endpoints_preserved_from_v1": true,
+          "planner_dependent_filtering": false
+        }
+      },
+      {
+        "name": "ood_highrise_urban_01",
+        "bounds": {
+          "minimum": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "maximum": [
+            20.0,
+            20.0,
+            10.0
+          ]
+        },
+        "obstacles": [
+          {
+            "minimum": [
+              9.573075585119398,
+              9.30395072330756,
+              4.426802218550075
+            ],
+            "maximum": [
+              13.01018501188532,
+              13.279309873697157,
+              9.267655091422894
+            ]
+          },
+          {
+            "minimum": [
+              3.0,
+              6.44618310920997,
+              0.0
+            ],
+            "maximum": [
+              4.943929543745532,
+              9.34322569410612,
+              8.095298890075249
+            ]
+          },
+          {
+            "minimum": [
+              10.213749082802586,
+              3.0,
+              0.0
+            ],
+            "maximum": [
+              13.235790239891275,
+              5.86575296257735,
+              7.756816375005966
+            ]
+          },
+          {
+            "minimum": [
+              10.665422795392654,
+              14.482625469417595,
+              0.0
+            ],
+            "maximum": [
+              13.512420021955686,
+              16.417506020531953,
+              6.557343133492606
+            ]
+          },
+          {
+            "minimum": [
+              7.060725627568004,
+              6.251313684892181,
+              0.0
+            ],
+            "maximum": [
+              9.97157421369577,
+              9.205872468290545,
+              6.6424808189714035
+            ]
+          },
+          {
+            "minimum": [
+              14.45986156356635,
+              10.86822182715024,
+              0.0
+            ],
+            "maximum": [
+              16.92418708769005,
+              12.823452532336914,
+              5.948588227335841
+            ]
+          },
+          {
+            "minimum": [
+              3.4478290671755456,
+              10.770769689027928,
+              0.0
+            ],
+            "maximum": [
+              5.867586242543487,
+              12.68076136391367,
+              8.965249803201477
+            ]
+          },
+          {
+            "minimum": [
+              3.1510733821564956,
+              14.850318087970173,
+              0.0
+            ],
+            "maximum": [
+              5.035114805936457,
+              17.194888733394635,
+              10.0
+            ]
+          },
+          {
+            "minimum": [
+              14.597947970021517,
+              3.3358444139739962,
+              0.0
+            ],
+            "maximum": [
+              16.74081790930701,
+              5.676504408265245,
+              9.283351965470558
+            ]
+          },
+          {
+            "minimum": [
+              3.0,
+              3.0,
+              0.0
+            ],
+            "maximum": [
+              5.915207663125724,
+              5.9233080448689,
+              7.818049581902667
+            ]
+          },
+          {
+            "minimum": [
+              10.106882121416927,
+              10.629335328322131,
+              0.0
+            ],
+            "maximum": [
+              12.488957339100445,
+              12.99875879031928,
+              5.4298684495567935
+            ]
+          },
+          {
+            "minimum": [
+              14.036991030355743,
+              7.014476555219077,
+              0.0
+            ],
+            "maximum": [
+              16.939536226718747,
+              9.289003502497884,
+              8.511061004512065
+            ]
+          },
+          {
+            "minimum": [
+              7.03476126021982,
+              11.201792837858548,
+              0.0
+            ],
+            "maximum": [
+              9.161339868845065,
+              13.076886651416046,
+              6.129149668727909
+            ]
+          },
+          {
+            "minimum": [
+              10.476671055061473,
+              6.167386799355272,
+              0.0
+            ],
+            "maximum": [
+              12.371075849434364,
+              9.13200478631731,
+              8.214351474040559
+            ]
+          }
+        ],
+        "start": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "goal": [
+          19.0,
+          19.0,
+          8.0
+        ],
+        "metadata": {
+          "generator": "research-scenarios-v2-ood",
+          "domain_shift": "density-height-topology",
+          "rootseed": 202610101835,
+          "family": "highrise_urban",
+          "family_index": 1,
+          "obstacle_count": 14,
+          "max_obstacle_z": 10.0,
+          "roof_touching_obstacles": 1,
+          "bounds_preserved_from_v1": true,
+          "endpoints_preserved_from_v1": true,
+          "planner_dependent_filtering": false
+        }
+      },
+      {
+        "name": "ood_highrise_urban_02",
+        "bounds": {
+          "minimum": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "maximum": [
+            20.0,
+            20.0,
+            10.0
+          ]
+        },
+        "obstacles": [
+          {
+            "minimum": [
+              9.078190852272433,
+              9.51273730351708,
+              4.135437457031731
+            ],
+            "maximum": [
+              12.153876381887207,
+              11.71932993064256,
+              9.324078746076577
+            ]
+          },
+          {
+            "minimum": [
+              3.0,
+              3.0,
+              0.0
+            ],
+            "maximum": [
+              5.657800179879969,
+              5.506467888972882,
+              9.164335130623504
+            ]
+          },
+          {
+            "minimum": [
+              6.541513265866583,
+              10.625028948110092,
+              0.0
+            ],
+            "maximum": [
+              8.782408262249234,
+              12.709277631983495,
+              6.154375900333088
+            ]
+          },
+          {
+            "minimum": [
+              10.242578230174281,
+              3.0,
+              0.0
+            ],
+            "maximum": [
+              12.78319691845565,
+              5.181445639751727,
+              5.540541188987632
+            ]
+          },
+          {
+            "minimum": [
+              15.050247626787472,
+              3.174529021267528,
+              0.0
+            ],
+            "maximum": [
+              16.964368138817775,
+              5.05715089633383,
+              9.325020705670198
+            ]
+          },
+          {
+            "minimum": [
+              6.781700435167764,
+              14.408860649121175,
+              0.0
+            ],
+            "maximum": [
+              8.633011831543158,
+              16.680238898147696,
+              7.091747245900774
+            ]
+          },
+          {
+            "minimum": [
+              7.361532410876087,
+              3.348980074893958,
+              0.0
+            ],
+            "maximum": [
+              9.724266853107185,
+              5.209684465288678,
+              8.770709985428066
+            ]
+          },
+          {
+            "minimum": [
+              14.559978450389872,
+              14.225746250422594,
+              0.0
+            ],
+            "maximum": [
+              17.374171485035866,
+              16.33734788453103,
+              5.413885681359633
+            ]
+          },
+          {
+            "minimum": [
+              3.0,
+              14.16269554610132,
+              0.0
+            ],
+            "maximum": [
+              4.975006959453008,
+              16.91960781281331,
+              8.882608775693756
+            ]
+          },
+          {
+            "minimum": [
+              3.0,
+              6.493016123834941,
+              0.0
+            ],
+            "maximum": [
+              5.996858344448314,
+              9.06245353929517,
+              9.231459068982224
+            ]
+          },
+          {
+            "minimum": [
+              13.734572541216652,
+              9.867761830189968,
+              0.0
+            ],
+            "maximum": [
+              16.4459643079616,
+              12.646824657380838,
+              9.398732671478644
+            ]
+          },
+          {
+            "minimum": [
+              14.141021536285042,
+              6.671218150267406,
+              0.0
+            ],
+            "maximum": [
+              16.08822116622526,
+              8.906339725878752,
+              6.852631766508816
+            ]
+          },
+          {
+            "minimum": [
+              3.2431211192332956,
+              10.030855725414497,
+              0.0
+            ],
+            "maximum": [
+              5.766612269935786,
+              13.04438609617686,
+              10.0
+            ]
+          },
+          {
+            "minimum": [
+              7.095565812379999,
+              6.767497028020223,
+              0.0
+            ],
+            "maximum": [
+              9.403010403874351,
+              8.836402423602987,
+              9.583071053363254
+            ]
+          }
+        ],
+        "start": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "goal": [
+          19.0,
+          19.0,
+          8.0
+        ],
+        "metadata": {
+          "generator": "research-scenarios-v2-ood",
+          "domain_shift": "density-height-topology",
+          "rootseed": 202610101835,
+          "family": "highrise_urban",
+          "family_index": 2,
+          "obstacle_count": 14,
+          "max_obstacle_z": 10.0,
+          "roof_touching_obstacles": 1,
+          "bounds_preserved_from_v1": true,
+          "endpoints_preserved_from_v1": true,
+          "planner_dependent_filtering": false
+        }
+      },
+      {
+        "name": "ood_highrise_urban_03",
+        "bounds": {
+          "minimum": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "maximum": [
+            20.0,
+            20.0,
+            10.0
+          ]
+        },
+        "obstacles": [
+          {
+            "minimum": [
+              8.553881137813859,
+              8.198950151221222,
+              3.81525792918937
+            ],
+            "maximum": [
+              11.820566711882753,
+              12.17549769847539,
+              9.662061374128385
+            ]
+          },
+          {
+            "minimum": [
+              10.574067560768189,
+              14.327511924435045,
+              0.0
+            ],
+            "maximum": [
+              12.643916201219017,
+              16.851835259938664,
+              6.802353943921609
+            ]
+          },
+          {
+            "minimum": [
+              14.18066344937248,
+              3.0,
+              0.0
+            ],
+            "maximum": [
+              17.05869637601937,
+              5.800098270198539,
+              9.60810230369919
+            ]
+          },
+          {
+            "minimum": [
+              3.2930540381711344,
+              10.716081318761853,
+              0.0
+            ],
+            "maximum": [
+              5.773446331478263,
+              13.39383822402493,
+              5.13353843340901
+            ]
+          },
+          {
+            "minimum": [
+              7.213517506364133,
+              6.6893935614381075,
+              0.0
+            ],
+            "maximum": [
+              9.460686782530015,
+              8.533607065882862,
+              4.937575830067466
+            ]
+          },
+          {
+            "minimum": [
+              10.590850630019412,
+              6.339992609082789,
+              0.0
+            ],
+            "maximum": [
+              12.607843658860883,
+              8.711893078425422,
+              6.5232246168867265
+            ]
+          },
+          {
+            "minimum": [
+              6.712152803175629,
+              15.05727460547501,
+              0.0
+            ],
+            "maximum": [
+              9.654098715674248,
+              17.36309727962922,
+              7.194563206155671
+            ]
+          },
+          {
+            "minimum": [
+              6.906107545735124,
+              11.164345909677104,
+              0.0
+            ],
+            "maximum": [
+              9.720065551628004,
+              13.482891922672867,
+              7.450939177651472
+            ]
+          },
+          {
+            "minimum": [
+              9.924110492544031,
+              3.0,
+              0.0
+            ],
+            "maximum": [
+              12.845974969934757,
+              5.290969490991108,
+              8.694889428153946
+            ]
+          },
+          {
+            "minimum": [
+              14.386115976773706,
+              6.636308357566128,
+              0.0
+            ],
+            "maximum": [
+              16.64608385016618,
+              9.013296137930169,
+              7.326515595115076
+            ]
+          },
+          {
+            "minimum": [
+              3.513776525415535,
+              6.848797101656624,
+              0.0
+            ],
+            "maximum": [
+              5.742933697364007,
+              8.798456031676537,
+              4.607805126621178
+            ]
+          },
+          {
+            "minimum": [
+              6.844558003067161,
+              3.0,
+              0.0
+            ],
+            "maximum": [
+              9.592973662387173,
+              5.416323349081794,
+              9.23142592761798
+            ]
+          },
+          {
+            "minimum": [
+              11.370332584430919,
+              10.98201477181981,
+              0.0
+            ],
+            "maximum": [
+              13.212830848978424,
+              13.361544783124222,
+              10.0
+            ]
+          }
+        ],
+        "start": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "goal": [
+          19.0,
+          19.0,
+          8.0
+        ],
+        "metadata": {
+          "generator": "research-scenarios-v2-ood",
+          "domain_shift": "density-height-topology",
+          "rootseed": 202610101835,
+          "family": "highrise_urban",
+          "family_index": 3,
+          "obstacle_count": 13,
+          "max_obstacle_z": 10.0,
+          "roof_touching_obstacles": 1,
+          "bounds_preserved_from_v1": true,
+          "endpoints_preserved_from_v1": true,
+          "planner_dependent_filtering": false
+        }
+      },
+      {
+        "name": "ood_highrise_urban_04",
+        "bounds": {
+          "minimum": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "maximum": [
+            20.0,
+            20.0,
+            10.0
+          ]
+        },
+        "obstacles": [
+          {
+            "minimum": [
+              9.428821471691121,
+              9.567725130114109,
+              4.327259683610839
+            ],
+            "maximum": [
+              12.120674883452123,
+              11.981771225029135,
+              8.114243139161616
+            ]
+          },
+          {
+            "minimum": [
+              3.177704586137291,
+              10.634082745641741,
+              0.0
+            ],
+            "maximum": [
+              6.015797422855857,
+              13.655361905690604,
+              5.587515157001262
+            ]
+          },
+          {
+            "minimum": [
+              14.62165040078529,
+              3.0569999900447367,
+              0.0
+            ],
+            "maximum": [
+              17.477416941793145,
+              5.562364807339554,
+              7.133819571512482
+            ]
+          },
+          {
+            "minimum": [
+              10.78996468689915,
+              13.96711749964496,
+              0.0
+            ],
+            "maximum": [
+              13.856730750399551,
+              16.751901180883635,
+              4.721463427987769
+            ]
+          },
+          {
+            "minimum": [
+              3.296908348546326,
+              3.0,
+              0.0
+            ],
+            "maximum": [
+              5.471855463419118,
+              5.877544705963557,
+              5.427069642466204
+            ]
+          },
+          {
+            "minimum": [
+              14.455726190269225,
+              10.839374265924164,
+              0.0
+            ],
+            "maximum": [
+              17.192242283668122,
+              13.063883276827543,
+              5.7353170406645315
+            ]
+          },
+          {
+            "minimum": [
+              3.278478725647802,
+              14.620988552226375,
+              0.0
+            ],
+            "maximum": [
+              5.344448737520297,
+              16.473129513993715,
+              4.7977745209996066
+            ]
+          },
+          {
+            "minimum": [
+              7.007641833069555,
+              14.65511519885578,
+              0.0
+            ],
+            "maximum": [
+              9.976350218883361,
+              16.97719184449495,
+              6.724905573724529
+            ]
+          },
+          {
+            "minimum": [
+              10.964642729364186,
+              3.070387791619842,
+              0.0
+            ],
+            "maximum": [
+              13.709112093002116,
+              5.721257528601779,
+              7.135299235062651
+            ]
+          },
+          {
+            "minimum": [
+              6.709376631241644,
+              3.172404577741875,
+              0.0
+            ],
+            "maximum": [
+              9.237364548853208,
+              5.123881997772535,
+              10.0
+            ]
+          },
+          {
+            "minimum": [
+              3.0,
+              6.712437623037887,
+              0.0
+            ],
+            "maximum": [
+              5.887615648082915,
+              8.552568504988116,
+              7.274170741139498
+            ]
+          },
+          {
+            "minimum": [
+              6.951172471822666,
+              6.528804829627937,
+              0.0
+            ],
+            "maximum": [
+              9.89677386702919,
+              9.102498796478596,
+              7.69051020981508
+            ]
+          },
+          {
+            "minimum": [
+              10.287908529087067,
+              6.299408973200916,
+              0.0
+            ],
+            "maximum": [
+              12.775867519170792,
+              8.87299497332327,
+              8.948251061303463
+            ]
+          },
+          {
+            "minimum": [
+              14.537582051551576,
+              5.971572446681213,
+              0.0
+            ],
+            "maximum": [
+              16.926729056550652,
+              8.961297042898792,
+              9.120706690527916
+            ]
+          }
+        ],
+        "start": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "goal": [
+          19.0,
+          19.0,
+          8.0
+        ],
+        "metadata": {
+          "generator": "research-scenarios-v2-ood",
+          "domain_shift": "density-height-topology",
+          "rootseed": 202610101835,
+          "family": "highrise_urban",
+          "family_index": 4,
+          "obstacle_count": 14,
+          "max_obstacle_z": 10.0,
+          "roof_touching_obstacles": 1,
+          "bounds_preserved_from_v1": true,
+          "endpoints_preserved_from_v1": true,
+          "planner_dependent_filtering": false
+        }
+      },
+      {
+        "name": "ood_highrise_urban_05",
+        "bounds": {
+          "minimum": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "maximum": [
+            20.0,
+            20.0,
+            10.0
+          ]
+        },
+        "obstacles": [
+          {
+            "minimum": [
+              6.983552181613204,
+              7.2756231649039895,
+              3.0157162737778496
+            ],
+            "maximum": [
+              10.233512302457884,
+              9.941441319167097,
+              9.698412116600036
+            ]
+          },
+          {
+            "minimum": [
+              14.194719690543597,
+              3.0547561850987077,
+              0.0
+            ],
+            "maximum": [
+              16.05107754092332,
+              5.870725021261073,
+              8.056235221542664
+            ]
+          },
+          {
+            "minimum": [
+              3.088006303898162,
+              14.848092056207134,
+              0.0
+            ],
+            "maximum": [
+              5.871782953795538,
+              17.361805004785925,
+              9.32225230318993
+            ]
+          },
+          {
+            "minimum": [
+              10.683054982692038,
+              3.0,
+              0.0
+            ],
+            "maximum": [
+              13.018500772370983,
+              5.757138925970316,
+              4.963372872461331
+            ]
+          },
+          {
+            "minimum": [
+              11.131273541596874,
+              10.874694475499924,
+              0.0
+            ],
+            "maximum": [
+              13.506588095641456,
+              13.454644089970893,
+              7.65352560562811
+            ]
+          },
+          {
+            "minimum": [
+              3.0,
+              6.043441253178919,
+              0.0
+            ],
+            "maximum": [
+              6.0659519060026135,
+              8.799534671710092,
+              4.75528721058179
+            ]
+          },
+          {
+            "minimum": [
+              14.472331939455453,
+              6.285965962533546,
+              0.0
+            ],
+            "maximum": [
+              16.61682318812049,
+              8.454214444741346,
+              10.0
+            ]
+          },
+          {
+            "minimum": [
+              14.658648853910961,
+              10.854634270975872,
+              0.0
+            ],
+            "maximum": [
+              16.765852460695484,
+              12.821612702148952,
+              5.831553608530069
+            ]
+          },
+          {
+            "minimum": [
+              3.3239514302776003,
+              10.585232971111356,
+              0.0
+            ],
+            "maximum": [
+              5.950564912612026,
+              13.597939396121689,
+              5.101780916930331
+            ]
+          },
+          {
+            "minimum": [
+              3.0,
+              3.1081263596651763,
+              0.0
+            ],
+            "maximum": [
+              5.969918406863242,
+              5.869475492970048,
+              9.850050939736988
+            ]
+          },
+          {
+            "minimum": [
+              10.554351213665191,
+              13.907221965061739,
+              0.0
+            ],
+            "maximum": [
+              13.626965032740614,
+              16.778867668571753,
+              6.175470524779059
+            ]
+          },
+          {
+            "minimum": [
+              7.197408316086156,
+              3.2746172798650894,
+              0.0
+            ],
+            "maximum": [
+              9.629948380342134,
+              5.8176966982784855,
+              7.851655867199091
+            ]
+          },
+          {
+            "minimum": [
+              14.551490076766061,
+              14.237716973302984,
+              0.0
+            ],
+            "maximum": [
+              16.43328992529448,
+              16.4282886191561,
+              6.828372605211418
+            ]
+          }
+        ],
+        "start": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "goal": [
+          19.0,
+          19.0,
+          8.0
+        ],
+        "metadata": {
+          "generator": "research-scenarios-v2-ood",
+          "domain_shift": "density-height-topology",
+          "rootseed": 202610101835,
+          "family": "highrise_urban",
+          "family_index": 5,
+          "obstacle_count": 13,
+          "max_obstacle_z": 10.0,
+          "roof_touching_obstacles": 1,
+          "bounds_preserved_from_v1": true,
+          "endpoints_preserved_from_v1": true,
+          "planner_dependent_filtering": false
+        }
+      },
+      {
+        "name": "ood_highrise_urban_06",
+        "bounds": {
+          "minimum": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "maximum": [
+            20.0,
+            20.0,
+            10.0
+          ]
+        },
+        "obstacles": [
+          {
+            "minimum": [
+              8.3403242476277,
+              8.53725349040461,
+              3.8173186953761746
+            ],
+            "maximum": [
+              11.435652152152576,
+              11.238722909375667,
+              10.0
+            ]
+          },
+          {
+            "minimum": [
+              11.213244010022732,
+              10.475435422941198,
+              0.0
+            ],
+            "maximum": [
+              13.076541568566746,
+              12.521022432624463,
+              10.0
+            ]
+          },
+          {
+            "minimum": [
+              10.96055995202549,
+              6.79658997909951,
+              0.0
+            ],
+            "maximum": [
+              12.96447786979679,
+              9.521922938709661,
+              5.664657669383165
+            ]
+          },
+          {
+            "minimum": [
+              6.483936920595426,
+              14.82774585679324,
+              0.0
+            ],
+            "maximum": [
+              9.006091026361396,
+              17.284516848039083,
+              7.395287896316246
+            ]
+          },
+          {
+            "minimum": [
+              14.571285940520633,
+              6.364537936996404,
+              0.0
+            ],
+            "maximum": [
+              17.46555926143676,
+              8.654843619637507,
+              8.911658881986067
+            ]
+          },
+          {
+            "minimum": [
+              10.878835014610997,
+              13.76807159396785,
+              0.0
+            ],
+            "maximum": [
+              12.790939216388082,
+              16.595889982272176,
+              9.53659727204698
+            ]
+          },
+          {
+            "minimum": [
+              5.959282770383952,
+              6.080627878979595,
+              0.0
+            ],
+            "maximum": [
+              9.03244506034421,
+              9.06924065126762,
+              5.389279535929441
+            ]
+          },
+          {
+            "minimum": [
+              3.0,
+              3.0,
+              0.0
+            ],
+            "maximum": [
+              4.9449269606583695,
+              4.897035953543831,
+              4.988561208110072
+            ]
+          },
+          {
+            "minimum": [
+              6.883108140112794,
+              10.553720736677446,
+              0.0
+            ],
+            "maximum": [
+              9.840939263041976,
+              12.592996154576289,
+              6.152839745996132
+            ]
+          },
+          {
+            "minimum": [
+              14.23805703552328,
+              14.908347549192609,
+              0.0
+            ],
+            "maximum": [
+              16.819712334916154,
+              17.567489250536806,
+              6.570014100419915
+            ]
+          },
+          {
+            "minimum": [
+              6.49573579936398,
+              3.1818742667125024,
+              0.0
+            ],
+            "maximum": [
+              9.31586757913908,
+              5.080280276499507,
+              7.497181264223098
+            ]
+          },
+          {
+            "minimum": [
+              14.25618756537254,
+              10.399188282342688,
+              0.0
+            ],
+            "maximum": [
+              16.78025297808597,
+              12.708186603011765,
+              5.04827198084509
+            ]
+          },
+          {
+            "minimum": [
+              3.0,
+              10.52733549805636,
+              0.0
+            ],
+            "maximum": [
+              5.379246516666969,
+              13.501399538176765,
+              6.101052922846794
+            ]
+          }
+        ],
+        "start": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "goal": [
+          19.0,
+          19.0,
+          8.0
+        ],
+        "metadata": {
+          "generator": "research-scenarios-v2-ood",
+          "domain_shift": "density-height-topology",
+          "rootseed": 202610101835,
+          "family": "highrise_urban",
+          "family_index": 6,
+          "obstacle_count": 13,
+          "max_obstacle_z": 10.0,
+          "roof_touching_obstacles": 2,
+          "bounds_preserved_from_v1": true,
+          "endpoints_preserved_from_v1": true,
+          "planner_dependent_filtering": false
+        }
+      },
+      {
+        "name": "ood_highrise_urban_07",
+        "bounds": {
+          "minimum": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "maximum": [
+            20.0,
+            20.0,
+            10.0
+          ]
+        },
+        "obstacles": [
+          {
+            "minimum": [
+              7.056733544754773,
+              7.3028763889728125,
+              3.622885113979412
+            ],
+            "maximum": [
+              10.767812268848889,
+              10.52166942463085,
+              9.115174778107924
+            ]
+          },
+          {
+            "minimum": [
+              13.912440853929617,
+              10.534328695237166,
+              0.0
+            ],
+            "maximum": [
+              16.551619398297454,
+              12.63403147636642,
+              10.0
+            ]
+          },
+          {
+            "minimum": [
+              7.128575730178865,
+              6.537594062039942,
+              0.0
+            ],
+            "maximum": [
+              9.239436042948073,
+              9.41171814232883,
+              5.650842435165339
+            ]
+          },
+          {
+            "minimum": [
+              3.0,
+              13.829089400954995,
+              0.0
+            ],
+            "maximum": [
+              5.886085007776131,
+              16.515560162606636,
+              7.6008382946634026
+            ]
+          },
+          {
+            "minimum": [
+              3.0,
+              10.951764178810429,
+              0.0
+            ],
+            "maximum": [
+              5.137785110741342,
+              13.497290544825756,
+              9.716064349844276
+            ]
+          },
+          {
+            "minimum": [
+              13.877362883612532,
+              14.609706628184759,
+              0.0
+            ],
+            "maximum": [
+              16.66062874920639,
+              16.594660763256766,
+              8.1380812442278
+            ]
+          },
+          {
+            "minimum": [
+              10.305419226667427,
+              6.806371886487769,
+              0.0
+            ],
+            "maximum": [
+              12.680043195743655,
+              9.301959050903676,
+              9.641849715957491
+            ]
+          },
+          {
+            "minimum": [
+              11.027851811072821,
+              10.630088569849695,
+              0.0
+            ],
+            "maximum": [
+              13.52435767726899,
+              12.934176199340056,
+              8.979759830814857
+            ]
+          },
+          {
+            "minimum": [
+              7.003028572833119,
+              3.120603601330692,
+              0.0
+            ],
+            "maximum": [
+              10.032038761775524,
+              5.054508810876859,
+              5.720274827320107
+            ]
+          },
+          {
+            "minimum": [
+              11.160372798962236,
+              14.492712991852601,
+              0.0
+            ],
+            "maximum": [
+              13.231961825523738,
+              17.513546225318304,
+              9.71504218387934
+            ]
+          },
+          {
+            "minimum": [
+              6.856076502622806,
+              10.637868001943417,
+              0.0
+            ],
+            "maximum": [
+              9.236345369037693,
+              12.556795267801443,
+              5.295753526640893
+            ]
+          },
+          {
+            "minimum": [
+              10.054617230097152,
+              3.0,
+              0.0
+            ],
+            "maximum": [
+              12.534115623829962,
+              5.7025986362245344,
+              9.48569668029537
+            ]
+          }
+        ],
+        "start": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "goal": [
+          19.0,
+          19.0,
+          8.0
+        ],
+        "metadata": {
+          "generator": "research-scenarios-v2-ood",
+          "domain_shift": "density-height-topology",
+          "rootseed": 202610101835,
+          "family": "highrise_urban",
+          "family_index": 7,
+          "obstacle_count": 12,
+          "max_obstacle_z": 10.0,
+          "roof_touching_obstacles": 1,
+          "bounds_preserved_from_v1": true,
+          "endpoints_preserved_from_v1": true,
+          "planner_dependent_filtering": false
+        }
+      },
+      {
+        "name": "ood_narrow_barriers_00",
+        "bounds": {
+          "minimum": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "maximum": [
+            20.0,
+            20.0,
+            10.0
+          ]
+        },
+        "obstacles": [
+          {
+            "minimum": [
+              3.9852079879177644,
+              2.0,
+              0.0
+            ],
+            "maximum": [
+              5.425207987917764,
+              7.983392492646885,
+              10.0
+            ]
+          },
+          {
+            "minimum": [
+              3.9852079879177644,
+              9.49687266457164,
+              0.0
+            ],
+            "maximum": [
+              5.425207987917764,
+              18.0,
+              10.0
+            ]
+          },
+          {
+            "minimum": [
+              7.94097836012505,
+              2.0,
+              0.0
+            ],
+            "maximum": [
+              9.38097836012505,
+              12.339628556400553,
+              7.025597148261586
+            ]
+          },
+          {
+            "minimum": [
+              7.94097836012505,
+              13.417783192837382,
+              0.0
+            ],
+            "maximum": [
+              9.38097836012505,
+              18.0,
+              7.025597148261586
+            ]
+          },
+          {
+            "minimum": [
+              11.50571563991928,
+              2.0,
+              0.0
+            ],
+            "maximum": [
+              12.945715639919282,
+              9.44199152215825,
+              9.281376223670241
+            ]
+          },
+          {
+            "minimum": [
+              11.50571563991928,
+              10.741711427417147,
+              0.0
+            ],
+            "maximum": [
+              12.945715639919282,
+              18.0,
+              9.281376223670241
+            ]
+          },
+          {
+            "minimum": [
+              15.091481386038822,
+              2.0,
+              0.0
+            ],
+            "maximum": [
+              16.531481386038823,
+              12.377168230647118,
+              7.542038673781442
+            ]
+          },
+          {
+            "minimum": [
+              15.091481386038822,
+              13.733945876867907,
+              0.0
+            ],
+            "maximum": [
+              16.531481386038823,
+              18.0,
+              7.542038673781442
+            ]
+          }
+        ],
+        "start": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "goal": [
+          19.0,
+          19.0,
+          8.0
+        ],
+        "metadata": {
+          "generator": "research-scenarios-v2-ood",
+          "domain_shift": "density-height-topology",
+          "rootseed": 202610101835,
+          "family": "narrow_barriers",
+          "family_index": 0,
+          "obstacle_count": 8,
+          "max_obstacle_z": 10.0,
+          "roof_touching_obstacles": 2,
+          "bounds_preserved_from_v1": true,
+          "endpoints_preserved_from_v1": true,
+          "planner_dependent_filtering": false
+        }
+      },
+      {
+        "name": "ood_narrow_barriers_01",
+        "bounds": {
+          "minimum": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "maximum": [
+            20.0,
+            20.0,
+            10.0
+          ]
+        },
+        "obstacles": [
+          {
+            "minimum": [
+              3.6004412885251753,
+              2.0,
+              0.0
+            ],
+            "maximum": [
+              5.040441288525175,
+              13.447593747103605,
+              10.0
+            ]
+          },
+          {
+            "minimum": [
+              3.6004412885251753,
+              14.688743033758454,
+              0.0
+            ],
+            "maximum": [
+              5.040441288525175,
+              18.0,
+              10.0
+            ]
+          },
+          {
+            "minimum": [
+              7.905023614970452,
+              2.0,
+              0.0
+            ],
+            "maximum": [
+              9.345023614970453,
+              9.59986152949786,
+              8.516871318716722
+            ]
+          },
+          {
+            "minimum": [
+              7.905023614970452,
+              11.07423364354961,
+              0.0
+            ],
+            "maximum": [
+              9.345023614970453,
+              18.0,
+              8.516871318716722
+            ]
+          },
+          {
+            "minimum": [
+              11.518319912939274,
+              2.0,
+              0.0
+            ],
+            "maximum": [
+              12.958319912939276,
+              10.178308593071995,
+              7.000594412640416
+            ]
+          },
+          {
+            "minimum": [
+              11.518319912939274,
+              11.324574137476796,
+              0.0
+            ],
+            "maximum": [
+              12.958319912939276,
+              18.0,
+              7.000594412640416
+            ]
+          },
+          {
+            "minimum": [
+              15.323628424624788,
+              2.0,
+              0.0
+            ],
+            "maximum": [
+              16.763628424624788,
+              7.919281465968876,
+              9.963983675046698
+            ]
+          },
+          {
+            "minimum": [
+              15.323628424624788,
+              9.245038971388741,
+              0.0
+            ],
+            "maximum": [
+              16.763628424624788,
+              18.0,
+              9.963983675046698
+            ]
+          }
+        ],
+        "start": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "goal": [
+          19.0,
+          19.0,
+          8.0
+        ],
+        "metadata": {
+          "generator": "research-scenarios-v2-ood",
+          "domain_shift": "density-height-topology",
+          "rootseed": 202610101835,
+          "family": "narrow_barriers",
+          "family_index": 1,
+          "obstacle_count": 8,
+          "max_obstacle_z": 10.0,
+          "roof_touching_obstacles": 2,
+          "bounds_preserved_from_v1": true,
+          "endpoints_preserved_from_v1": true,
+          "planner_dependent_filtering": false
+        }
+      },
+      {
+        "name": "ood_narrow_barriers_02",
+        "bounds": {
+          "minimum": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "maximum": [
+            20.0,
+            20.0,
+            10.0
+          ]
+        },
+        "obstacles": [
+          {
+            "minimum": [
+              3.8544569979376346,
+              2.0,
+              0.0
+            ],
+            "maximum": [
+              5.294456997937634,
+              6.1436631627083695,
+              10.0
+            ]
+          },
+          {
+            "minimum": [
+              3.8544569979376346,
+              7.403825848383956,
+              0.0
+            ],
+            "maximum": [
+              5.294456997937634,
+              18.0,
+              10.0
+            ]
+          },
+          {
+            "minimum": [
+              7.488985895422338,
+              2.0,
+              0.0
+            ],
+            "maximum": [
+              8.928985895422338,
+              5.00672832003436,
+              8.841105819878694
+            ]
+          },
+          {
+            "minimum": [
+              7.488985895422338,
+              6.24832322359661,
+              0.0
+            ],
+            "maximum": [
+              8.928985895422338,
+              18.0,
+              8.841105819878694
+            ]
+          },
+          {
+            "minimum": [
+              11.942327767289717,
+              2.0,
+              0.0
+            ],
+            "maximum": [
+              13.382327767289718,
+              4.42616022286963,
+              8.883839376748597
+            ]
+          },
+          {
+            "minimum": [
+              11.942327767289717,
+              5.556003734459502,
+              0.0
+            ],
+            "maximum": [
+              13.382327767289718,
+              18.0,
+              8.883839376748597
+            ]
+          },
+          {
+            "minimum": [
+              14.988050860589436,
+              2.0,
+              0.0
+            ],
+            "maximum": [
+              16.428050860589437,
+              5.25460741928679,
+              9.526981812311234
+            ]
+          },
+          {
+            "minimum": [
+              14.988050860589436,
+              6.410330349272124,
+              0.0
+            ],
+            "maximum": [
+              16.428050860589437,
+              18.0,
+              9.526981812311234
+            ]
+          }
+        ],
+        "start": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "goal": [
+          19.0,
+          19.0,
+          8.0
+        ],
+        "metadata": {
+          "generator": "research-scenarios-v2-ood",
+          "domain_shift": "density-height-topology",
+          "rootseed": 202610101835,
+          "family": "narrow_barriers",
+          "family_index": 2,
+          "obstacle_count": 8,
+          "max_obstacle_z": 10.0,
+          "roof_touching_obstacles": 2,
+          "bounds_preserved_from_v1": true,
+          "endpoints_preserved_from_v1": true,
+          "planner_dependent_filtering": false
+        }
+      },
+      {
+        "name": "ood_narrow_barriers_03",
+        "bounds": {
+          "minimum": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "maximum": [
+            20.0,
+            20.0,
+            10.0
+          ]
+        },
+        "obstacles": [
+          {
+            "minimum": [
+              3.747014904779001,
+              2.0,
+              0.0
+            ],
+            "maximum": [
+              5.187014904779001,
+              12.821606726229724,
+              10.0
+            ]
+          },
+          {
+            "minimum": [
+              3.747014904779001,
+              13.953599112014459,
+              0.0
+            ],
+            "maximum": [
+              5.187014904779001,
+              18.0,
+              10.0
+            ]
+          },
+          {
+            "minimum": [
+              7.910161249510401,
+              2.0,
+              0.0
+            ],
+            "maximum": [
+              9.350161249510402,
+              13.07361208068488,
+              8.257565949697401
+            ]
+          },
+          {
+            "minimum": [
+              7.910161249510401,
+              14.254166549531869,
+              0.0
+            ],
+            "maximum": [
+              9.350161249510402,
+              18.0,
+              8.257565949697401
+            ]
+          },
+          {
+            "minimum": [
+              11.92598961863152,
+              2.0,
+              0.0
+            ],
+            "maximum": [
+              13.365989618631522,
+              9.309579251920146,
+              7.537469260716811
+            ]
+          },
+          {
+            "minimum": [
+              11.92598961863152,
+              10.425396209980066,
+              0.0
+            ],
+            "maximum": [
+              13.365989618631522,
+              18.0,
+              7.537469260716811
+            ]
+          },
+          {
+            "minimum": [
+              15.115189606573741,
+              2.0,
+              0.0
+            ],
+            "maximum": [
+              16.55518960657374,
+              5.995385410652918,
+              9.045792478207375
+            ]
+          },
+          {
+            "minimum": [
+              15.115189606573741,
+              7.512752606546546,
+              0.0
+            ],
+            "maximum": [
+              16.55518960657374,
+              18.0,
+              9.045792478207375
+            ]
+          }
+        ],
+        "start": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "goal": [
+          19.0,
+          19.0,
+          8.0
+        ],
+        "metadata": {
+          "generator": "research-scenarios-v2-ood",
+          "domain_shift": "density-height-topology",
+          "rootseed": 202610101835,
+          "family": "narrow_barriers",
+          "family_index": 3,
+          "obstacle_count": 8,
+          "max_obstacle_z": 10.0,
+          "roof_touching_obstacles": 2,
+          "bounds_preserved_from_v1": true,
+          "endpoints_preserved_from_v1": true,
+          "planner_dependent_filtering": false
+        }
+      },
+      {
+        "name": "ood_narrow_barriers_04",
+        "bounds": {
+          "minimum": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "maximum": [
+            20.0,
+            20.0,
+            10.0
+          ]
+        },
+        "obstacles": [
+          {
+            "minimum": [
+              3.7390645748363633,
+              2.0,
+              0.0
+            ],
+            "maximum": [
+              5.179064574836363,
+              10.548742453072087,
+              10.0
+            ]
+          },
+          {
+            "minimum": [
+              3.7390645748363633,
+              11.850320018776252,
+              0.0
+            ],
+            "maximum": [
+              5.179064574836363,
+              18.0,
+              10.0
+            ]
+          },
+          {
+            "minimum": [
+              7.944218717826129,
+              2.0,
+              0.0
+            ],
+            "maximum": [
+              9.38421871782613,
+              5.7971271098517905,
+              7.138466213439185
+            ]
+          },
+          {
+            "minimum": [
+              7.944218717826129,
+              7.029831184933658,
+              0.0
+            ],
+            "maximum": [
+              9.38421871782613,
+              18.0,
+              7.138466213439185
+            ]
+          },
+          {
+            "minimum": [
+              11.480364508507014,
+              2.0,
+              0.0
+            ],
+            "maximum": [
+              12.920364508507015,
+              10.156303627663732,
+              7.4243583428988025
+            ]
+          },
+          {
+            "minimum": [
+              11.480364508507014,
+              11.62087851056188,
+              0.0
+            ],
+            "maximum": [
+              12.920364508507015,
+              18.0,
+              7.4243583428988025
+            ]
+          },
+          {
+            "minimum": [
+              15.083087469588072,
+              2.0,
+              0.0
+            ],
+            "maximum": [
+              16.523087469588074,
+              9.67808491347081,
+              7.8251275794816495
+            ]
+          },
+          {
+            "minimum": [
+              15.083087469588072,
+              10.907952462213819,
+              0.0
+            ],
+            "maximum": [
+              16.523087469588074,
+              18.0,
+              7.8251275794816495
+            ]
+          }
+        ],
+        "start": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "goal": [
+          19.0,
+          19.0,
+          8.0
+        ],
+        "metadata": {
+          "generator": "research-scenarios-v2-ood",
+          "domain_shift": "density-height-topology",
+          "rootseed": 202610101835,
+          "family": "narrow_barriers",
+          "family_index": 4,
+          "obstacle_count": 8,
+          "max_obstacle_z": 10.0,
+          "roof_touching_obstacles": 2,
+          "bounds_preserved_from_v1": true,
+          "endpoints_preserved_from_v1": true,
+          "planner_dependent_filtering": false
+        }
+      },
+      {
+        "name": "ood_narrow_barriers_05",
+        "bounds": {
+          "minimum": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "maximum": [
+            20.0,
+            20.0,
+            10.0
+          ]
+        },
+        "obstacles": [
+          {
+            "minimum": [
+              3.766744281880853,
+              2.0,
+              0.0
+            ],
+            "maximum": [
+              5.2067442818808525,
+              4.619599471783519,
+              10.0
+            ]
+          },
+          {
+            "minimum": [
+              3.766744281880853,
+              5.911771201500689,
+              0.0
+            ],
+            "maximum": [
+              5.2067442818808525,
+              18.0,
+              10.0
+            ]
+          },
+          {
+            "minimum": [
+              7.510101001689796,
+              2.0,
+              0.0
+            ],
+            "maximum": [
+              8.950101001689797,
+              4.301055760408202,
+              8.329242758546467
+            ]
+          },
+          {
+            "minimum": [
+              7.510101001689796,
+              5.546685559823077,
+              0.0
+            ],
+            "maximum": [
+              8.950101001689797,
+              18.0,
+              8.329242758546467
+            ]
+          },
+          {
+            "minimum": [
+              11.833374431125161,
+              2.0,
+              0.0
+            ],
+            "maximum": [
+              13.273374431125163,
+              5.5298848192133985,
+              8.351181054312267
+            ]
+          },
+          {
+            "minimum": [
+              11.833374431125161,
+              6.636632937687342,
+              0.0
+            ],
+            "maximum": [
+              13.273374431125163,
+              18.0,
+              8.351181054312267
+            ]
+          },
+          {
+            "minimum": [
+              15.16300530771406,
+              2.0,
+              0.0
+            ],
+            "maximum": [
+              16.60300530771406,
+              7.157446348136119,
+              8.181937369196243
+            ]
+          },
+          {
+            "minimum": [
+              15.16300530771406,
+              8.538863771735663,
+              0.0
+            ],
+            "maximum": [
+              16.60300530771406,
+              18.0,
+              8.181937369196243
+            ]
+          }
+        ],
+        "start": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "goal": [
+          19.0,
+          19.0,
+          8.0
+        ],
+        "metadata": {
+          "generator": "research-scenarios-v2-ood",
+          "domain_shift": "density-height-topology",
+          "rootseed": 202610101835,
+          "family": "narrow_barriers",
+          "family_index": 5,
+          "obstacle_count": 8,
+          "max_obstacle_z": 10.0,
+          "roof_touching_obstacles": 2,
+          "bounds_preserved_from_v1": true,
+          "endpoints_preserved_from_v1": true,
+          "planner_dependent_filtering": false
+        }
+      },
+      {
+        "name": "ood_narrow_barriers_06",
+        "bounds": {
+          "minimum": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "maximum": [
+            20.0,
+            20.0,
+            10.0
+          ]
+        },
+        "obstacles": [
+          {
+            "minimum": [
+              3.7961402005072884,
+              2.0,
+              0.0
+            ],
+            "maximum": [
+              5.236140200507288,
+              7.456349683401271,
+              10.0
+            ]
+          },
+          {
+            "minimum": [
+              3.7961402005072884,
+              8.63300936092288,
+              0.0
+            ],
+            "maximum": [
+              5.236140200507288,
+              18.0,
+              10.0
+            ]
+          },
+          {
+            "minimum": [
+              7.556950605802466,
+              2.0,
+              0.0
+            ],
+            "maximum": [
+              8.996950605802466,
+              8.951704752182854,
+              7.149520163220846
+            ]
+          },
+          {
+            "minimum": [
+              7.556950605802466,
+              10.0009890194698,
+              0.0
+            ],
+            "maximum": [
+              8.996950605802466,
+              18.0,
+              7.149520163220846
+            ]
+          },
+          {
+            "minimum": [
+              11.883490112109268,
+              2.0,
+              0.0
+            ],
+            "maximum": [
+              13.323490112109269,
+              9.148153577973732,
+              9.937036424966683
+            ]
+          },
+          {
+            "minimum": [
+              11.883490112109268,
+              10.529637314543413,
+              0.0
+            ],
+            "maximum": [
+              13.323490112109269,
+              18.0,
+              9.937036424966683
+            ]
+          },
+          {
+            "minimum": [
+              15.547950966194465,
+              2.0,
+              0.0
+            ],
+            "maximum": [
+              16.987950966194465,
+              5.836603760177306,
+              7.1035923406270145
+            ]
+          },
+          {
+            "minimum": [
+              15.547950966194465,
+              7.179628682520017,
+              0.0
+            ],
+            "maximum": [
+              16.987950966194465,
+              18.0,
+              7.1035923406270145
+            ]
+          }
+        ],
+        "start": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "goal": [
+          19.0,
+          19.0,
+          8.0
+        ],
+        "metadata": {
+          "generator": "research-scenarios-v2-ood",
+          "domain_shift": "density-height-topology",
+          "rootseed": 202610101835,
+          "family": "narrow_barriers",
+          "family_index": 6,
+          "obstacle_count": 8,
+          "max_obstacle_z": 10.0,
+          "roof_touching_obstacles": 2,
+          "bounds_preserved_from_v1": true,
+          "endpoints_preserved_from_v1": true,
+          "planner_dependent_filtering": false
+        }
+      },
+      {
+        "name": "ood_narrow_barriers_07",
+        "bounds": {
+          "minimum": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "maximum": [
+            20.0,
+            20.0,
+            10.0
+          ]
+        },
+        "obstacles": [
+          {
+            "minimum": [
+              3.5403361228937076,
+              2.0,
+              0.0
+            ],
+            "maximum": [
+              4.980336122893707,
+              5.693769396379053,
+              10.0
+            ]
+          },
+          {
+            "minimum": [
+              3.5403361228937076,
+              6.753936131252396,
+              0.0
+            ],
+            "maximum": [
+              4.980336122893707,
+              18.0,
+              10.0
+            ]
+          },
+          {
+            "minimum": [
+              7.820211076235386,
+              2.0,
+              0.0
+            ],
+            "maximum": [
+              9.260211076235386,
+              12.987280015582977,
+              9.2169994703861
+            ]
+          },
+          {
+            "minimum": [
+              7.820211076235386,
+              14.335245736699305,
+              0.0
+            ],
+            "maximum": [
+              9.260211076235386,
+              18.0,
+              9.2169994703861
+            ]
+          },
+          {
+            "minimum": [
+              11.76153011288013,
+              2.0,
+              0.0
+            ],
+            "maximum": [
+              13.201530112880132,
+              4.763991308166484,
+              7.48460965127544
+            ]
+          },
+          {
+            "minimum": [
+              11.76153011288013,
+              5.858784245988546,
+              0.0
+            ],
+            "maximum": [
+              13.201530112880132,
+              18.0,
+              7.48460965127544
+            ]
+          },
+          {
+            "minimum": [
+              15.571244017762615,
+              2.0,
+              0.0
+            ],
+            "maximum": [
+              17.011244017762614,
+              9.472806692453826,
+              9.793768523968549
+            ]
+          },
+          {
+            "minimum": [
+              15.571244017762615,
+              10.837064012376263,
+              0.0
+            ],
+            "maximum": [
+              17.011244017762614,
+              18.0,
+              9.793768523968549
+            ]
+          }
+        ],
+        "start": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "goal": [
+          19.0,
+          19.0,
+          8.0
+        ],
+        "metadata": {
+          "generator": "research-scenarios-v2-ood",
+          "domain_shift": "density-height-topology",
+          "rootseed": 202610101835,
+          "family": "narrow_barriers",
+          "family_index": 7,
+          "obstacle_count": 8,
+          "max_obstacle_z": 10.0,
+          "roof_touching_obstacles": 2,
+          "bounds_preserved_from_v1": true,
+          "endpoints_preserved_from_v1": true,
+          "planner_dependent_filtering": false
+        }
+      }
+    ]
+  },
+  "external_samples": 500,
+  "external_seed": 196102,
+  "distribution_external_models": [
+    "uniform",
+    "student_t3",
+    "common_translation"
+  ],
+  "distribution_external_sigma": 0.6,
+  "sigmas": [
+    0.3,
+    0.6,
+    0.9
+  ],
+  "NFE": 820,
+  "K": 16,
+  "search_alpha": 0.1,
+  "target_alpha": 0.175,
+  "task_shuffle_seed": 20261006,
+  "study_config": "configs/seven_category_study.json",
+  "main_method_lock": "C:\\Users\\17613\\Desktop\\论文5\\实验记录\\20261009\\20261009_主方法冻结\\main_method_lock.json",
+  "main_method_lock_sha256": "15f932703957e6e1e40057ad9efdb280b3103a4209c420c0c416e5cd4c40947d",
+  "main_method_bundle_sha256": "bcc895242f7f260ed326fab9fd67dbee102bcde5513810a0dc2ec9b990659b1d",
+  "main_method": {
+    "id": "full",
+    "module": "uav_path_planning.soft_risk_projected_polish",
+    "class": "SoftRiskProjectedPolish",
+    "conditional_axis": 2,
+    "reserve_fraction": 0.2,
+    "terminal_gradient": "original finite differences",
+    "internal_shortcut": true,
+    "experimental_analytic_gradient": false,
+    "config_file": "configs/risk_aware_main_20261009_soft050.json",
+    "options": {
+      "reserve_fraction": 0.2,
+      "active_margin": 0.02,
+      "initial_step": 0.03,
+      "axis": 2,
+      "global_method": "risk_de",
+      "projection": "tangent",
+      "risk_estimator": "conditional",
+      "max_line_steps": 1,
+      "beta": 0.05
+    },
+    "NFE": 820,
+    "K": 16,
+    "search_alpha": 0.1
+  },
+  "limits": [
+    "This bank shifts obstacle density, height and topology while retaining bounds and endpoints.",
+    "The map generator performs geometry-only checks and never calls a planner or robustness scorer.",
+    "Do not tune parameters or select a method after inspecting OOD outcomes.",
+    "Baseline implementations are local reproductions/adaptations, not original-author published values.",
+    "Empirical external pass rate is not a finite-sample confidence certificate.",
+    "A* is deterministic and descriptive; it is not included in stochastic paired tests.",
+    "Locked main is soft_beta050; matched E2/E3/E4/E6 retain beta=.05 and the frozen matched-control definitions.",
+    "E3 compares complete global-search packages; native baseline scalar adaptation outside the gate differs from DE lexicographic selection.",
+    "E5 removes risk-dependent soft cost by definition; E6 includes the discrete-estimator and finite-difference interaction.",
+    "Every checkpoint is newly computed on OOD maps; the known-map reuse declaration in the method lock is inactive here."
+  ],
+  "statistical_analysis": {
+    "unit": "map-level paired seed means within the frozen OOD bank",
+    "metrics": [
+      "length",
+      "cfr_0.6"
+    ],
+    "multiple_testing": "Seven fixed main-vs-baseline contrasts x two metrics; one 14-test Holm family.",
+    "astar": "descriptive only; no repeated artificial seeds",
+    "interpretation": "Prospective blind OOD evaluation: method/protocol/source locked before bank generation; no outcomes previously exposed. Nonsignificance is not equivalence.",
+    "purpose": "External validity; no repeated E0/E4/E5/E6 component analysis on OOD."
+  },
+  "expected_plans": 3840,
+  "study_kind": "p6_ood_locked_main_confirmatory",
+  "blind_eligible_at_freeze": true,
+  "method_protocol_profile": "manuscript",
+  "method_protocol_sha256": "0d0ce0f4d8532d357d235deb5ab57e05b876f34c3bfdb367825bd4f07ade3422",
+  "new_map_checkpoint_policy": "All OOD maps require new planning; no known-map result reuse.",
+  "ood_manifest": {
+    "path_at_freeze": "C:\\Users\\17613\\Desktop\\论文5\\实验记录\\20261010\\20261010_183518_P6冻结新地图\\bank\\manifest.json",
+    "manifest_sha256": "8aa8c1cddd1bfd536d6cf072ce8d03b9dff373160241c6d607baa49d9d49a429",
+    "maps_digest": "1b96413c56297efa820dee2adc3b5fa2fccafcce2c81ef622faa64879c8fe19a",
+    "generator_version": "research-scenarios-v2-ood",
+    "domain_shift": "density-height-topology",
+    "map_count_manifest": 24,
+    "map_count_protocol": 24,
+    "families": [
+      "dense_clutter",
+      "highrise_urban",
+      "narrow_barriers"
+    ],
+    "exposure_ledger": {
+      "planner_called_during_generation": false,
+      "robustness_scored_during_generation": false,
+      "used_for_parameter_selection": false,
+      "outcomes_exposed": false,
+      "viewed_maps": [],
+      "purpose": "blind",
+      "intended_use": "locked blind OOD evaluation",
+      "blind_eligible": true,
+      "current_evidence_role": "prospective_blind",
+      "event_count": 1,
+      "events": [
+        {
+          "time_utc": "2026-10-10T10:40:13.458514+00:00",
+          "event": "bank_frozen",
+          "maps": [],
+          "output_path": null,
+          "note": "purpose=blind; no planner run"
+        }
+      ]
+    }
+  },
+  "evidence_scope": "Prospective blind OOD evaluation: method/protocol/source locked before bank generation; no outcomes previously exposed.",
+  "p6_comparisons": [
+    {
+      "reference": "full",
+      "comparator": "risk_polish_de"
+    },
+    {
+      "reference": "full",
+      "comparator": "risk_polish_jade"
+    },
+    {
+      "reference": "full",
+      "comparator": "risk_polish_shade"
+    },
+    {
+      "reference": "full",
+      "comparator": "risk_polish_lshade"
+    },
+    {
+      "reference": "full",
+      "comparator": "risk_polish_pso"
+    },
+    {
+      "reference": "full",
+      "comparator": "bare_de"
+    },
+    {
+      "reference": "full",
+      "comparator": "bare_lshade"
+    }
+  ]
+}

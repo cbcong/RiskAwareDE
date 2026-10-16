@@ -1,0 +1,193 @@
+{
+  "classification": "reduced-count official drone numerical smoke, not full paper replication",
+  "upstream_commit": "59b0ad029508c357b31960cc2088d973531a5f7c",
+  "license": "MIT",
+  "original_counts": {
+    "samples": 50,
+    "repeats_per_alpha": 30,
+    "alphas": [
+      0.05,
+      0.1,
+      0.2,
+      0.3
+    ],
+    "scp_iterations": 60
+  },
+  "actual_counts": {
+    "samples": 8,
+    "repeats": 1,
+    "alpha": 0.1,
+    "scp_iterations": 20
+  },
+  "unchanged": [
+    "S=20",
+    "T=50",
+    "nonlinear six-state dynamics",
+    "uncertain mass and obstacle shape",
+    "Brownian disturbance",
+    "full-horizon AVaR epigraph",
+    "OSQP SCP",
+    "control-squared objective"
+  ],
+  "compatibility_changes": [
+    "jax.config import location",
+    "Array.to_py -> numpy.asarray",
+    "remove legacy OSQP linsys_solver string; default direct solver",
+    "headless/no plots"
+  ],
+  "task_note": "Obstacle avoidance in original code uses x[:2] and elliptic cylinders; this is not the common 3D-box task.",
+  "versions": {
+    "python": "3.11.7",
+    "jax": "0.4.38",
+    "osqp": "1.0.4",
+    "numpy": "1.26.4"
+  },
+  "setup_including_JIT_seconds": 1.8946129000000838,
+  "total_seconds": 2.2703295000000026,
+  "trace": [
+    {
+      "iteration": 0,
+      "status": "solved",
+      "seconds": 0.009934700000030716,
+      "slack": -1.0000000000000002,
+      "control_change": 0.3313000285545912
+    },
+    {
+      "iteration": 1,
+      "status": "solved",
+      "seconds": 0.003021399999965979,
+      "slack": -1.0000000000000004,
+      "control_change": 0.0013033097884423094
+    },
+    {
+      "iteration": 2,
+      "status": "solved",
+      "seconds": 0.0060927000000674525,
+      "slack": 2.338776227962581e-05,
+      "control_change": 0.6465788260483253
+    },
+    {
+      "iteration": 3,
+      "status": "solved",
+      "seconds": 0.01000540000006822,
+      "slack": -2.0029076376809437e-06,
+      "control_change": 0.39578100674840233
+    },
+    {
+      "iteration": 4,
+      "status": "solved",
+      "seconds": 0.003387699999962024,
+      "slack": 2.8133364433043576e-06,
+      "control_change": 0.08859072468033023
+    },
+    {
+      "iteration": 5,
+      "status": "solved",
+      "seconds": 0.006768400000055408,
+      "slack": -9.242390635931726e-24,
+      "control_change": 0.05187933053853166
+    },
+    {
+      "iteration": 6,
+      "status": "solved",
+      "seconds": 0.006699299999922914,
+      "slack": -3.2036698683545476e-23,
+      "control_change": 0.007750469775998363
+    },
+    {
+      "iteration": 7,
+      "status": "solved",
+      "seconds": 0.003417000000013104,
+      "slack": 1.0255983011346311e-24,
+      "control_change": 0.003899098703660746
+    },
+    {
+      "iteration": 8,
+      "status": "solved",
+      "seconds": 0.003015300000015486,
+      "slack": -1.017365966172939e-23,
+      "control_change": 0.0023346724333995466
+    },
+    {
+      "iteration": 9,
+      "status": "solved",
+      "seconds": 0.0028890999999475753,
+      "slack": -4.3581621490774055e-23,
+      "control_change": 0.0014060638979114999
+    },
+    {
+      "iteration": 10,
+      "status": "solved",
+      "seconds": 0.0031273999999257285,
+      "slack": -3.24921267714856e-23,
+      "control_change": 0.0008436220621152562
+    },
+    {
+      "iteration": 11,
+      "status": "solved",
+      "seconds": 0.0033889999999701104,
+      "slack": 1.1867315972798149e-23,
+      "control_change": 0.0005049289474872001
+    },
+    {
+      "iteration": 12,
+      "status": "solved",
+      "seconds": 0.002785700000003999,
+      "slack": -3.2535040070526606e-23,
+      "control_change": 0.0003017685353288772
+    },
+    {
+      "iteration": 13,
+      "status": "solved",
+      "seconds": 0.002768699999933233,
+      "slack": 7.7351478675534225e-25,
+      "control_change": 0.00018019158257653054
+    },
+    {
+      "iteration": 14,
+      "status": "solved",
+      "seconds": 0.002741799999967043,
+      "slack": -2.1458077399380396e-23,
+      "control_change": 0.00010753891524328308
+    },
+    {
+      "iteration": 15,
+      "status": "solved",
+      "seconds": 0.002674799999908828,
+      "slack": -5.476138758501858e-23,
+      "control_change": 6.41593077088123e-05
+    },
+    {
+      "iteration": 16,
+      "status": "solved",
+      "seconds": 0.0027671999999938635,
+      "slack": -5.4755781000073e-23,
+      "control_change": 3.827117417488289e-05
+    },
+    {
+      "iteration": 17,
+      "status": "solved",
+      "seconds": 0.002409699999930126,
+      "slack": -5.473635232264017e-23,
+      "control_change": 2.2826273709855004e-05
+    },
+    {
+      "iteration": 18,
+      "status": "solved",
+      "seconds": 0.0024199999999154898,
+      "slack": 1.1868920720894611e-23,
+      "control_change": 1.3613477808032836e-05
+    },
+    {
+      "iteration": 19,
+      "status": "solved",
+      "seconds": 0.0026783000000705215,
+      "slack": -4.365433685401053e-23,
+      "control_change": 8.118686211325666e-06
+    }
+  ],
+  "final_sample_AVaR": -4.1603609446383416e-11,
+  "mean_final_state_error": 2.9275232935613265e-13,
+  "finite": true,
+  "source_sha256": "4d15e88850881177ee8124e6d8839673e71220cdd5e60c5d7b546d48b30ab62d"
+}

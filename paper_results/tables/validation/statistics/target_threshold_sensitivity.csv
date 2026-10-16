@@ -1,0 +1,3 @@
+﻿cohort,method,paths,external_trials_per_path,target_cfr,empirical_pass_paths,empirical_pass_percent,wilson_interval_covers_target_paths,wilson_interval_covers_target_percent,empirical_pass_with_interval_covering_target_paths,wilson_lower_bound_above_target_paths,wilson_upper_bound_below_target_paths
+E,full,480,500,0.825,413,86.04166666666667,85,17.708333333333332,57,356,39
+P6,full,480,500,0.825,281,58.541666666666664,196,40.833333333333336,117,164,120

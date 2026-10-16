@@ -1,0 +1,477 @@
+from pathlib import Path
+import scipy.sparse as sp
+import numpy as np
+import osqp
+from time import time
+import matplotlib.pylab as pl
+import matplotlib.pyplot as plt
+from matplotlib.patches import Circle, Ellipse
+from matplotlib import rc, rcParams
+rcParams['font.family'] = 'serif'
+rcParams['font.size'] = 14
+rc('text', usetex=False)
+import jax.numpy as jnp
+from jax import jacfwd, jit, vmap
+from functools import partial
+from jax import config
+config.update("jax_enable_x64", True)
+config.update('jax_platform_name', 'cpu')
+from warnings import warn
+
+from drone_utils import sample_uncertain_parameters
+
+import drone_params
+
+# Load drone model parameters
+OSQP_POLISH = drone_params.OSQP_POLISH
+OSQP_TOL = drone_params.OSQP_TOL
+n_x = drone_params.n_x
+n_u = drone_params.n_u
+S = drone_params.S
+M = drone_params.M
+T = drone_params.T
+dt = drone_params.dt
+R = drone_params.R
+feedback_gain = drone_params.feedback_gain
+u_max = drone_params.u_max
+mass_nom = drone_params.mass_nom
+mass_delta = drone_params.mass_delta
+beta = drone_params.beta
+drag_coefficient = drone_params.drag_coefficient
+obs_positions = drone_params.obs_positions
+obs_radii = drone_params.obs_radii
+obs_radii_deltas = drone_params.obs_radii_deltas
+n_obs = drone_params.n_obs
+x_init = drone_params.x_init
+x_final = drone_params.x_final
+
+# script parameters
+B_compute_solution_saa = True
+B_compute_solution_base = True
+B_plot_results_saa = True
+B_plot_results_base = True
+B_validate_monte_carlo = True
+alphas = [0.05, 0.1, 0.2, 0.3]
+num_repeats_saa = 30
+num_scp_iters_max = 60
+np.random.seed(0) # results may differ, the algorithm is randomized.
+print("---------------------------------------")
+print("[drone_risk.py] >>> Running with parameters:")
+print("B_compute_solution_saa   =", B_compute_solution_saa)
+print("B_compute_solution_base  =", B_compute_solution_base)
+print("B_plot_results_saa       =", B_plot_results_saa)
+print("B_plot_results_base      =", B_plot_results_base)
+print("B_validate_monte_carlo   =", B_validate_monte_carlo)
+print("alphas =", alphas)
+print("num_repeats_saa =", num_repeats_saa)
+print("---------------------------------------")
+
+
+class Model:
+    def __init__(
+        self,
+        S,
+        DWs, masses, obs_Qs,
+        method='saa', alpha=0.1):
+        print("Initializing Model with")
+        print("> method =", method)
+        print("> alpha  =", alpha)
+        print("> S      =", S)
+        self.method = method
+        self.S = S
+        self.dt = T / S
+        # control bounds
+        self.u_max = u_max
+        self.u_min = -self.u_max
+        # uncertain parameters
+        self.alpha = alpha # risk parameter
+        self.beta = beta # diffusion term magnitude
+        self.drag_coefficient = drag_coefficient 
+
+        self.DWs = DWs
+        self.masses = masses
+        self.obs_Qs = obs_Qs
+
+    def convert_us_vec_to_us_mat(self, us_vec):
+        S = self.S
+        us_mat = jnp.reshape(us_vec, (n_u, S), 'F')
+        us_mat = us_mat.T # (S, n_u)
+        us_mat = jnp.array(us_mat)
+        return us_mat
+
+    @partial(jit, static_argnums=(0,))
+    def convert_us_mat_to_us_jaxvec(self, us_mat):
+        S = self.S
+        us_vec = jnp.reshape(us_mat, (S*n_u), 'C')
+        return us_vec
+
+    def initial_guess_us_mat(self):
+        S = self.S
+        us = jnp.zeros((S, n_u))
+        u_initial_guess = (self.u_max + self.u_min) / 2.0
+        # Add a small number to the initial guess.
+        # This can help for many systems to avoid linearization
+        # at a point where the dynamics are uncontrollable.
+        # (e.g., linearizing cos(u) at u=0 (e.g., for
+        #  Dubin's car dynamics) could cause issues)
+        u_initial_guess = u_initial_guess + 1e-2
+        for t in range(S):
+            us = us.at[t, :(n_u-1)].set(u_initial_guess)
+        return us
+
+    @partial(jit, static_argnums=(0,))
+    def b(self, x, u, mass):
+        v = x[3:6]
+        control_applied = u + feedback_gain @ x
+        bvec = jnp.zeros(n_x)
+        bvec = bvec.at[:3].set(v)
+        bvec = bvec.at[3:6].set(control_applied / mass)
+        bvec = bvec.at[3:6].set(
+            bvec[3:6] - self.drag_coefficient * jnp.abs(v) * v / mass)
+        return bvec
+
+    @partial(jit, static_argnums=(0,))
+    def sigma(self, x, u, mass):
+        smat = jnp.zeros((n_x, n_x))
+        smat = smat.at[3:6,3:6].set((self.beta/mass) * jnp.eye(3))
+        return smat
+
+    @partial(jit, static_argnums=(0,))
+    def us_to_state_trajectory(self, us_mat, mass, dWs):
+        # us_mat - (S, n_u)
+        # mass   - scalar
+        # dWs    - (S, n_x)
+        S, dt = self.S, self.dt
+        xs = jnp.zeros((S+1, n_x))
+        xs = xs.at[0, :].set(x_init)
+        for t in range(S):
+            xt, ut = xs[t, :], us_mat[t, :]
+            dW_t = dWs[t]
+            bt_dt = dt * self.b(xt, ut, mass)
+            st_DWt = jnp.sqrt(dt) * self.sigma(xt, ut, mass) @ dW_t
+            # Euler-Maruyama
+            xn = xt + bt_dt + st_DWt
+            xs = xs.at[t+1, :].set(xn)
+        return xs
+
+    def us_to_state_trajectories(self, us_mat):
+        # us_mat - (S, n_u)
+        Us = jnp.repeat(us_mat[jnp.newaxis, :, :], M, axis=0)
+        Xs = vmap(self.us_to_state_trajectory)(
+            Us, self.masses, self.DWs)
+        return Xs
+
+    @partial(jit, static_argnums=(0,))
+    def final_constraints(self, xs):
+        xT = xs[-1, :]
+        return (xT - x_final)
+
+    @partial(jit, static_argnums=(0,))
+    def obstacle_avoidance_constraint_for_one_obstacle_at_x(self,
+        x,
+        obs_position, obs_Q_matrix):
+        p = x[:2] # state position
+        obs_p, obs_Q = obs_position[:2], obs_Q_matrix[:2, :2]
+        # inequality constraint is 
+        # (p-op).T @ oQ @ (p-op) >= 1
+        # => 1 - (p-op).T @ oQ @ (p-op) <= 0
+        constraint = 1. - (p - obs_p).T @ obs_Q @ (p - obs_p)
+        return constraint
+
+    @partial(jit, static_argnums=(0,))
+    def obstacle_avoidance_constraints_for_one_obstacle(self,
+        xs,
+        obs_position, obs_Q_matrix):
+        # return obstacle avoidance constraints g(x) <= 0
+        # for all x in xs.
+        # xs must be of size (S, n_x)
+        # returns a vector of size S.
+        S = self.S
+        obs_positions = jnp.repeat(
+            obs_position[jnp.newaxis, :], S, axis=0) 
+        obs_Q_matrices = jnp.repeat(
+            obs_Q_matrix[jnp.newaxis, :, :], S, axis=0)
+        ineqs = vmap(self.obstacle_avoidance_constraint_for_one_obstacle_at_x)(
+            xs, obs_positions, obs_Q_matrices)
+        return ineqs
+
+    @partial(jit, static_argnums=(0,))
+    def obstacle_avoidance_constraints(self, 
+        xs, 
+        obs_Q):
+        # returns matrix g(x) such that g(x) <= 0
+        # encodes all obstacle avoidance constraints
+        # for one sample:
+        #   xs is of shape (S+1, n_x)
+        #   obs_Q is of shape (n_obs, 3, 3)
+        # g(x) is of size (n_obs, S)
+        xs_vmapped = jnp.repeat(
+            xs[jnp.newaxis, 1:, :], n_obs, axis=0)
+        cons = vmap(self.obstacle_avoidance_constraints_for_one_obstacle)(
+            xs_vmapped,
+            obs_positions, obs_Q)
+        return cons
+
+    ### ----------------------------------------------------
+    ### ----------------------------------------------------
+    ### ----------------------------------------------------
+    ### ----------------------------------------------------
+    ### OSQP
+
+    @partial(jit, static_argnums=(0,))
+    def get_control_constraints_coeffs_all(self):
+        # Returns (A, l, u) corresponding to control constraints
+        # such that l <= A uvec <= u.
+        S = self.S
+        A = jnp.zeros((n_u*S, n_u*S + M + 2)) # (M + 2) are risk parameters
+        l = jnp.zeros(n_u*S)
+        u = jnp.zeros(n_u*S)
+        # control bounds
+        for t in range(S):
+            for i in range(n_u):
+                idx_u = t*n_u + i
+                idx_con = idx_u
+                A = A.at[idx_con, idx_u].set(1.0)
+                l = l.at[idx_con].set(self.u_min)
+                u = u.at[idx_con].set(self.u_max)
+        return A, l, u
+
+    @partial(jit, static_argnums=(0,))
+    def get_all_constraints_coeffs(self, 
+        us_mat, 
+        mass, dWs, obs_Q):
+        # Returns (A, l, u) corresponding to all constraints
+        # such that l <= A uvec <= u.
+        def all_constraints_us(
+            us_mat,
+            mass, dWs, obs_Q):
+            xs = self.us_to_state_trajectory(us_mat, mass, dWs)
+            val_final = self.final_constraints(xs)
+            val_obs = self.obstacle_avoidance_constraints(xs, obs_Q)
+            return (val_final, val_obs)
+        def all_constraints_dus(
+            us_mat,
+            mass, dWs, obs_Q):
+            jac = jacfwd(all_constraints_us)(
+                us_mat,
+                mass, dWs, obs_Q)
+            return jac
+
+        S = self.S
+
+        v_final, g_obs = all_constraints_us(us_mat, mass, dWs, obs_Q)
+        v_final_du, g_obs_du = all_constraints_dus(us_mat, mass, dWs, obs_Q)
+
+        # reshape gradient
+        v_final_du = jnp.reshape(v_final_du, (n_x, n_u*S), 'C')
+        g_obs = jnp.reshape(g_obs, (n_obs, S), 'C')
+        g_obs_du = jnp.reshape(g_obs_du, (n_obs, S, n_u*S), 'C')
+
+        # final constraints
+        val_final = -v_final + v_final_du @ self.convert_us_mat_to_us_jaxvec(us_mat)
+        val_final_lower = val_final
+        val_final_upper = val_final
+
+        # obstacle_constraints
+        # gi(u) <= 0
+        # => 鈭噂(u_k) @ u - t - y <= -g(u_k) + 鈭噂(u_k) @ u_k (linearized)
+        g_up = -g_obs + g_obs_du @ self.convert_us_mat_to_us_jaxvec(us_mat)
+
+        return v_final_du, val_final_lower, val_final_upper, g_obs_du, g_up
+
+    @partial(jit, static_argnums=(0,))
+    def get_all_constraints_coeffs_all(self, us_mat):
+        S = self.S
+
+        Us = jnp.repeat(us_mat[jnp.newaxis, :, :], M, axis=0)
+
+        final_du, final_low, final_up, g_obs_du, g_obs_up = vmap(
+            self.get_all_constraints_coeffs)(Us, 
+            self.masses, self.DWs, self.obs_Qs)
+
+        # final constraints
+        # sample average approximation with delta_M=0
+        final_du = jnp.mean(final_du, axis=0)
+        final_low = jnp.mean(final_low, axis=0)
+        final_up = jnp.mean(final_up, axis=0)
+        final_dparams = jnp.concatenate((
+            final_du, 
+            jnp.zeros((final_du.shape[0], M + 2))),
+            axis=-1) # add risk parameters
+
+        # obstacle avoidance constraints
+        if self.method == 'baseline':
+            obs_low = -jnp.inf* jnp.ones(M*n_obs*S)
+            obs_up = jnp.inf * jnp.ones(M*n_obs*S)
+            obs_dparams = jnp.zeros((M*n_obs*S, n_u*S + M + 2))
+
+            # We multiply by MULTIPLIER due to potentially low numerical precision
+            # note that the constraint is equivalent.
+            MULTIPLIER = 0.01
+
+            for i in range(M):
+                idx = i*n_obs*S
+                idx_next = (i+1)*n_obs*S
+                obs_dparams = obs_dparams.at[idx:idx_next, :(n_u*S)].set(
+                    jnp.reshape(MULTIPLIER*g_obs_du[i], (n_obs*S, n_u*S), 'C'))
+                obs_up = obs_up.at[idx:idx_next].set(
+                    MULTIPLIER*g_obs_up[i].flatten())
+                # add a small padding to make the baseline a little bit safer   
+                # otherwise, collision rates are about 90% in this scenario, due
+                # to the configuration of the obstacles (which is probably
+                # not representative of usual collision rates with a deterministic
+                # baseline)
+                obs_up = obs_up.at[idx:idx_next].set(
+                    obs_up[idx:idx_next] - 1e-3) 
+
+        elif self.method == 'saa':
+            # pack so that 
+            # val_low <= val_dparams @ params <= val_up
+            # where params = (us, ys, t)
+            obs_low = -jnp.inf* jnp.ones(1 + M + M*n_obs*S + 1)
+            obs_up = jnp.inf * jnp.ones(1 + M + M*n_obs*S + 1)
+            obs_dparams = jnp.zeros((1 + M + M*n_obs*S + 1, n_u*S + M + 2))
+
+            # (M*alpha)t + sum_{i=1}^M yi <= 0
+            obs_dparams = obs_dparams.at[0, -1].set(M*self.alpha)
+            obs_dparams = obs_dparams.at[0, (n_u*S):-1].set(1.0)
+            obs_up = obs_up.at[0].set(0.0)
+            for i in range(M):
+                idx_yi = n_u*S + i
+
+                # -yi <= 0
+                idx = 1 + i
+                obs_dparams = obs_dparams.at[idx, idx_yi].set(-1.0)
+                obs_up = obs_up.at[idx].set(0.0)
+                # SLACK VARIABLE
+                # t - yi <= slack
+                obs_dparams = obs_dparams.at[idx, -2].set(-1.0)
+                # --------------------------------------------
+
+                # We multiply by MULTIPLIER due to potentially low numerical precision
+                # the constraint is equivalent
+                MULTIPLIER = 0.01
+                # # gijk(u) - t - yi <= 0
+                # # => 鈭噂(u_k) @ u - t - yi <= -g(u_k) + 鈭噂(u_k) @ u_k (linearized)
+                # gijk(u) - yi <= 0
+                idx = 1 + M + i*n_obs*S
+                idx_next = 1 + M + (i+1)*n_obs*S
+                obs_dparams = obs_dparams.at[idx:idx_next, :(n_u*S)].set(
+                    jnp.reshape(MULTIPLIER*g_obs_du[i], (n_obs*S, n_u*S), 'C'))
+                obs_dparams = obs_dparams.at[idx:idx_next, idx_yi].set(-MULTIPLIER)
+                obs_up = obs_up.at[idx:idx_next].set(MULTIPLIER*g_obs_up[i].flatten())
+                # gijk(u) - yi - t <= 0
+                obs_dparams = obs_dparams.at[idx:idx_next, -1].set(-MULTIPLIER)
+
+            # 0 <= slack_variable
+            obs_dparams = obs_dparams.at[-1, -2].set(-1.0)
+            obs_up = obs_up.at[-1].set(0.0)
+
+        # combine final constraints and obstacle avoidance constraints
+        constraints_dparams = jnp.vstack([final_dparams, obs_dparams])
+        constraints_low = jnp.hstack([final_low, obs_low])
+        constraints_up = jnp.hstack([final_up, obs_up])
+        return constraints_dparams, constraints_low, constraints_up
+
+    @partial(jit, static_argnums=(0,))
+    def get_objective_coeffs_jax(self):
+        # See description of @get_objective_coeffs
+        S, dt = self.S, self.dt
+
+        P = jnp.zeros((n_u*S + M + 2, n_u*S + M + 2)) # (M + 2) variables for risk constraint
+        q = jnp.zeros(n_u*S + M + 2)
+        # control squared
+        for t in range(S):
+            idx = t*n_u
+            # control norm squared
+            P = P.at[idx:idx+n_u, idx:idx+n_u].set(2*dt*R)
+        # slack variable
+        P = P.at[-2, -2].set(10000.0)
+        q = q.at[-2].set(10000.0)
+        return P, q
+
+    def get_objective_coeffs(self):
+        # Returns (P, q) corresponding to objective
+        #        min (1/2 z^T P z + q^T z)
+        # where z = umat is the optimization variable.
+        P, q = self.get_objective_coeffs_jax()
+        P, q = sp.csc_matrix(np.asarray(P)), np.asarray(q)
+        return P, q
+
+    def get_constraints_coeffs(self, us_mat, scp_iter):
+        # Constraints: l <= A z <= u, with z = umat
+
+        # control constraints
+        A_con, l_con, u_con = self.get_control_constraints_coeffs_all()
+        # combined final + obstacle avoidance constraints
+        As, ls, us = self.get_all_constraints_coeffs_all(us_mat)
+
+        # Jax => numpy
+        A_con, l_con, u_con = np.asarray(A_con), np.asarray(l_con), np.asarray(u_con)
+        As, ls, us = np.copy(As), np.copy(ls), np.copy(us)
+
+        if scp_iter < 2:
+            # remove obstacle avoidance
+            As[n_x:] *= 1e-7
+            ls[n_x:] = -0.1
+            us[n_x:] = 0.1
+
+        As, A_con = sp.csr_matrix(As), sp.csr_matrix(A_con)
+        A = sp.vstack([As, A_con], format='csc')
+        l = np.hstack([ls, l_con])
+        u = np.hstack([us, u_con])
+        return A, l, u
+
+    def define_problem(self, us_mat_p, verbose=False):
+        scp_iter = 2 # make sure that the osqp problem is defined 
+                     # with collision avoidance constraints
+        # objective and constraints
+        self.P, self.q = self.get_objective_coeffs()
+        self.A, self.l, self.u = self.get_constraints_coeffs(
+            us_mat_p, scp_iter)
+        # Setup OSQP problem
+        self.osqp_prob = osqp.OSQP()
+        self.osqp_prob.setup(
+            self.P, self.q, self.A, self.l, self.u,
+            eps_abs=OSQP_TOL, eps_rel=OSQP_TOL,
+            
+            # linsys_solver="mkl pardiso",
+            warm_start=True, verbose=verbose,
+            polish=OSQP_POLISH)
+        return True
+
+    def update_problem(self, us_mat_p, scp_iter=0, verbose=False):
+        # objective and constraints
+        self.P, self.q = self.get_objective_coeffs()
+        self.A, self.l, self.u = self.get_constraints_coeffs(
+            us_mat_p, scp_iter)
+
+        # Setup OSQP problem
+        self.osqp_prob.update(l=self.l, u=self.u)
+        self.osqp_prob.update(Ax=self.A.data)
+        return True
+
+    def solve(self, verbose=True):
+        S = self.S
+
+        self.res = self.osqp_prob.solve()
+        if self.res.info.status != 'solved':
+            print("[solve]: Problem infeasible.")
+        us_sol = self.convert_us_vec_to_us_mat(self.res.x[:(n_u*S)])
+        ys, t_risk_sol = self.res.x[(n_u*S):-2], self.res.x[-1]
+        # Note: we should have yi >= 0 for all i.
+        # This may not be the case due to innaccuracies from OSQP.
+        # Polishing (polish=True) should make it always true if it works
+        # It may be easier (and faster) to pad the constraints for yi.
+        if verbose:
+            print("y_min =", np.min(ys))
+            print("slack_var =", self.res.x[-2])
+        return us_sol, t_risk_sol
+
+def L2_error_us(us_mat, us_mat_prev):
+    # us_mat - (S, n_u)
+    # us_mat_prev - (S, n_u)
+    error = np.mean(np.linalg.norm(us_mat-us_mat_prev, axis=-1))
+    error = error / np.mean(np.linalg.norm(us_mat, axis=-1))
+    return error
+

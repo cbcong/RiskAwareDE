@@ -1,0 +1,253 @@
+{
+  "status": "passed",
+  "manuscript_version": "3.1.0",
+  "figures": [
+    {
+      "figure": "1",
+      "inputs": [
+        "fig01_framework.pdf",
+        "fig01_framework.png",
+        "fig01_framework.svg"
+      ],
+      "exports": {
+        "fig01_framework.pdf": {
+          "sha256": "2e2ef972c1e2476983cc9270d4a18c9f6ce375964b6bb912fd4c7f8442af3cfa",
+          "bytes": 91025
+        },
+        "fig01_framework.png": {
+          "sha256": "286f47169e60124a8140e24b7d196464c61465ca89031240504ef99f18a82653",
+          "bytes": 140672
+        },
+        "fig01_framework.svg": {
+          "sha256": "c2bcf1ce43df870804b86369f99995a8ca3916d7e8ce382f78058e2ced698684",
+          "bytes": 13335
+        }
+      }
+    },
+    {
+      "figure": "2",
+      "inputs": [
+        "path_grid_examples.json"
+      ],
+      "exports": {
+        "fig06_path_grid.pdf": {
+          "sha256": "c5cba06ee05907e3f5aa3676a4ef74bb6654936a209e362547e730087388d818",
+          "bytes": 472366
+        },
+        "fig06_path_grid.png": {
+          "sha256": "d5f826c5baebe804339a4467a81fc459cfd73d09a72b03030391fe8291d777fe",
+          "bytes": 865238
+        },
+        "fig06_path_grid.svg": {
+          "sha256": "5507c92d1e99e750819c0a26857c4e46807b89ec0392bdde92c25268d315cf8e",
+          "bytes": 5667973
+        }
+      }
+    },
+    {
+      "figure": "3",
+      "inputs": [
+        "E_map_summary.csv",
+        "P6_map_summary.csv"
+      ],
+      "exports": {
+        "fig02_tradeoff.pdf": {
+          "sha256": "f30201d949070c25f8b6e7674277d2c3e4552859a022e8abd4fff5a6bf97396d",
+          "bytes": 78266
+        },
+        "fig02_tradeoff.png": {
+          "sha256": "164d92ccdd147e943c6c87eb6268c6358c425ce302a1d5604a9fcc978064a93b",
+          "bytes": 240957
+        },
+        "fig02_tradeoff.svg": {
+          "sha256": "575557122ee5d0c391aa468c629c3eeff4fcec6d5173c94ff7e4d1694a8bcdd0",
+          "bytes": 286735
+        }
+      }
+    },
+    {
+      "figure": "4",
+      "inputs": [
+        "P6_paired_statistics.csv"
+      ],
+      "exports": {
+        "fig03_p6_effects.pdf": {
+          "sha256": "417657f970f5f183d6580725b7b08247c91448b36765ff9ceb02107539c50f53",
+          "bytes": 42748
+        },
+        "fig03_p6_effects.png": {
+          "sha256": "aea4cb2755294454ef67eb6a30de8d83f9931ae6ee9f653702df76bf839a76f9",
+          "bytes": 89875
+        },
+        "fig03_p6_effects.svg": {
+          "sha256": "25f1906972db7155aa461ffa8d07ed2adc01d552e7e01848c439eb43363d1692",
+          "bytes": 37726
+        }
+      }
+    },
+    {
+      "figure": "5",
+      "inputs": [
+        "P0_metrics.csv",
+        "P0_estimator_summary.csv"
+      ],
+      "exports": {
+        "fig08_estimator.pdf": {
+          "sha256": "9bf0c44aa63e10b9a9d668e55d39b2262f3028f8f9047bb710e3bd034b00751a",
+          "bytes": 41153
+        },
+        "fig08_estimator.png": {
+          "sha256": "231b5569f29662cb14b32177fa52888adabd306987a4459657db2f91c4753181",
+          "bytes": 144402
+        },
+        "fig08_estimator.svg": {
+          "sha256": "5bb456f766559820352c05ea6636014d3912ecd093c7f8a239ff67ee02153fc6",
+          "bytes": 35153
+        }
+      }
+    },
+    {
+      "figure": "6",
+      "inputs": [
+        "P2_per_map.csv",
+        "P0_metrics.csv",
+        "P1_replay_rows.csv"
+      ],
+      "exports": {
+        "fig04_mechanisms.pdf": {
+          "sha256": "86a71124c58df620e021e3e79af6abf6a61b021ebf4e2045dc68c23d2dc41b44",
+          "bytes": 46617
+        },
+        "fig04_mechanisms.png": {
+          "sha256": "7e8cc113330bbee003564501d6ebdc6fda9983b63a7a16faa435a446a30a6642",
+          "bytes": 167329
+        },
+        "fig04_mechanisms.svg": {
+          "sha256": "d603a0ed8e2b76bf9dee1d759c5ae21cb599c21be5fea72b32280b9967d0beed",
+          "bytes": 55846
+        }
+      }
+    },
+    {
+      "figure": "7",
+      "inputs": [
+        "P6_terminal_traces.npz",
+        "P6_terminal_trace_provenance.csv",
+        "P6_terminal_curve_summary.csv"
+      ],
+      "exports": {
+        "fig07_convergence.pdf": {
+          "sha256": "0364e960b8cff841f7e92dabd22bf19f8a4dcb1602f380f0a2af7145fbd6525d",
+          "bytes": 58144
+        },
+        "fig07_convergence.png": {
+          "sha256": "8f188ea73287e47d578491511e94d7705ca407dbf3479738e403b8c535f4b271",
+          "bytes": 83656
+        },
+        "fig07_convergence.svg": {
+          "sha256": "8442deaa2c69d6b0512ea2817c15ee34f13ccb731bb182ec78ee0392f59bb069",
+          "bytes": 193267
+        }
+      }
+    },
+    {
+      "figure": "8",
+      "inputs": [
+        "P3_local_sensitivity_summary.csv"
+      ],
+      "exports": {
+        "fig09_sensitivity.pdf": {
+          "sha256": "db1835ae2c7e5e69435813e984278db6c537c941482b9446b917cade374ad794",
+          "bytes": 39288
+        },
+        "fig09_sensitivity.png": {
+          "sha256": "c08ac4851db5a4171d34f7b1c0c29320eae7a92c23f4d36b0abb23339080367e",
+          "bytes": 110557
+        },
+        "fig09_sensitivity.svg": {
+          "sha256": "a4a355f3227847c9706e037e26086875e06cedc20e4a1d1990e6f4b903b60b4e",
+          "bytes": 22484
+        }
+      }
+    },
+    {
+      "figure": "9",
+      "inputs": [
+        "E_run_rows.csv",
+        "P6_run_rows.csv"
+      ],
+      "exports": {
+        "fig05_generalization.pdf": {
+          "sha256": "fcc981f57dc94e4e5de64191f11e64e21420fe750ffc0bf531cf18befadb120d",
+          "bytes": 56389
+        },
+        "fig05_generalization.png": {
+          "sha256": "faf5ba6edf3895e31ca3f6c60623a86c337fb4e6bf641d830fd5f2f541cdc513",
+          "bytes": 184637
+        },
+        "fig05_generalization.svg": {
+          "sha256": "e3a309a67dbbee9f51998579b25b60f763faadaed44c618da3434807f51a0bfd",
+          "bytes": 79650
+        }
+      }
+    },
+    {
+      "figure": "s1",
+      "inputs": [
+        "E_map_summary.csv",
+        "P6_map_summary.csv"
+      ],
+      "exports": {
+        "figS01_map_heatmap.pdf": {
+          "sha256": "122cf3cdd48fdd965d38f37a11e6aa953c3c81c1a87d3d3662f21ebf0b1449d9",
+          "bytes": 27387
+        },
+        "figS01_map_heatmap.png": {
+          "sha256": "459a1dbe1524c67d046ec19de73287712e244545d40ec434e7104368a74034e3",
+          "bytes": 925894
+        },
+        "figS01_map_heatmap.svg": {
+          "sha256": "1e8b5e3ce6d306ed0de862364a17bf73d3c71b2a1ab93b6eca8b604fdbb236df",
+          "bytes": 133730
+        }
+      }
+    }
+  ],
+  "input_directory": "D:\\WorkSpace\\pycharm\\uav_path_planning\\outputs\\fixed_env_20261016\\paper_inputs",
+  "fresh_run_inputs": true,
+  "input_hashes": {
+    "E_map_summary.csv": "09b195d00c1a0541a61a421b4187864366f673b6c66ad05b3c445564ebd6f7b1",
+    "E_run_rows.csv": "26c6523a82a19215fdcdf9b4d6ae608908cd715a3087540596bbd41ae425505d",
+    "P0_estimator_summary.csv": "0971acf4900b11d81fc544840e48f096aca19947063d4daeab7b0e8c95652238",
+    "P0_metrics.csv": "04ad8c6df28eab0a0fadd70ddde8f8aa4b89da9c1d6e6f2bd777c050ee332152",
+    "P1_replay_rows.csv": "89e4c8c08c21e266efa79089d99035030e214308fb783bed2fa6f3d17c49bac9",
+    "P2_per_map.csv": "50500b1b5d70078867f079ca31cf0067f9d13813812902e7a33e76adbbe601f0",
+    "P3_local_sensitivity_summary.csv": "7123a45ee22f36cd37cc938bc3b71d606e3990041291ffa93892a6fc2d2a6bcf",
+    "P6_map_summary.csv": "7e8843c0892282179737574317c4b79a384386ed82808ba1e96312688dfe25fb",
+    "P6_paired_statistics.csv": "c15b30fe7faaddc1932eeac3db2159bb63e26c1811782943d6894970d7223c6d",
+    "P6_run_rows.csv": "46b36a8d964ce77deb0ba5f0c0846c54c4167e597430b31bad05ef057ea11753",
+    "P6_terminal_curve_summary.csv": "1898d261ac3c3916917decb46c8f1eb435e83d2786a25bb824ea8e0e6ec3216b",
+    "P6_terminal_trace_provenance.csv": "9f98faa473ccdaa418e281a52a7ef19c11cd4b2966f6241b204417afbb0bcf9f",
+    "P6_terminal_traces.npz": "7d965619c1aed83490d98e90a95a87c93d7b3af0f26fa69c94ea6e45f779f64c",
+    "fig01_framework.pdf": "2e2ef972c1e2476983cc9270d4a18c9f6ce375964b6bb912fd4c7f8442af3cfa",
+    "fig01_framework.png": "286f47169e60124a8140e24b7d196464c61465ca89031240504ef99f18a82653",
+    "fig01_framework.svg": "c2bcf1ce43df870804b86369f99995a8ca3916d7e8ce382f78058e2ced698684",
+    "path_grid_examples.json": "b971316717ed6387ef8334def93530ac4bf4dfc6200f323c9d81b39a8d34c5eb"
+  },
+  "source_hashes": {
+    "estimator_sensitivity.py": "93a155cea86f3d4f54f458fcd9b267d96eb4ef7951231f0e39b3ff03e62b6e6e",
+    "map_heatmap.py": "b679767a6eb3a91744a0d4cca90a1870625cb02b6f3b76844d612ef5a39c2540",
+    "paths_3d.py": "8de020d822e07a47d1b65dbc8130e7c418e6f9b5ffa67e9f896dee5f0205e46f",
+    "render.py": "3ff6fa0f90034857998b8cbdde4f1ecb11cd272efb2aec9adf2e24fb6c395825",
+    "statistical.py": "847ff276cba0bae2664e1b488095f2d918b5babbd2119d1a52f9816d7f8d88c1"
+  },
+  "input_files_unchanged": true,
+  "python": "3.12.4 (tags/v3.12.4:8e8a4ba, Jun  6 2024, 19:30:16) [MSC v.1940 64 bit (AMD64)]",
+  "figure7_band_alpha": 0.3,
+  "figure9_background_grid": false,
+  "panel_labels": "below each panel; metric labels combined where appropriate",
+  "caption_axis_context": {
+    "3": "Horizontal axis: mean feasible path length (scenario units).",
+    "7": "Horizontal axis: terminal objective evaluations."
+  }
+}

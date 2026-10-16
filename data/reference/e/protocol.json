@@ -1,0 +1,3690 @@
+{
+  "protocol_version": "paper-matched-soft050-v1",
+  "profile": "manuscript",
+  "smoke_test": false,
+  "methods": {
+    "full": {
+      "category": "reference",
+      "label": "锁定主方法：soft_beta050（软风险 + 条件风险 + 切向精修）",
+      "kind": "soft_projected",
+      "options": {
+        "reserve_fraction": 0.2,
+        "active_margin": 0.02,
+        "initial_step": 0.03,
+        "axis": 2,
+        "global_method": "risk_de",
+        "projection": "tangent",
+        "risk_estimator": "conditional",
+        "max_line_steps": 1,
+        "beta": 0.05
+      },
+      "risk_estimator": "conditional-z",
+      "adaptation": "locked main method; fixed gate; beta=.05; original terminal polish"
+    },
+    "bare_de": {
+      "category": "E1",
+      "label": "DE",
+      "kind": "bare",
+      "family": "de",
+      "risk_estimator": null
+    },
+    "risk_de": {
+      "category": "E2",
+      "label": "DE + 条件风险（软风险权重与主方法一致）",
+      "kind": "paper_matched",
+      "family": "de",
+      "risk_estimator": "conditional-z",
+      "options": {
+        "axis": 2,
+        "beta": 0.05,
+        "family": "de",
+        "experiment_kind": "risk_baseline"
+      },
+      "adaptation": "same conditional estimator/gate/within-gate soft cost; native optimizer; exact shared archive key; outside-gate scalar adapter"
+    },
+    "risk_polish_de": {
+      "category": "E3",
+      "label": "DE + 条件风险 + 切向精修（软风险权重与主方法一致）",
+      "kind": "paper_matched",
+      "options": {
+        "reserve_fraction": 0.2,
+        "active_margin": 0.02,
+        "initial_step": 0.03,
+        "axis": 2,
+        "projection": "tangent",
+        "max_line_steps": 1,
+        "beta": 0.05,
+        "family": "de",
+        "experiment_kind": "projected_baseline"
+      },
+      "risk_estimator": "conditional-z",
+      "adaptation": "same conditional estimator/gate/within-gate soft cost; native optimizer; exact shared archive key; outside-gate scalar adapter"
+    },
+    "bare_jade": {
+      "category": "E1",
+      "label": "JADE",
+      "kind": "bare",
+      "family": "jade",
+      "risk_estimator": null
+    },
+    "risk_jade": {
+      "category": "E2",
+      "label": "JADE + 条件风险（软风险权重与主方法一致）",
+      "kind": "paper_matched",
+      "family": "jade",
+      "risk_estimator": "conditional-z",
+      "options": {
+        "axis": 2,
+        "beta": 0.05,
+        "family": "jade",
+        "experiment_kind": "risk_baseline"
+      },
+      "adaptation": "same conditional estimator/gate/within-gate soft cost; native optimizer; exact shared archive key; outside-gate scalar adapter"
+    },
+    "risk_polish_jade": {
+      "category": "E3",
+      "label": "JADE + 条件风险 + 切向精修（软风险权重与主方法一致）",
+      "kind": "paper_matched",
+      "options": {
+        "reserve_fraction": 0.2,
+        "active_margin": 0.02,
+        "initial_step": 0.03,
+        "axis": 2,
+        "projection": "tangent",
+        "max_line_steps": 1,
+        "beta": 0.05,
+        "family": "jade",
+        "experiment_kind": "projected_baseline"
+      },
+      "risk_estimator": "conditional-z",
+      "adaptation": "same conditional estimator/gate/within-gate soft cost; native optimizer; exact shared archive key; outside-gate scalar adapter"
+    },
+    "bare_shade": {
+      "category": "E1",
+      "label": "SHADE",
+      "kind": "bare",
+      "family": "shade",
+      "risk_estimator": null
+    },
+    "risk_shade": {
+      "category": "E2",
+      "label": "SHADE + 条件风险（软风险权重与主方法一致）",
+      "kind": "paper_matched",
+      "family": "shade",
+      "risk_estimator": "conditional-z",
+      "options": {
+        "axis": 2,
+        "beta": 0.05,
+        "family": "shade",
+        "experiment_kind": "risk_baseline"
+      },
+      "adaptation": "same conditional estimator/gate/within-gate soft cost; native optimizer; exact shared archive key; outside-gate scalar adapter"
+    },
+    "risk_polish_shade": {
+      "category": "E3",
+      "label": "SHADE + 条件风险 + 切向精修（软风险权重与主方法一致）",
+      "kind": "paper_matched",
+      "options": {
+        "reserve_fraction": 0.2,
+        "active_margin": 0.02,
+        "initial_step": 0.03,
+        "axis": 2,
+        "projection": "tangent",
+        "max_line_steps": 1,
+        "beta": 0.05,
+        "family": "shade",
+        "experiment_kind": "projected_baseline"
+      },
+      "risk_estimator": "conditional-z",
+      "adaptation": "same conditional estimator/gate/within-gate soft cost; native optimizer; exact shared archive key; outside-gate scalar adapter"
+    },
+    "bare_lshade": {
+      "category": "E1",
+      "label": "L-SHADE",
+      "kind": "bare",
+      "family": "lshade",
+      "risk_estimator": null
+    },
+    "risk_lshade": {
+      "category": "E2",
+      "label": "L-SHADE + 条件风险（软风险权重与主方法一致）",
+      "kind": "paper_matched",
+      "family": "lshade",
+      "risk_estimator": "conditional-z",
+      "options": {
+        "axis": 2,
+        "beta": 0.05,
+        "family": "lshade",
+        "experiment_kind": "risk_baseline"
+      },
+      "adaptation": "same conditional estimator/gate/within-gate soft cost; native optimizer; exact shared archive key; outside-gate scalar adapter"
+    },
+    "risk_polish_lshade": {
+      "category": "E3",
+      "label": "L-SHADE + 条件风险 + 切向精修（软风险权重与主方法一致）",
+      "kind": "paper_matched",
+      "options": {
+        "reserve_fraction": 0.2,
+        "active_margin": 0.02,
+        "initial_step": 0.03,
+        "axis": 2,
+        "projection": "tangent",
+        "max_line_steps": 1,
+        "beta": 0.05,
+        "family": "lshade",
+        "experiment_kind": "projected_baseline"
+      },
+      "risk_estimator": "conditional-z",
+      "adaptation": "same conditional estimator/gate/within-gate soft cost; native optimizer; exact shared archive key; outside-gate scalar adapter"
+    },
+    "bare_pso": {
+      "category": "E1",
+      "label": "PSO",
+      "kind": "bare",
+      "family": "pso",
+      "risk_estimator": null
+    },
+    "risk_pso": {
+      "category": "E2",
+      "label": "PSO + 条件风险（软风险权重与主方法一致）",
+      "kind": "paper_matched",
+      "family": "pso",
+      "risk_estimator": "conditional-z",
+      "options": {
+        "axis": 2,
+        "beta": 0.05,
+        "family": "pso",
+        "experiment_kind": "risk_baseline"
+      },
+      "adaptation": "same conditional estimator/gate/within-gate soft cost; native optimizer; exact shared archive key; outside-gate scalar adapter"
+    },
+    "risk_polish_pso": {
+      "category": "E3",
+      "label": "PSO + 条件风险 + 切向精修（软风险权重与主方法一致）",
+      "kind": "paper_matched",
+      "options": {
+        "reserve_fraction": 0.2,
+        "active_margin": 0.02,
+        "initial_step": 0.03,
+        "axis": 2,
+        "projection": "tangent",
+        "max_line_steps": 1,
+        "beta": 0.05,
+        "family": "pso",
+        "experiment_kind": "projected_baseline"
+      },
+      "risk_estimator": "conditional-z",
+      "adaptation": "same conditional estimator/gate/within-gate soft cost; native optimizer; exact shared archive key; outside-gate scalar adapter"
+    },
+    "no_terminal_polish": {
+      "category": "E4",
+      "label": "完整方法去掉末端精修",
+      "kind": "paper_matched",
+      "risk_estimator": "conditional-z",
+      "options": {
+        "experiment_kind": "no_terminal",
+        "axis": 2,
+        "beta": 0.05
+      },
+      "adaptation": "main global search at full 820 NFE, including beta=.05; no terminal allocation"
+    },
+    "no_risk": {
+      "category": "E5",
+      "label": "完整方法去掉全部风险处理",
+      "kind": "no_risk",
+      "risk_estimator": null,
+      "adaptation": "nominal-success; nominal length polish; no perturbation checks",
+      "options": {
+        "reserve_fraction": 0.2,
+        "initial_step": 0.03,
+        "max_line_steps": 1
+      }
+    },
+    "binary_risk": {
+      "category": "E6",
+      "label": "完整方法改用普通IID风险采样",
+      "kind": "paper_matched",
+      "options": {
+        "reserve_fraction": 0.2,
+        "active_margin": 0.02,
+        "initial_step": 0.03,
+        "axis": 2,
+        "projection": "tangent",
+        "max_line_steps": 1,
+        "beta": 0.05,
+        "experiment_kind": "binary"
+      },
+      "risk_estimator": "binary-IID",
+      "adaptation": "only replace conditional estimator by binary IID; beta and finite-difference terminal preserved; includes estimator-terminal interaction"
+    },
+    "bare_astar": {
+      "category": "E1-reference",
+      "label": "A* 3D（单独几何参照）",
+      "kind": "astar",
+      "risk_estimator": null,
+      "deterministic": true
+    },
+    "nominal_search": {
+      "category": "E0",
+      "label": "仅全局搜索（保留内部捷径）",
+      "kind": "nominal_search",
+      "risk_estimator": null,
+      "adaptation": "nominal-success; internal shortcut retained; no terminal polish"
+    }
+  },
+  "categories": {
+    "E0": {
+      "label": "搜索底座诊断（保留内部几何捷径；无风险处理、无末端精修）",
+      "reference": "nominal_search",
+      "comparators": [
+        "bare_de",
+        "bare_jade",
+        "bare_shade",
+        "bare_lshade",
+        "bare_pso",
+        "bare_astar"
+      ]
+    },
+    "E1": {
+      "label": "完整方法与普通基线",
+      "reference": "full",
+      "comparators": [
+        "bare_de",
+        "bare_jade",
+        "bare_shade",
+        "bare_lshade",
+        "bare_pso",
+        "bare_astar"
+      ]
+    },
+    "E2": {
+      "label": "相同条件风险对照",
+      "reference": "full",
+      "comparators": [
+        "risk_de",
+        "risk_jade",
+        "risk_shade",
+        "risk_lshade",
+        "risk_pso"
+      ]
+    },
+    "E3": {
+      "label": "相同条件风险加相同末端精修",
+      "reference": "full",
+      "comparators": [
+        "risk_polish_de",
+        "risk_polish_jade",
+        "risk_polish_shade",
+        "risk_polish_lshade",
+        "risk_polish_pso"
+      ]
+    },
+    "E4": {
+      "label": "去掉末端精修",
+      "reference": "full",
+      "comparators": [
+        "no_terminal_polish"
+      ]
+    },
+    "E5": {
+      "label": "去掉全部风险处理",
+      "reference": "full",
+      "comparators": [
+        "no_risk"
+      ]
+    },
+    "E6": {
+      "label": "条件估计替换为普通 IID",
+      "reference": "full",
+      "comparators": [
+        "binary_risk"
+      ]
+    }
+  },
+  "benchmark_config": {
+    "seeds": [
+      9,
+      10,
+      11,
+      12,
+      13,
+      14,
+      15,
+      16,
+      17,
+      18,
+      19,
+      20,
+      21,
+      22,
+      23,
+      24,
+      25,
+      26,
+      27,
+      28
+    ],
+    "intermediate_waypoints": 3,
+    "segment_step": 0.5,
+    "grid_resolution": 1.0,
+    "de_population": 20,
+    "de_generations": 40,
+    "de_max_evaluations": 820,
+    "jade_population": 20,
+    "jade_generations": 40,
+    "shade_population": 20,
+    "shade_generations": 40,
+    "jade_max_evaluations": 820,
+    "shade_max_evaluations": 820,
+    "lshade_population": 20,
+    "lshade_min_population": 4,
+    "lshade_generations": 40,
+    "lshade_max_evaluations": 820,
+    "pso_particles": 20,
+    "pso_iterations": 40,
+    "pso_max_evaluations": 820,
+    "adaptive_population": 20,
+    "adaptive_generations": 40,
+    "adaptive_mutation_factor": 0.7,
+    "adaptive_crossover_rate": 0.9,
+    "adaptive_p_best_rate": 0.2,
+    "adaptive_diversity_threshold": 0.08,
+    "adaptive_stagnation_generations": 12,
+    "adaptive_restart_fraction": 0.25,
+    "adaptive_max_evaluations": 820,
+    "uad_difficulty_gain": 0.8,
+    "uad_uncertainty_sigma": 1.0,
+    "uad_risk_sampling_step": 1.0,
+    "uad_risk_gate": 0.1,
+    "uad_collision_risk_weight": 0.75,
+    "uad_clearance_risk_weight": 0.25,
+    "uad_max_evaluations": null,
+    "risk_aware_population": 20,
+    "risk_aware_generations": 40,
+    "risk_aware_max_evaluations": 820,
+    "risk_aware_perturbation_sigma": 0.6,
+    "risk_aware_perturbation_sigmas": null,
+    "risk_aware_perturbation_samples": 16,
+    "risk_aware_risk_aggregation": "pooled",
+    "risk_aware_chance_alpha": 0.1,
+    "risk_aware_perturbation_seed": 6301,
+    "risk_aware_selection_mode": "risk_budgeted",
+    "risk_aware_gate_schedule": "fixed",
+    "risk_aware_gate_start": null,
+    "risk_aware_tradeoff": 0.0,
+    "risk_aware_nominal_tolerance": 0.0,
+    "risk_aware_mutation_strategy": "current_to_pbest1",
+    "risk_aware_p_best_rate": 0.15,
+    "risk_aware_pbest_selection": "risk_first",
+    "risk_aware_pbest_length_fraction": 0.5,
+    "risk_aware_archive_size": 0,
+    "risk_aware_parameter_adaptation": "risk_success",
+    "risk_aware_adaptation_learning_rate": 0.1,
+    "risk_aware_skip_risk_for_nominal_infeasible": false,
+    "risk_aware_local_refinement": true,
+    "risk_aware_local_refinement_probability": 0.7,
+    "risk_aware_local_refinement_scale": 0.7,
+    "risk_aware_local_refinement_min_scale": 0.05,
+    "risk_aware_local_refinement_shrink": 0.5,
+    "risk_aware_local_refinement_grow": 1.2,
+    "risk_aware_local_refinement_mode": "partial_shortcut",
+    "collision_penalty": 10000.0,
+    "safety_margin": 0.0
+  },
+  "map_roots": [
+    20260923,
+    20261005
+  ],
+  "planner_seeds": [
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15,
+    16,
+    17,
+    18,
+    19,
+    20,
+    21,
+    22,
+    23,
+    24,
+    25,
+    26,
+    27,
+    28
+  ],
+  "scenarios": {
+    "20260923": [
+      {
+        "name": "research_clutter_04",
+        "bounds": {
+          "minimum": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "maximum": [
+            20.0,
+            20.0,
+            10.0
+          ]
+        },
+        "obstacles": [
+          {
+            "minimum": [
+              8.140004616684038,
+              8.171339068322137,
+              2.9107138132273698
+            ],
+            "maximum": [
+              11.55042111656536,
+              11.519086664927261,
+              5.636883829608979
+            ]
+          },
+          {
+            "minimum": [
+              4.646376062297092,
+              7.421365898825712,
+              0.30323041994589506
+            ],
+            "maximum": [
+              7.332325598018413,
+              8.432238676540951,
+              4.629526191411337
+            ]
+          },
+          {
+            "minimum": [
+              8.022438475733152,
+              8.183026909665651,
+              1.4917431868882307
+            ],
+            "maximum": [
+              9.390602268449912,
+              10.154132596655213,
+              2.623525235136115
+            ]
+          },
+          {
+            "minimum": [
+              15.438181547999601,
+              8.837326549226317,
+              1.038129479140913
+            ],
+            "maximum": [
+              17.545347836061527,
+              11.439024292533178,
+              6.5323197215717
+            ]
+          },
+          {
+            "minimum": [
+              10.470227343731782,
+              13.533902472392525,
+              0.7459229647473993
+            ],
+            "maximum": [
+              12.970465778629633,
+              16.198709757231377,
+              4.626930748396775
+            ]
+          },
+          {
+            "minimum": [
+              4.257731547757782,
+              13.958219792227615,
+              1.040255838766225
+            ],
+            "maximum": [
+              6.409146843914624,
+              16.635070909497152,
+              2.725529936548823
+            ]
+          },
+          {
+            "minimum": [
+              14.55178796309392,
+              12.77481665824558,
+              0.516285248632385
+            ],
+            "maximum": [
+              16.3981481883771,
+              14.28531962961391,
+              5.465625965535269
+            ]
+          },
+          {
+            "minimum": [
+              12.1001051078086,
+              11.020063902402576,
+              0.683552526926325
+            ],
+            "maximum": [
+              13.727423501297423,
+              13.218579742465803,
+              5.076906437512604
+            ]
+          },
+          {
+            "minimum": [
+              14.451217616254308,
+              11.676798677864996,
+              0.8300445835767247
+            ],
+            "maximum": [
+              15.979923149101667,
+              13.376512127246205,
+              5.03738331116212
+            ]
+          },
+          {
+            "minimum": [
+              15.781793184488603,
+              5.430757535428766,
+              1.2485536439825844
+            ],
+            "maximum": [
+              17.011609886785198,
+              8.141131201614048,
+              2.778941003137769
+            ]
+          }
+        ],
+        "start": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "goal": [
+          19.0,
+          19.0,
+          8.0
+        ],
+        "metadata": {
+          "generator": "research-scenarios-v1",
+          "rootseed": 20260923,
+          "mapseed": 533118657,
+          "family": "clutter",
+          "family_index": 4,
+          "obstacle_count": 10,
+          "straight_line_blocked_by_construction": true,
+          "high_corridor_max_obstacle_z": 7.0
+        }
+      },
+      {
+        "name": "research_clutter_05",
+        "bounds": {
+          "minimum": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "maximum": [
+            20.0,
+            20.0,
+            10.0
+          ]
+        },
+        "obstacles": [
+          {
+            "minimum": [
+              7.827230083160064,
+              8.173721528096541,
+              2.938776958637311
+            ],
+            "maximum": [
+              10.536799589374546,
+              10.190308144438069,
+              5.542080858366645
+            ]
+          },
+          {
+            "minimum": [
+              10.212013648742289,
+              12.091890807480967,
+              1.6342895994376676
+            ],
+            "maximum": [
+              12.218556154317863,
+              14.683875718915065,
+              5.017374450755051
+            ]
+          },
+          {
+            "minimum": [
+              13.897590683076116,
+              6.434783081695089,
+              0.8922823198224741
+            ],
+            "maximum": [
+              16.211326339114812,
+              8.503264252129387,
+              4.076624844948032
+            ]
+          },
+          {
+            "minimum": [
+              7.913200625920558,
+              4.998907527457548,
+              1.210818534108648
+            ],
+            "maximum": [
+              8.986675247582841,
+              6.162362843582135,
+              6.252911881813865
+            ]
+          },
+          {
+            "minimum": [
+              10.251917008550864,
+              14.481854788129825,
+              1.312393117051832
+            ],
+            "maximum": [
+              11.613425103502312,
+              16.616644326918436,
+              5.5817756505578195
+            ]
+          },
+          {
+            "minimum": [
+              9.577740676743462,
+              13.847057966852313,
+              0.7168953262095648
+            ],
+            "maximum": [
+              11.80676401186636,
+              15.22104233391617,
+              2.8417241158063806
+            ]
+          },
+          {
+            "minimum": [
+              12.065501566739961,
+              7.601719994194246,
+              1.340695753119732
+            ],
+            "maximum": [
+              13.63260372922975,
+              9.215967059007657,
+              4.963234158767693
+            ]
+          },
+          {
+            "minimum": [
+              12.657900584420473,
+              10.390146451364759,
+              1.5850006493252398
+            ],
+            "maximum": [
+              15.066517346066703,
+              11.758554686027306,
+              2.2650709137872798
+            ]
+          },
+          {
+            "minimum": [
+              15.280667804045079,
+              10.266431349865629,
+              0.4947974039008092
+            ],
+            "maximum": [
+              17.59489172831801,
+              11.311705870723237,
+              4.4750996700708106
+            ]
+          }
+        ],
+        "start": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "goal": [
+          19.0,
+          19.0,
+          8.0
+        ],
+        "metadata": {
+          "generator": "research-scenarios-v1",
+          "rootseed": 20260923,
+          "mapseed": 1454579940,
+          "family": "clutter",
+          "family_index": 5,
+          "obstacle_count": 9,
+          "straight_line_blocked_by_construction": true,
+          "high_corridor_max_obstacle_z": 7.0
+        }
+      },
+      {
+        "name": "research_clutter_06",
+        "bounds": {
+          "minimum": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "maximum": [
+            20.0,
+            20.0,
+            10.0
+          ]
+        },
+        "obstacles": [
+          {
+            "minimum": [
+              5.7051272253167555,
+              6.428041896429758,
+              1.9396011176627053
+            ],
+            "maximum": [
+              9.154152863964281,
+              8.431238192851279,
+              5.092890116813059
+            ]
+          },
+          {
+            "minimum": [
+              6.406845026594601,
+              11.50347686271602,
+              0.48477608070365225
+            ],
+            "maximum": [
+              8.515450823745443,
+              14.2586783606831,
+              2.6115771039011557
+            ]
+          },
+          {
+            "minimum": [
+              3.9339989529187216,
+              8.410401360915454,
+              1.4525917330978682
+            ],
+            "maximum": [
+              6.449360598786598,
+              10.484487008253048,
+              2.516384008696109
+            ]
+          },
+          {
+            "minimum": [
+              7.135438402841093,
+              9.099438646219035,
+              1.324530331731551
+            ],
+            "maximum": [
+              9.216199626193733,
+              11.007009120122381,
+              2.094096533927753
+            ]
+          },
+          {
+            "minimum": [
+              6.37585308463756,
+              6.100354718266326,
+              0.4842269300767562
+            ],
+            "maximum": [
+              8.582464540036352,
+              8.035314921787691,
+              3.242397650059491
+            ]
+          },
+          {
+            "minimum": [
+              5.905234868899209,
+              12.11782606663246,
+              1.2273244368994813
+            ],
+            "maximum": [
+              8.096896170081365,
+              14.050539962646692,
+              4.104053320732461
+            ]
+          },
+          {
+            "minimum": [
+              3.7756105063878143,
+              9.667535828375083,
+              1.4180857035699856
+            ],
+            "maximum": [
+              5.310954015807946,
+              10.697873198051356,
+              2.789213587700334
+            ]
+          },
+          {
+            "minimum": [
+              8.266780668129133,
+              7.040849243885619,
+              1.0329745600406521
+            ],
+            "maximum": [
+              9.72784871178499,
+              8.71101864081956,
+              2.9870520455658447
+            ]
+          }
+        ],
+        "start": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "goal": [
+          19.0,
+          19.0,
+          8.0
+        ],
+        "metadata": {
+          "generator": "research-scenarios-v1",
+          "rootseed": 20260923,
+          "mapseed": 3703598416,
+          "family": "clutter",
+          "family_index": 6,
+          "obstacle_count": 8,
+          "straight_line_blocked_by_construction": true,
+          "high_corridor_max_obstacle_z": 7.0
+        }
+      },
+      {
+        "name": "research_clutter_07",
+        "bounds": {
+          "minimum": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "maximum": [
+            20.0,
+            20.0,
+            10.0
+          ]
+        },
+        "obstacles": [
+          {
+            "minimum": [
+              6.1665291063054735,
+              6.80516751032847,
+              2.5368155632646228
+            ],
+            "maximum": [
+              9.480203993865318,
+              8.841565589842322,
+              4.846897649206287
+            ]
+          },
+          {
+            "minimum": [
+              13.216072157320774,
+              13.307912092638425,
+              0.8553479746806771
+            ],
+            "maximum": [
+              15.760403355616369,
+              15.179214528696303,
+              3.2276588352079507
+            ]
+          },
+          {
+            "minimum": [
+              14.846970931810695,
+              10.192351090139306,
+              0.36354975590160543
+            ],
+            "maximum": [
+              16.208818165119034,
+              11.358262460722012,
+              5.586206135008528
+            ]
+          },
+          {
+            "minimum": [
+              14.675799490498981,
+              5.14530027519924,
+              0.4626681062019012
+            ],
+            "maximum": [
+              17.347404937568577,
+              7.147692346168986,
+              5.063814380603338
+            ]
+          },
+          {
+            "minimum": [
+              14.2552278841831,
+              3.7421186498855605,
+              1.3412952369928788
+            ],
+            "maximum": [
+              15.780598394436684,
+              6.113175998932158,
+              2.9700252156428117
+            ]
+          },
+          {
+            "minimum": [
+              15.271703704266875,
+              5.325454406396031,
+              0.5611308570495801
+            ],
+            "maximum": [
+              16.97940416561507,
+              6.712326611681114,
+              3.500353694079254
+            ]
+          },
+          {
+            "minimum": [
+              13.643807705398759,
+              15.249119953442209,
+              1.2115279874331828
+            ],
+            "maximum": [
+              16.140041311644897,
+              17.736865254949013,
+              4.245490023155384
+            ]
+          },
+          {
+            "minimum": [
+              11.853379120767054,
+              15.392604087149516,
+              1.3497393921528897
+            ],
+            "maximum": [
+              13.808439089030564,
+              17.45297579593656,
+              2.0213542305081886
+            ]
+          },
+          {
+            "minimum": [
+              14.716691803038572,
+              7.647922476249036,
+              0.40005225171016523
+            ],
+            "maximum": [
+              16.582675600809942,
+              8.830980952237757,
+              5.94341635124684
+            ]
+          }
+        ],
+        "start": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "goal": [
+          19.0,
+          19.0,
+          8.0
+        ],
+        "metadata": {
+          "generator": "research-scenarios-v1",
+          "rootseed": 20260923,
+          "mapseed": 567912595,
+          "family": "clutter",
+          "family_index": 7,
+          "obstacle_count": 9,
+          "straight_line_blocked_by_construction": true,
+          "high_corridor_max_obstacle_z": 7.0
+        }
+      },
+      {
+        "name": "research_urban_04",
+        "bounds": {
+          "minimum": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "maximum": [
+            20.0,
+            20.0,
+            10.0
+          ]
+        },
+        "obstacles": [
+          {
+            "minimum": [
+              10.820236619985033,
+              10.333484743419774,
+              4.091759649475755
+            ],
+            "maximum": [
+              12.93644779569581,
+              13.42319967226107,
+              6.510968682027465
+            ]
+          },
+          {
+            "minimum": [
+              14.624264239891753,
+              8.225644297631662,
+              0.0
+            ],
+            "maximum": [
+              16.56628331999264,
+              10.762661080273624,
+              5.77296369564071
+            ]
+          },
+          {
+            "minimum": [
+              8.711926056998827,
+              9.290192984343072,
+              0.0
+            ],
+            "maximum": [
+              11.04116803817602,
+              11.288531774738793,
+              4.753030976481639
+            ]
+          },
+          {
+            "minimum": [
+              13.547673679403173,
+              13.761270136482462,
+              0.0
+            ],
+            "maximum": [
+              16.24605466652857,
+              15.732142921354747,
+              3.7831460105284083
+            ]
+          },
+          {
+            "minimum": [
+              13.131983670594597,
+              4.4213041947982905,
+              0.0
+            ],
+            "maximum": [
+              15.69449359984444,
+              6.135459047555497,
+              5.646902283148517
+            ]
+          },
+          {
+            "minimum": [
+              4.087098099056302,
+              13.328251230058783,
+              0.0
+            ],
+            "maximum": [
+              6.281928357125024,
+              15.999231887896705,
+              3.78247530741893
+            ]
+          },
+          {
+            "minimum": [
+              8.870333746165318,
+              13.711711948630844,
+              0.0
+            ],
+            "maximum": [
+              10.844022064728303,
+              15.897491684763578,
+              5.569600948649898
+            ]
+          },
+          {
+            "minimum": [
+              4.187507289427509,
+              4.293966699905982,
+              0.0
+            ],
+            "maximum": [
+              6.955161673716597,
+              6.287588349849817,
+              5.12420940762808
+            ]
+          }
+        ],
+        "start": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "goal": [
+          19.0,
+          19.0,
+          8.0
+        ],
+        "metadata": {
+          "generator": "research-scenarios-v1",
+          "rootseed": 20260923,
+          "mapseed": 159033903,
+          "family": "urban",
+          "family_index": 4,
+          "obstacle_count": 8,
+          "straight_line_blocked_by_construction": true,
+          "high_corridor_max_obstacle_z": 7.0
+        }
+      },
+      {
+        "name": "research_urban_05",
+        "bounds": {
+          "minimum": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "maximum": [
+            20.0,
+            20.0,
+            10.0
+          ]
+        },
+        "obstacles": [
+          {
+            "minimum": [
+              8.003285820474694,
+              7.440130015763509,
+              2.471790882880476
+            ],
+            "maximum": [
+              10.08236043013326,
+              10.645516234844447,
+              5.158936678137257
+            ]
+          },
+          {
+            "minimum": [
+              8.845873648843192,
+              14.009365970484046,
+              0.0
+            ],
+            "maximum": [
+              10.890020065500915,
+              16.211274000983995,
+              5.02087986536046
+            ]
+          },
+          {
+            "minimum": [
+              14.318728764880623,
+              3.652895679991138,
+              0.0
+            ],
+            "maximum": [
+              16.87380677564923,
+              6.336576742662336,
+              3.5984161187362704
+            ]
+          },
+          {
+            "minimum": [
+              3.9156888938945773,
+              4.2048265009587595,
+              0.0
+            ],
+            "maximum": [
+              6.616919618835784,
+              6.414127588139152,
+              4.826428425564867
+            ]
+          },
+          {
+            "minimum": [
+              14.703252695807597,
+              13.555761549634774,
+              0.0
+            ],
+            "maximum": [
+              16.4540816903155,
+              16.14867849217128,
+              3.5606169770392078
+            ]
+          },
+          {
+            "minimum": [
+              8.477459838153381,
+              3.939625651645782,
+              0.0
+            ],
+            "maximum": [
+              11.21351046636337,
+              6.300681498042104,
+              6.563904152526555
+            ]
+          },
+          {
+            "minimum": [
+              3.5834468115259095,
+              9.025382478019665,
+              0.0
+            ],
+            "maximum": [
+              5.872274005686874,
+              10.806046729465518,
+              6.373531734675352
+            ]
+          }
+        ],
+        "start": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "goal": [
+          19.0,
+          19.0,
+          8.0
+        ],
+        "metadata": {
+          "generator": "research-scenarios-v1",
+          "rootseed": 20260923,
+          "mapseed": 1898983216,
+          "family": "urban",
+          "family_index": 5,
+          "obstacle_count": 7,
+          "straight_line_blocked_by_construction": true,
+          "high_corridor_max_obstacle_z": 7.0
+        }
+      },
+      {
+        "name": "research_urban_06",
+        "bounds": {
+          "minimum": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "maximum": [
+            20.0,
+            20.0,
+            10.0
+          ]
+        },
+        "obstacles": [
+          {
+            "minimum": [
+              10.228864355735453,
+              10.22279442588227,
+              3.295269976520909
+            ],
+            "maximum": [
+              12.791097169591918,
+              12.797167099445101,
+              6.753526185754456
+            ]
+          },
+          {
+            "minimum": [
+              3.5411671316673856,
+              13.992634430366595,
+              0.0
+            ],
+            "maximum": [
+              6.195483622532201,
+              16.401186080917206,
+              5.399927110721351
+            ]
+          },
+          {
+            "minimum": [
+              8.964575653939539,
+              3.271379988202791,
+              0.0
+            ],
+            "maximum": [
+              11.123030970911438,
+              5.612468330397525,
+              5.107123586337565
+            ]
+          },
+          {
+            "minimum": [
+              14.465406526807733,
+              13.7099649410382,
+              0.0
+            ],
+            "maximum": [
+              16.687900925632576,
+              15.731175292059977,
+              6.732054662696379
+            ]
+          },
+          {
+            "minimum": [
+              8.61206724733974,
+              9.277637721207528,
+              0.0
+            ],
+            "maximum": [
+              10.84999494047813,
+              11.088106871379566,
+              4.093507143964928
+            ]
+          },
+          {
+            "minimum": [
+              13.565215666039895,
+              3.792647322833437,
+              0.0
+            ],
+            "maximum": [
+              15.881366128509725,
+              6.497328448395011,
+              5.44501934932509
+            ]
+          },
+          {
+            "minimum": [
+              4.348148276097817,
+              3.7395545308805507,
+              0.0
+            ],
+            "maximum": [
+              6.328710845074907,
+              6.011370271346298,
+              3.3556288992636327
+            ]
+          },
+          {
+            "minimum": [
+              13.148588202326541,
+              8.621369347417746,
+              0.0
+            ],
+            "maximum": [
+              15.835098506432495,
+              10.956453968337343,
+              3.4349159189902294
+            ]
+          }
+        ],
+        "start": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "goal": [
+          19.0,
+          19.0,
+          8.0
+        ],
+        "metadata": {
+          "generator": "research-scenarios-v1",
+          "rootseed": 20260923,
+          "mapseed": 4193396705,
+          "family": "urban",
+          "family_index": 6,
+          "obstacle_count": 8,
+          "straight_line_blocked_by_construction": true,
+          "high_corridor_max_obstacle_z": 7.0
+        }
+      },
+      {
+        "name": "research_urban_07",
+        "bounds": {
+          "minimum": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "maximum": [
+            20.0,
+            20.0,
+            10.0
+          ]
+        },
+        "obstacles": [
+          {
+            "minimum": [
+              10.027563797656244,
+              9.545593690157892,
+              3.3255888069318993
+            ],
+            "maximum": [
+              12.51007436413572,
+              12.992044471634072,
+              6.026038172420621
+            ]
+          },
+          {
+            "minimum": [
+              14.207570366404504,
+              13.767403040019222,
+              0.0
+            ],
+            "maximum": [
+              15.961093904892916,
+              15.795618497559834,
+              5.726600004462055
+            ]
+          },
+          {
+            "minimum": [
+              8.74251627786976,
+              4.1863934829422735,
+              0.0
+            ],
+            "maximum": [
+              10.550694829844652,
+              6.4757358524120985,
+              3.17001702960041
+            ]
+          },
+          {
+            "minimum": [
+              8.308779637418585,
+              13.310505532194671,
+              0.0
+            ],
+            "maximum": [
+              10.634526948303415,
+              15.538060589034158,
+              6.701471737159654
+            ]
+          },
+          {
+            "minimum": [
+              3.971447018397578,
+              3.8031296003188384,
+              0.0
+            ],
+            "maximum": [
+              6.565554169915515,
+              5.530076740015801,
+              3.904023659765317
+            ]
+          },
+          {
+            "minimum": [
+              4.434843681501535,
+              9.252195736787515,
+              0.0
+            ],
+            "maximum": [
+              6.481854642465544,
+              11.7711615952158,
+              5.247625645753963
+            ]
+          },
+          {
+            "minimum": [
+              4.31991915185719,
+              14.528569111786084,
+              0.0
+            ],
+            "maximum": [
+              6.606483563772044,
+              16.654421141596146,
+              6.478412948000093
+            ]
+          }
+        ],
+        "start": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "goal": [
+          19.0,
+          19.0,
+          8.0
+        ],
+        "metadata": {
+          "generator": "research-scenarios-v1",
+          "rootseed": 20260923,
+          "mapseed": 1459168814,
+          "family": "urban",
+          "family_index": 7,
+          "obstacle_count": 7,
+          "straight_line_blocked_by_construction": true,
+          "high_corridor_max_obstacle_z": 7.0
+        }
+      },
+      {
+        "name": "research_barriers_04",
+        "bounds": {
+          "minimum": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "maximum": [
+            20.0,
+            20.0,
+            10.0
+          ]
+        },
+        "obstacles": [
+          {
+            "minimum": [
+              4.284445325060357,
+              2.0,
+              0.0
+            ],
+            "maximum": [
+              5.584445325060358,
+              9.742345203367975,
+              6.073406043840415
+            ]
+          },
+          {
+            "minimum": [
+              4.284445325060357,
+              11.8917105087627,
+              0.0
+            ],
+            "maximum": [
+              5.584445325060358,
+              18.0,
+              6.073406043840415
+            ]
+          },
+          {
+            "minimum": [
+              9.457078655635618,
+              2.0,
+              0.0
+            ],
+            "maximum": [
+              10.757078655635619,
+              4.027462117817909,
+              5.368957753894058
+            ]
+          },
+          {
+            "minimum": [
+              9.457078655635618,
+              6.229444862136998,
+              0.0
+            ],
+            "maximum": [
+              10.757078655635619,
+              18.0,
+              5.368957753894058
+            ]
+          },
+          {
+            "minimum": [
+              14.590839312939266,
+              2.0,
+              0.0
+            ],
+            "maximum": [
+              15.890839312939267,
+              11.105775628954131,
+              5.871610332698337
+            ]
+          },
+          {
+            "minimum": [
+              14.590839312939266,
+              13.500748148017408,
+              0.0
+            ],
+            "maximum": [
+              15.890839312939267,
+              18.0,
+              5.871610332698337
+            ]
+          }
+        ],
+        "start": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "goal": [
+          19.0,
+          19.0,
+          8.0
+        ],
+        "metadata": {
+          "generator": "research-scenarios-v1",
+          "rootseed": 20260923,
+          "mapseed": 4270453355,
+          "family": "barriers",
+          "family_index": 4,
+          "obstacle_count": 6,
+          "straight_line_blocked_by_construction": true,
+          "high_corridor_max_obstacle_z": 7.0,
+          "barrier_gap_centers_y": [
+            10.817028,
+            5.128453,
+            12.303262
+          ]
+        }
+      },
+      {
+        "name": "research_barriers_05",
+        "bounds": {
+          "minimum": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "maximum": [
+            20.0,
+            20.0,
+            10.0
+          ]
+        },
+        "obstacles": [
+          {
+            "minimum": [
+              4.355068180577968,
+              2.0,
+              0.0
+            ],
+            "maximum": [
+              5.655068180577969,
+              11.648939094673025,
+              5.962822180416283
+            ]
+          },
+          {
+            "minimum": [
+              4.355068180577968,
+              14.216458122057148,
+              0.0
+            ],
+            "maximum": [
+              5.655068180577969,
+              18.0,
+              5.962822180416283
+            ]
+          },
+          {
+            "minimum": [
+              9.336424475888418,
+              2.0,
+              0.0
+            ],
+            "maximum": [
+              10.636424475888418,
+              4.080745046060979,
+              5.3522416266856085
+            ]
+          },
+          {
+            "minimum": [
+              9.336424475888418,
+              6.510862787139882,
+              0.0
+            ],
+            "maximum": [
+              10.636424475888418,
+              18.0,
+              5.3522416266856085
+            ]
+          },
+          {
+            "minimum": [
+              14.360808594153742,
+              2.0,
+              0.0
+            ],
+            "maximum": [
+              15.660808594153742,
+              10.758061476426601,
+              5.99912074846722
+            ]
+          },
+          {
+            "minimum": [
+              14.360808594153742,
+              13.452862514040245,
+              0.0
+            ],
+            "maximum": [
+              15.660808594153742,
+              18.0,
+              5.99912074846722
+            ]
+          }
+        ],
+        "start": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "goal": [
+          19.0,
+          19.0,
+          8.0
+        ],
+        "metadata": {
+          "generator": "research-scenarios-v1",
+          "rootseed": 20260923,
+          "mapseed": 4105064415,
+          "family": "barriers",
+          "family_index": 5,
+          "obstacle_count": 6,
+          "straight_line_blocked_by_construction": true,
+          "high_corridor_max_obstacle_z": 7.0,
+          "barrier_gap_centers_y": [
+            12.932699,
+            5.295804,
+            12.105462
+          ]
+        }
+      },
+      {
+        "name": "research_barriers_06",
+        "bounds": {
+          "minimum": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "maximum": [
+            20.0,
+            20.0,
+            10.0
+          ]
+        },
+        "obstacles": [
+          {
+            "minimum": [
+              4.500953260429604,
+              2.0,
+              0.0
+            ],
+            "maximum": [
+              5.800953260429605,
+              11.855600453724996,
+              5.239077698692007
+            ]
+          },
+          {
+            "minimum": [
+              4.500953260429604,
+              14.040833999044832,
+              0.0
+            ],
+            "maximum": [
+              5.800953260429605,
+              18.0,
+              5.239077698692007
+            ]
+          },
+          {
+            "minimum": [
+              9.47271340676794,
+              2.0,
+              0.0
+            ],
+            "maximum": [
+              10.772713406767942,
+              3.561666705981457,
+              5.4400851621902415
+            ]
+          },
+          {
+            "minimum": [
+              9.47271340676794,
+              6.179352251725652,
+              0.0
+            ],
+            "maximum": [
+              10.772713406767942,
+              18.0,
+              5.4400851621902415
+            ]
+          },
+          {
+            "minimum": [
+              14.39554450199326,
+              2.0,
+              0.0
+            ],
+            "maximum": [
+              15.695544501993261,
+              13.207685009372348,
+              6.797857148462983
+            ]
+          },
+          {
+            "minimum": [
+              14.39554450199326,
+              15.392101654049288,
+              0.0
+            ],
+            "maximum": [
+              15.695544501993261,
+              18.0,
+              6.797857148462983
+            ]
+          }
+        ],
+        "start": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "goal": [
+          19.0,
+          19.0,
+          8.0
+        ],
+        "metadata": {
+          "generator": "research-scenarios-v1",
+          "rootseed": 20260923,
+          "mapseed": 584613853,
+          "family": "barriers",
+          "family_index": 6,
+          "obstacle_count": 6,
+          "straight_line_blocked_by_construction": true,
+          "high_corridor_max_obstacle_z": 7.0,
+          "barrier_gap_centers_y": [
+            12.948217,
+            4.870509,
+            14.299893
+          ]
+        }
+      },
+      {
+        "name": "research_barriers_07",
+        "bounds": {
+          "minimum": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "maximum": [
+            20.0,
+            20.0,
+            10.0
+          ]
+        },
+        "obstacles": [
+          {
+            "minimum": [
+              4.021363580083874,
+              2.0,
+              0.0
+            ],
+            "maximum": [
+              5.321363580083875,
+              11.727752710492851,
+              5.5716239439488495
+            ]
+          },
+          {
+            "minimum": [
+              4.021363580083874,
+              14.118707100018867,
+              0.0
+            ],
+            "maximum": [
+              5.321363580083875,
+              18.0,
+              5.5716239439488495
+            ]
+          },
+          {
+            "minimum": [
+              9.321590640999485,
+              2.0,
+              0.0
+            ],
+            "maximum": [
+              10.621590640999486,
+              5.729859308695634,
+              5.4831923358983685
+            ]
+          },
+          {
+            "minimum": [
+              9.321590640999485,
+              8.107918139099988,
+              0.0
+            ],
+            "maximum": [
+              10.621590640999486,
+              18.0,
+              5.4831923358983685
+            ]
+          },
+          {
+            "minimum": [
+              14.327255433553828,
+              2.0,
+              0.0
+            ],
+            "maximum": [
+              15.62725543355383,
+              10.819110601959402,
+              5.418873503320417
+            ]
+          },
+          {
+            "minimum": [
+              14.327255433553828,
+              12.906567628778973,
+              0.0
+            ],
+            "maximum": [
+              15.62725543355383,
+              18.0,
+              5.418873503320417
+            ]
+          }
+        ],
+        "start": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "goal": [
+          19.0,
+          19.0,
+          8.0
+        ],
+        "metadata": {
+          "generator": "research-scenarios-v1",
+          "rootseed": 20260923,
+          "mapseed": 937715133,
+          "family": "barriers",
+          "family_index": 7,
+          "obstacle_count": 6,
+          "straight_line_blocked_by_construction": true,
+          "high_corridor_max_obstacle_z": 7.0,
+          "barrier_gap_centers_y": [
+            12.92323,
+            6.918889,
+            11.862839
+          ]
+        }
+      }
+    ],
+    "20261005": [
+      {
+        "name": "research_clutter_04",
+        "bounds": {
+          "minimum": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "maximum": [
+            20.0,
+            20.0,
+            10.0
+          ]
+        },
+        "obstacles": [
+          {
+            "minimum": [
+              6.498960079282979,
+              7.114420668977096,
+              2.1297329167356276
+            ],
+            "maximum": [
+              10.069247978010418,
+              9.4537873883163,
+              4.985783120278924
+            ]
+          },
+          {
+            "minimum": [
+              14.672189057563502,
+              15.007439592872172,
+              1.0127362353455787
+            ],
+            "maximum": [
+              16.39731922497738,
+              16.760914360882857,
+              2.4490292262505307
+            ]
+          },
+          {
+            "minimum": [
+              14.432444835661103,
+              13.233808163694636,
+              0.7680073763958171
+            ],
+            "maximum": [
+              16.60998690341821,
+              14.303208108974932,
+              6.1473186139892055
+            ]
+          },
+          {
+            "minimum": [
+              10.058742669360003,
+              8.186536724406198,
+              0.4593813476258959
+            ],
+            "maximum": [
+              11.849358863881552,
+              10.691909225744908,
+              3.6604330166547863
+            ]
+          },
+          {
+            "minimum": [
+              12.20155697155174,
+              7.185111665430275,
+              1.7925111147535027
+            ],
+            "maximum": [
+              14.382165838387856,
+              9.822287255012085,
+              2.73955973979259
+            ]
+          },
+          {
+            "minimum": [
+              11.97867744724324,
+              14.227240321630006,
+              1.109176482040589
+            ],
+            "maximum": [
+              13.105925052853019,
+              16.389723363523213,
+              2.308320880091774
+            ]
+          },
+          {
+            "minimum": [
+              15.131880174439004,
+              10.214054600063326,
+              0.6345470433971828
+            ],
+            "maximum": [
+              17.126693224912692,
+              12.642434294680129,
+              5.010886411291786
+            ]
+          },
+          {
+            "minimum": [
+              6.635979005359815,
+              8.95951821952008,
+              0.8230567167214311
+            ],
+            "maximum": [
+              8.80615448806909,
+              11.674978297169371,
+              2.263536320699363
+            ]
+          },
+          {
+            "minimum": [
+              5.213942460459846,
+              9.350129970702502,
+              1.7703668288882386
+            ],
+            "maximum": [
+              6.364266223475221,
+              10.908096617786896,
+              6.202639906588716
+            ]
+          },
+          {
+            "minimum": [
+              6.633247926054951,
+              9.426250636026248,
+              1.262344170619309
+            ],
+            "maximum": [
+              8.774669715231118,
+              11.548923372489243,
+              3.8130606001288676
+            ]
+          }
+        ],
+        "start": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "goal": [
+          19.0,
+          19.0,
+          8.0
+        ],
+        "metadata": {
+          "generator": "research-scenarios-v1",
+          "rootseed": 20261005,
+          "mapseed": 2182262385,
+          "family": "clutter",
+          "family_index": 4,
+          "obstacle_count": 10,
+          "straight_line_blocked_by_construction": true,
+          "high_corridor_max_obstacle_z": 7.0
+        }
+      },
+      {
+        "name": "research_clutter_05",
+        "bounds": {
+          "minimum": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "maximum": [
+            20.0,
+            20.0,
+            10.0
+          ]
+        },
+        "obstacles": [
+          {
+            "minimum": [
+              8.111099082650668,
+              7.950165148919848,
+              3.26852125451038
+            ],
+            "maximum": [
+              10.786876085885108,
+              10.947810019615929,
+              5.9327666327979465
+            ]
+          },
+          {
+            "minimum": [
+              3.566875528245748,
+              7.349127326508394,
+              1.4297375846573948
+            ],
+            "maximum": [
+              5.218225876001156,
+              9.36229576821177,
+              6.641250514203857
+            ]
+          },
+          {
+            "minimum": [
+              13.987195417094792,
+              5.251185528111137,
+              1.334916461382366
+            ],
+            "maximum": [
+              16.29219511149234,
+              6.330169470161296,
+              3.0338395312434967
+            ]
+          },
+          {
+            "minimum": [
+              10.279622543547228,
+              14.767614624584905,
+              0.4310426043500744
+            ],
+            "maximum": [
+              12.66335585206286,
+              17.337926397167184,
+              5.201218176482057
+            ]
+          },
+          {
+            "minimum": [
+              9.277434942056614,
+              6.720532722547312,
+              0.5119299774295369
+            ],
+            "maximum": [
+              10.871001197099307,
+              8.901729434303554,
+              4.264771823757306
+            ]
+          },
+          {
+            "minimum": [
+              7.876572080811,
+              12.325064011424223,
+              0.6616642747973203
+            ],
+            "maximum": [
+              9.210731892777753,
+              14.496584035099506,
+              2.3370668133458845
+            ]
+          },
+          {
+            "minimum": [
+              13.881278001913914,
+              5.484840161267547,
+              1.058224256022013
+            ],
+            "maximum": [
+              15.709386283091005,
+              8.062436331404218,
+              2.604767842623253
+            ]
+          },
+          {
+            "minimum": [
+              3.855065032025984,
+              10.084531986209894,
+              1.2179120925100297
+            ],
+            "maximum": [
+              6.121173386206392,
+              11.488594237216592,
+              2.394004126528759
+            ]
+          }
+        ],
+        "start": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "goal": [
+          19.0,
+          19.0,
+          8.0
+        ],
+        "metadata": {
+          "generator": "research-scenarios-v1",
+          "rootseed": 20261005,
+          "mapseed": 2426959769,
+          "family": "clutter",
+          "family_index": 5,
+          "obstacle_count": 8,
+          "straight_line_blocked_by_construction": true,
+          "high_corridor_max_obstacle_z": 7.0
+        }
+      },
+      {
+        "name": "research_clutter_06",
+        "bounds": {
+          "minimum": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "maximum": [
+            20.0,
+            20.0,
+            10.0
+          ]
+        },
+        "obstacles": [
+          {
+            "minimum": [
+              6.663379392004409,
+              6.553845567502756,
+              2.2845210966528864
+            ],
+            "maximum": [
+              8.668819451777832,
+              8.778353276279486,
+              5.383531288693965
+            ]
+          },
+          {
+            "minimum": [
+              12.59949703360023,
+              7.945219525788223,
+              0.8087350083503757
+            ],
+            "maximum": [
+              13.911916419302962,
+              9.547051433401126,
+              6.005869489550158
+            ]
+          },
+          {
+            "minimum": [
+              7.822473234440089,
+              9.215124281233365,
+              1.3127524413249292
+            ],
+            "maximum": [
+              10.33862132538976,
+              11.671545335119845,
+              4.192536477218579
+            ]
+          },
+          {
+            "minimum": [
+              9.859341905962948,
+              5.22760466525061,
+              0.8717614055750866
+            ],
+            "maximum": [
+              11.301538900997574,
+              6.745704446111194,
+              3.8769832774004667
+            ]
+          },
+          {
+            "minimum": [
+              15.780804065574436,
+              5.5866090628101945,
+              0.8604082368279367
+            ],
+            "maximum": [
+              17.77042080184654,
+              6.651645345545574,
+              6.463605550894167
+            ]
+          },
+          {
+            "minimum": [
+              6.199966548517708,
+              3.95232008449929,
+              1.3744210690960723
+            ],
+            "maximum": [
+              8.989697587127175,
+              5.250764256630746,
+              2.369333464215159
+            ]
+          },
+          {
+            "minimum": [
+              7.001012139502919,
+              6.980792674379487,
+              1.6680534933281803
+            ],
+            "maximum": [
+              9.211022523597226,
+              9.029168737751561,
+              4.700421614233437
+            ]
+          },
+          {
+            "minimum": [
+              3.7710659244365776,
+              13.820560851939911,
+              1.5202479817688621
+            ],
+            "maximum": [
+              5.5634039496368715,
+              15.797117111898473,
+              4.902748890076204
+            ]
+          },
+          {
+            "minimum": [
+              15.110947160620189,
+              14.977885060797307,
+              0.7176640008081099
+            ],
+            "maximum": [
+              17.504209401956665,
+              16.27495422702529,
+              3.551801298266848
+            ]
+          },
+          {
+            "minimum": [
+              4.429041902491167,
+              12.005035510193055,
+              0.41972826785953754
+            ],
+            "maximum": [
+              6.276849314771494,
+              14.133837235780861,
+              4.784445522352916
+            ]
+          },
+          {
+            "minimum": [
+              13.600363202886374,
+              6.388189804407915,
+              0.5796455510494989
+            ],
+            "maximum": [
+              15.358978009621755,
+              7.464225462198218,
+              6.346209995163874
+            ]
+          }
+        ],
+        "start": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "goal": [
+          19.0,
+          19.0,
+          8.0
+        ],
+        "metadata": {
+          "generator": "research-scenarios-v1",
+          "rootseed": 20261005,
+          "mapseed": 2571955269,
+          "family": "clutter",
+          "family_index": 6,
+          "obstacle_count": 11,
+          "straight_line_blocked_by_construction": true,
+          "high_corridor_max_obstacle_z": 7.0
+        }
+      },
+      {
+        "name": "research_clutter_07",
+        "bounds": {
+          "minimum": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "maximum": [
+            20.0,
+            20.0,
+            10.0
+          ]
+        },
+        "obstacles": [
+          {
+            "minimum": [
+              7.81888152311998,
+              7.6414989090585435,
+              2.3315069364259893
+            ],
+            "maximum": [
+              10.095302954864735,
+              10.272685568926171,
+              5.263654433341418
+            ]
+          },
+          {
+            "minimum": [
+              9.29576268096927,
+              3.4828937099046513,
+              1.212595699331873
+            ],
+            "maximum": [
+              11.707296625699788,
+              5.982358584675934,
+              4.7147459668966105
+            ]
+          },
+          {
+            "minimum": [
+              9.962353902922807,
+              4.398582582116885,
+              0.6840845018981098
+            ],
+            "maximum": [
+              11.639300392952709,
+              6.80129238385376,
+              4.0870442635716575
+            ]
+          },
+          {
+            "minimum": [
+              6.584141092044661,
+              6.147955038029803,
+              1.6554712996033263
+            ],
+            "maximum": [
+              8.96664817794704,
+              8.060074224436478,
+              4.99899757546657
+            ]
+          },
+          {
+            "minimum": [
+              10.502072258257927,
+              10.384322488625658,
+              0.7671244884750925
+            ],
+            "maximum": [
+              12.781673870667138,
+              11.558401338023502,
+              5.759440502009879
+            ]
+          },
+          {
+            "minimum": [
+              14.081539843645476,
+              3.7787066760124817,
+              1.3278595304805134
+            ],
+            "maximum": [
+              15.619008060126857,
+              5.491063604221347,
+              5.029904510509214
+            ]
+          },
+          {
+            "minimum": [
+              15.11367841382553,
+              12.130754339748846,
+              1.0084564336195487
+            ],
+            "maximum": [
+              17.11831512168709,
+              14.151012733082508,
+              2.715804586522705
+            ]
+          },
+          {
+            "minimum": [
+              7.487163048091581,
+              6.244965592030654,
+              0.9494312294649734
+            ],
+            "maximum": [
+              8.610292544553719,
+              7.397194381977416,
+              5.562639820077515
+            ]
+          },
+          {
+            "minimum": [
+              12.196474465205522,
+              11.811477462557383,
+              0.5546839952007312
+            ],
+            "maximum": [
+              14.361208923406295,
+              13.383330374165896,
+              3.1226791901832485
+            ]
+          }
+        ],
+        "start": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "goal": [
+          19.0,
+          19.0,
+          8.0
+        ],
+        "metadata": {
+          "generator": "research-scenarios-v1",
+          "rootseed": 20261005,
+          "mapseed": 1575807700,
+          "family": "clutter",
+          "family_index": 7,
+          "obstacle_count": 9,
+          "straight_line_blocked_by_construction": true,
+          "high_corridor_max_obstacle_z": 7.0
+        }
+      },
+      {
+        "name": "research_urban_04",
+        "bounds": {
+          "minimum": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "maximum": [
+            20.0,
+            20.0,
+            10.0
+          ]
+        },
+        "obstacles": [
+          {
+            "minimum": [
+              10.000762251492135,
+              9.555232699870308,
+              3.6980214766271695
+            ],
+            "maximum": [
+              12.279039974913152,
+              12.72456952653498,
+              6.223146435764161
+            ]
+          },
+          {
+            "minimum": [
+              8.437668081356723,
+              4.409557030440616,
+              0.0
+            ],
+            "maximum": [
+              10.852197957379074,
+              6.298602178517472,
+              5.797160873055352
+            ]
+          },
+          {
+            "minimum": [
+              3.5136485409086236,
+              3.926070070523957,
+              0.0
+            ],
+            "maximum": [
+              5.9746454085052685,
+              5.938791560690623,
+              5.664474108650042
+            ]
+          },
+          {
+            "minimum": [
+              3.633044697541685,
+              13.713013393386747,
+              0.0
+            ],
+            "maximum": [
+              5.897609896158881,
+              16.446976152222547,
+              3.2015509715422583
+            ]
+          },
+          {
+            "minimum": [
+              4.51348984774069,
+              8.199933631763075,
+              0.0
+            ],
+            "maximum": [
+              6.359098685815011,
+              10.843377965794032,
+              5.101054910216165
+            ]
+          },
+          {
+            "minimum": [
+              13.355311318600936,
+              4.168424649859663,
+              0.0
+            ],
+            "maximum": [
+              15.94812595236821,
+              6.948807204313139,
+              4.228760567186914
+            ]
+          },
+          {
+            "minimum": [
+              9.127594775344166,
+              8.750986695635119,
+              0.0
+            ],
+            "maximum": [
+              11.231642871389727,
+              10.858019507007494,
+              3.4592571190181025
+            ]
+          },
+          {
+            "minimum": [
+              13.787671539994788,
+              8.876539160495595,
+              0.0
+            ],
+            "maximum": [
+              15.963429305517518,
+              11.183591948765173,
+              4.55161859277605
+            ]
+          },
+          {
+            "minimum": [
+              13.93878756156152,
+              13.816836729482812,
+              0.0
+            ],
+            "maximum": [
+              15.713190347575233,
+              16.333778579943175,
+              5.70322518221268
+            ]
+          }
+        ],
+        "start": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "goal": [
+          19.0,
+          19.0,
+          8.0
+        ],
+        "metadata": {
+          "generator": "research-scenarios-v1",
+          "rootseed": 20261005,
+          "mapseed": 2081686492,
+          "family": "urban",
+          "family_index": 4,
+          "obstacle_count": 9,
+          "straight_line_blocked_by_construction": true,
+          "high_corridor_max_obstacle_z": 7.0
+        }
+      },
+      {
+        "name": "research_urban_05",
+        "bounds": {
+          "minimum": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "maximum": [
+            20.0,
+            20.0,
+            10.0
+          ]
+        },
+        "obstacles": [
+          {
+            "minimum": [
+              9.081670441502402,
+              9.122004597501082,
+              3.272995701893389
+            ],
+            "maximum": [
+              11.609778254435996,
+              11.569444098437316,
+              5.644113653916258
+            ]
+          },
+          {
+            "minimum": [
+              3.98971924475139,
+              8.828381922708685,
+              0.0
+            ],
+            "maximum": [
+              5.852185579394062,
+              11.336202834008805,
+              4.0930614378196495
+            ]
+          },
+          {
+            "minimum": [
+              3.574372796059091,
+              14.66585276147098,
+              0.0
+            ],
+            "maximum": [
+              6.120863480045465,
+              16.383732089314936,
+              4.9578765591741
+            ]
+          },
+          {
+            "minimum": [
+              4.382509320227081,
+              3.7938364108869633,
+              0.0
+            ],
+            "maximum": [
+              6.784350872686023,
+              5.49722102009515,
+              3.27388626708319
+            ]
+          },
+          {
+            "minimum": [
+              13.612710048739673,
+              8.262856780516941,
+              0.0
+            ],
+            "maximum": [
+              16.087515845305244,
+              10.845504937809084,
+              3.4677968004380095
+            ]
+          },
+          {
+            "minimum": [
+              8.548474659731383,
+              8.745302804297774,
+              0.0
+            ],
+            "maximum": [
+              10.863284958217989,
+              10.845043140400122,
+              4.51646826421067
+            ]
+          },
+          {
+            "minimum": [
+              14.042024055924655,
+              13.809901339466215,
+              0.0
+            ],
+            "maximum": [
+              16.3078277887536,
+              15.567576632754001,
+              6.662214688690616
+            ]
+          },
+          {
+            "minimum": [
+              9.159686808040803,
+              4.3000612344460984,
+              0.0
+            ],
+            "maximum": [
+              11.72314770579255,
+              6.178210902600493,
+              3.0847813963955195
+            ]
+          }
+        ],
+        "start": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "goal": [
+          19.0,
+          19.0,
+          8.0
+        ],
+        "metadata": {
+          "generator": "research-scenarios-v1",
+          "rootseed": 20261005,
+          "mapseed": 919920731,
+          "family": "urban",
+          "family_index": 5,
+          "obstacle_count": 8,
+          "straight_line_blocked_by_construction": true,
+          "high_corridor_max_obstacle_z": 7.0
+        }
+      },
+      {
+        "name": "research_urban_06",
+        "bounds": {
+          "minimum": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "maximum": [
+            20.0,
+            20.0,
+            10.0
+          ]
+        },
+        "obstacles": [
+          {
+            "minimum": [
+              10.810775939751128,
+              11.007929494133784,
+              3.7313933177431
+            ],
+            "maximum": [
+              14.14467010810964,
+              13.947516553726985,
+              6.545174988722266
+            ]
+          },
+          {
+            "minimum": [
+              4.075449800953212,
+              3.4605997321550537,
+              0.0
+            ],
+            "maximum": [
+              6.4362278080473665,
+              5.687467980887657,
+              4.491803813797994
+            ]
+          },
+          {
+            "minimum": [
+              14.13939541993463,
+              13.793610099403306,
+              0.0
+            ],
+            "maximum": [
+              16.676441924189863,
+              15.972338047404136,
+              5.416112128703524
+            ]
+          },
+          {
+            "minimum": [
+              8.927278465858075,
+              8.746133696298028,
+              0.0
+            ],
+            "maximum": [
+              10.774883057704853,
+              11.092871330457927,
+              5.171181127221658
+            ]
+          },
+          {
+            "minimum": [
+              13.18303204760469,
+              3.5081869840800883,
+              0.0
+            ],
+            "maximum": [
+              15.795895317022739,
+              5.897762942840107,
+              5.029810703838485
+            ]
+          },
+          {
+            "minimum": [
+              13.368008482329316,
+              9.12010684712487,
+              0.0
+            ],
+            "maximum": [
+              15.569500502081056,
+              11.67667843894351,
+              5.817420517847527
+            ]
+          },
+          {
+            "minimum": [
+              3.852659295554866,
+              14.626004515610502,
+              0.0
+            ],
+            "maximum": [
+              5.987324390654656,
+              16.524465365249707,
+              3.0973482959641663
+            ]
+          }
+        ],
+        "start": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "goal": [
+          19.0,
+          19.0,
+          8.0
+        ],
+        "metadata": {
+          "generator": "research-scenarios-v1",
+          "rootseed": 20261005,
+          "mapseed": 3981588105,
+          "family": "urban",
+          "family_index": 6,
+          "obstacle_count": 7,
+          "straight_line_blocked_by_construction": true,
+          "high_corridor_max_obstacle_z": 7.0
+        }
+      },
+      {
+        "name": "research_urban_07",
+        "bounds": {
+          "minimum": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "maximum": [
+            20.0,
+            20.0,
+            10.0
+          ]
+        },
+        "obstacles": [
+          {
+            "minimum": [
+              9.196103728976915,
+              8.922855742057356,
+              3.443589209599918
+            ],
+            "maximum": [
+              11.868653001595433,
+              12.141900988514992,
+              6.25138748702126
+            ]
+          },
+          {
+            "minimum": [
+              3.659701180413279,
+              3.8617063627086976,
+              0.0
+            ],
+            "maximum": [
+              6.024341157813177,
+              6.064515045953715,
+              3.85072989226797
+            ]
+          },
+          {
+            "minimum": [
+              14.611090477566353,
+              9.582173164998583,
+              0.0
+            ],
+            "maximum": [
+              16.581658451728618,
+              11.382762775499138,
+              4.561901543728372
+            ]
+          },
+          {
+            "minimum": [
+              9.067395757198248,
+              9.271346755369537,
+              0.0
+            ],
+            "maximum": [
+              11.30963601337043,
+              11.370311646304465,
+              3.719241851166546
+            ]
+          },
+          {
+            "minimum": [
+              9.308439663878302,
+              3.8547544853638867,
+              0.0
+            ],
+            "maximum": [
+              11.690945155146244,
+              5.71057398272558,
+              3.2102730027499864
+            ]
+          },
+          {
+            "minimum": [
+              3.633999518989562,
+              14.24466251509004,
+              0.0
+            ],
+            "maximum": [
+              5.781398216031327,
+              16.871053279868974,
+              3.297008998714178
+            ]
+          },
+          {
+            "minimum": [
+              9.235618863876219,
+              13.65666878968617,
+              0.0
+            ],
+            "maximum": [
+              11.36629995429546,
+              16.19871381296123,
+              6.570818302211839
+            ]
+          },
+          {
+            "minimum": [
+              14.34457830185005,
+              3.8961450304097545,
+              0.0
+            ],
+            "maximum": [
+              16.66097715040311,
+              5.6385250602850014,
+              4.386514203432903
+            ]
+          }
+        ],
+        "start": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "goal": [
+          19.0,
+          19.0,
+          8.0
+        ],
+        "metadata": {
+          "generator": "research-scenarios-v1",
+          "rootseed": 20261005,
+          "mapseed": 1684509322,
+          "family": "urban",
+          "family_index": 7,
+          "obstacle_count": 8,
+          "straight_line_blocked_by_construction": true,
+          "high_corridor_max_obstacle_z": 7.0
+        }
+      },
+      {
+        "name": "research_barriers_04",
+        "bounds": {
+          "minimum": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "maximum": [
+            20.0,
+            20.0,
+            10.0
+          ]
+        },
+        "obstacles": [
+          {
+            "minimum": [
+              4.552206132453226,
+              2.0,
+              0.0
+            ],
+            "maximum": [
+              5.852206132453227,
+              10.218016384881704,
+              5.839794627555619
+            ]
+          },
+          {
+            "minimum": [
+              4.552206132453226,
+              12.420492293966841,
+              0.0
+            ],
+            "maximum": [
+              5.852206132453227,
+              18.0,
+              5.839794627555619
+            ]
+          },
+          {
+            "minimum": [
+              9.27514436685473,
+              2.0,
+              0.0
+            ],
+            "maximum": [
+              10.575144366854731,
+              3.793070099201426,
+              5.871348290069196
+            ]
+          },
+          {
+            "minimum": [
+              9.27514436685473,
+              6.14810327583959,
+              0.0
+            ],
+            "maximum": [
+              10.575144366854731,
+              18.0,
+              5.871348290069196
+            ]
+          },
+          {
+            "minimum": [
+              14.621295237771788,
+              2.0,
+              0.0
+            ],
+            "maximum": [
+              15.921295237771789,
+              12.381241286536564,
+              6.322558004900984
+            ]
+          },
+          {
+            "minimum": [
+              14.621295237771788,
+              14.925493231878963,
+              0.0
+            ],
+            "maximum": [
+              15.921295237771789,
+              18.0,
+              6.322558004900984
+            ]
+          }
+        ],
+        "start": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "goal": [
+          19.0,
+          19.0,
+          8.0
+        ],
+        "metadata": {
+          "generator": "research-scenarios-v1",
+          "rootseed": 20261005,
+          "mapseed": 233178489,
+          "family": "barriers",
+          "family_index": 4,
+          "obstacle_count": 6,
+          "straight_line_blocked_by_construction": true,
+          "high_corridor_max_obstacle_z": 7.0,
+          "barrier_gap_centers_y": [
+            11.319254,
+            4.970587,
+            13.653367
+          ]
+        }
+      },
+      {
+        "name": "research_barriers_05",
+        "bounds": {
+          "minimum": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "maximum": [
+            20.0,
+            20.0,
+            10.0
+          ]
+        },
+        "obstacles": [
+          {
+            "minimum": [
+              4.100866527069072,
+              2.0,
+              0.0
+            ],
+            "maximum": [
+              5.4008665270690726,
+              12.019177308571399,
+              6.0234818484934305
+            ]
+          },
+          {
+            "minimum": [
+              4.100866527069072,
+              14.518665468829218,
+              0.0
+            ],
+            "maximum": [
+              5.4008665270690726,
+              18.0,
+              6.0234818484934305
+            ]
+          },
+          {
+            "minimum": [
+              9.17941845941738,
+              2.0,
+              0.0
+            ],
+            "maximum": [
+              10.479418459417381,
+              3.818190030242447,
+              5.458787606826291
+            ]
+          },
+          {
+            "minimum": [
+              9.17941845941738,
+              6.457512304462052,
+              0.0
+            ],
+            "maximum": [
+              10.479418459417381,
+              18.0,
+              5.458787606826291
+            ]
+          },
+          {
+            "minimum": [
+              14.075689322786351,
+              2.0,
+              0.0
+            ],
+            "maximum": [
+              15.375689322786352,
+              12.76513078794332,
+              6.250795143909782
+            ]
+          },
+          {
+            "minimum": [
+              14.075689322786351,
+              15.162810450053009,
+              0.0
+            ],
+            "maximum": [
+              15.375689322786352,
+              18.0,
+              6.250795143909782
+            ]
+          }
+        ],
+        "start": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "goal": [
+          19.0,
+          19.0,
+          8.0
+        ],
+        "metadata": {
+          "generator": "research-scenarios-v1",
+          "rootseed": 20261005,
+          "mapseed": 3989187110,
+          "family": "barriers",
+          "family_index": 5,
+          "obstacle_count": 6,
+          "straight_line_blocked_by_construction": true,
+          "high_corridor_max_obstacle_z": 7.0,
+          "barrier_gap_centers_y": [
+            13.268921,
+            5.137851,
+            13.963971
+          ]
+        }
+      },
+      {
+        "name": "research_barriers_06",
+        "bounds": {
+          "minimum": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "maximum": [
+            20.0,
+            20.0,
+            10.0
+          ]
+        },
+        "obstacles": [
+          {
+            "minimum": [
+              4.5903724753903425,
+              2.0,
+              0.0
+            ],
+            "maximum": [
+              5.890372475390343,
+              9.611502865789179,
+              6.138276383826801
+            ]
+          },
+          {
+            "minimum": [
+              4.5903724753903425,
+              12.075415124119031,
+              0.0
+            ],
+            "maximum": [
+              5.890372475390343,
+              18.0,
+              6.138276383826801
+            ]
+          },
+          {
+            "minimum": [
+              9.18320864153263,
+              2.0,
+              0.0
+            ],
+            "maximum": [
+              10.48320864153263,
+              5.6664028783143205,
+              6.273181640033396
+            ]
+          },
+          {
+            "minimum": [
+              9.18320864153263,
+              8.044647178205727,
+              0.0
+            ],
+            "maximum": [
+              10.48320864153263,
+              18.0,
+              6.273181640033396
+            ]
+          },
+          {
+            "minimum": [
+              14.144489880966054,
+              2.0,
+              0.0
+            ],
+            "maximum": [
+              15.444489880966055,
+              10.834273938587854,
+              6.447711039628579
+            ]
+          },
+          {
+            "minimum": [
+              14.144489880966054,
+              13.47585038806289,
+              0.0
+            ],
+            "maximum": [
+              15.444489880966055,
+              18.0,
+              6.447711039628579
+            ]
+          }
+        ],
+        "start": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "goal": [
+          19.0,
+          19.0,
+          8.0
+        ],
+        "metadata": {
+          "generator": "research-scenarios-v1",
+          "rootseed": 20261005,
+          "mapseed": 3604396806,
+          "family": "barriers",
+          "family_index": 6,
+          "obstacle_count": 6,
+          "straight_line_blocked_by_construction": true,
+          "high_corridor_max_obstacle_z": 7.0,
+          "barrier_gap_centers_y": [
+            10.843459,
+            6.855525,
+            12.155062
+          ]
+        }
+      },
+      {
+        "name": "research_barriers_07",
+        "bounds": {
+          "minimum": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "maximum": [
+            20.0,
+            20.0,
+            10.0
+          ]
+        },
+        "obstacles": [
+          {
+            "minimum": [
+              4.419634926972785,
+              2.0,
+              0.0
+            ],
+            "maximum": [
+              5.719634926972786,
+              10.02479871356912,
+              6.765339012995234
+            ]
+          },
+          {
+            "minimum": [
+              4.419634926972785,
+              12.374028365750375,
+              0.0
+            ],
+            "maximum": [
+              5.719634926972786,
+              18.0,
+              6.765339012995234
+            ]
+          },
+          {
+            "minimum": [
+              9.620223129978365,
+              2.0,
+              0.0
+            ],
+            "maximum": [
+              10.920223129978366,
+              6.2949226878199696,
+              6.884570629434351
+            ]
+          },
+          {
+            "minimum": [
+              9.620223129978365,
+              8.389238266174406,
+              0.0
+            ],
+            "maximum": [
+              10.920223129978366,
+              18.0,
+              6.884570629434351
+            ]
+          },
+          {
+            "minimum": [
+              14.363133242417428,
+              2.0,
+              0.0
+            ],
+            "maximum": [
+              15.663133242417429,
+              11.016683633223973,
+              6.591169648977905
+            ]
+          },
+          {
+            "minimum": [
+              14.363133242417428,
+              13.664173511947762,
+              0.0
+            ],
+            "maximum": [
+              15.663133242417429,
+              18.0,
+              6.591169648977905
+            ]
+          }
+        ],
+        "start": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "goal": [
+          19.0,
+          19.0,
+          8.0
+        ],
+        "metadata": {
+          "generator": "research-scenarios-v1",
+          "rootseed": 20261005,
+          "mapseed": 2338954946,
+          "family": "barriers",
+          "family_index": 7,
+          "obstacle_count": 6,
+          "straight_line_blocked_by_construction": true,
+          "high_corridor_max_obstacle_z": 7.0,
+          "barrier_gap_centers_y": [
+            11.199414,
+            7.34208,
+            12.340429
+          ]
+        }
+      }
+    ]
+  },
+  "external_samples": 500,
+  "external_seed": 196102,
+  "distribution_external_models": [
+    "uniform",
+    "student_t3",
+    "common_translation"
+  ],
+  "distribution_external_sigma": 0.6,
+  "sigmas": [
+    0.3,
+    0.6,
+    0.9
+  ],
+  "NFE": 820,
+  "K": 16,
+  "search_alpha": 0.1,
+  "target_alpha": 0.175,
+  "task_shuffle_seed": 20261006,
+  "study_config": "configs/seven_category_study.json",
+  "main_method_lock": "C:\\Users\\17613\\Desktop\\论文5\\实验记录\\20261009\\20261009_主方法冻结\\main_method_lock.json",
+  "main_method_lock_sha256": "15f932703957e6e1e40057ad9efdb280b3103a4209c420c0c416e5cd4c40947d",
+  "main_method_bundle_sha256": "bcc895242f7f260ed326fab9fd67dbee102bcde5513810a0dc2ec9b990659b1d",
+  "main_method": {
+    "id": "full",
+    "module": "uav_path_planning.soft_risk_projected_polish",
+    "class": "SoftRiskProjectedPolish",
+    "conditional_axis": 2,
+    "reserve_fraction": 0.2,
+    "terminal_gradient": "original finite differences",
+    "internal_shortcut": true,
+    "experimental_analytic_gradient": false,
+    "config_file": "configs/risk_aware_main_20261009_soft050.json",
+    "options": {
+      "reserve_fraction": 0.2,
+      "active_margin": 0.02,
+      "initial_step": 0.03,
+      "axis": 2,
+      "global_method": "risk_de",
+      "projection": "tangent",
+      "risk_estimator": "conditional",
+      "max_line_steps": 1,
+      "beta": 0.05
+    },
+    "NFE": 820,
+    "K": 16,
+    "search_alpha": 0.1
+  },
+  "limits": [
+    "Both map banks have been exposed; this is a reproducibility comparison, not a new blind or OOD test.",
+    "Baseline implementations are local reproductions/adaptations, not original-author published values.",
+    "A* is a deterministic geometric reference, once per map; its representation and expansion budget differ.",
+    "Equal NFE does not imply equal runtime or primitive operation counts; risk terms and planning time are reported.",
+    "Empirical external pass rate is not a finite-sample confidence certificate.",
+    "E0 has no uncertainty bank and no terminal polish; E5 retains nominal terminal polish.",
+    "Main remains exactly soft_beta050; only matched controls are repaired.",
+    "Native baseline proposal/adaptation mechanics are retained. Outside-gate scalarization differs from DE lexicographic selection; E3 compares global-search packages, not a single mutation rule.",
+    "E5 removes the risk-dependent soft term by definition and retains nominal terminal polish.",
+    "E6 includes the interaction of a discrete estimator with unchanged finite-difference polish; fixed-path variance is tested separately in P0.",
+    "Some results are inherited from the recorded source run. Cross-session runtime is descriptive, not an efficiency superiority test."
+  ],
+  "statistical_analysis": {
+    "unit": "map-level paired seed means within each bank",
+    "metrics": [
+      "length",
+      "cfr_0.6"
+    ],
+    "multiple_testing": "23 category contrasts x 2 metrics x 2 banks, one 92-test exploratory Holm family; no candidate contrasts",
+    "astar": "descriptive only; no repeated artificial seeds",
+    "interpretation": "Exploratory known-map comparison; nonsignificance is not equivalence."
+  },
+  "expected_plans": 9624,
+  "study_kind": "locked_main_paper_controls",
+  "reuse": {
+    "run": "C:\\Users\\17613\\Desktop\\论文5\\实验记录\\20261009\\20261009_225315_候选全量比较_faa332",
+    "methods": [
+      "full",
+      "nominal_search",
+      "no_risk",
+      "bare_de",
+      "bare_jade",
+      "bare_shade",
+      "bare_lshade",
+      "bare_pso",
+      "bare_astar"
+    ],
+    "protocol_sha256": "b7e53277d93afbde2d7b0ade85e05c09cb7f8d09ad4a3f728d1909e21178fbc1",
+    "manifest_sha256": "7bf6b8c9482e2ed9483a947f55f9d13206c7836eca4d46f85fb46f7669fe125f"
+  }
+}

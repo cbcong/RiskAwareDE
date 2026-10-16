@@ -1,0 +1,23 @@
+{
+  "stage": "Completed post hoc fixed-path stress evaluation",
+  "new_planner_runs": 0,
+  "paths_completed": 384,
+  "sigma_evaluations_completed": 768,
+  "execution_events": [
+    {
+      "event": "memory_guard_pause",
+      "completed_path_records": 186,
+      "condition": "Available system memory fell below the prespecified implementation guard of 600 MiB.",
+      "action": "Process exited before evaluating the next path; all completed records retained."
+    },
+    {
+      "event": "resume",
+      "condition": "A subsequent availability check showed 4610 MiB available.",
+      "action": "The identical command resumed with the same frozen code and protocol; existing 186 records were skipped.",
+      "final_exit_code": 0,
+      "selective_reruns": 0,
+      "protocol_or_source_changes_between_runs": false
+    }
+  ],
+  "interpretation": "The guard pause affects execution only. No planning is timed in this saved-path analysis, and neither outcomes nor inclusion rules changed."
+}

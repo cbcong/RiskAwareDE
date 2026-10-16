@@ -1,0 +1,40 @@
+{
+  "verified_date": "2026-10-15",
+  "repository": "https://github.com/JuJankowski/vp-sto",
+  "commit": "44646fe9224dfe24db9a0bcea35d4169889ac602",
+  "upstream_modified": false,
+  "license_declarations": [
+    "setup.py: BSD",
+    "vpsto/__init__.py: BSD 3-clause"
+  ],
+  "standalone_license_present": false,
+  "upstream_file_sha256": {
+    ".gitignore": "2eb1d3e36613911c5718eefc767b180cef71a2e66b80bbf90858e9ba76b72dfe",
+    "README.md": "d3305e5473ef4a9a12adb587fc0d4840a929215cfb8950297800360331ab75af",
+    "examples/2D_biased_sampling.ipynb": "bc1894af065727a93c9f5a81500d07c54569e5d2eb643f26d7b765c8e5f1ede4",
+    "examples/2D_collision_avoidance_optimize_final_position.ipynb": "9b72c0ab9db563aa82f2e1fdd2bb099670403f1f92a553236333a4d7708d6f90",
+    "examples/2D_collision_avoidance_set_final_position.ipynb": "72898c73075f8aa92e8e145ccb6315e013654c6cce3fd523d2a64e7308954f44",
+    "examples/2D_manipulator_collision_avoidance.ipynb": "7bf10449c2a7827ad4a8f745a0e5e1df00067772f6f57e8dd4aaa7342faf2d05",
+    "examples/2D_predictive_sampling.ipynb": "be2ae9f8324b85c9056ec1b2664424cc7273cb02e872fee7807a9ec82c6f94b0",
+    "media/mpc_animation.gif": "42365e1fed38eb1a4fe880f2620bcf8ae6cd1d0466e32be18a2dfbffce059422",
+    "media/sampling_banner.gif": "eb982fcfe31c58002aa5ea66947dfd8321fe229b92bc31830a51238b8ced710e",
+    "setup.py": "ff40daa5f983ecd1d575a89995c356a40e3a3d09df795adc694c89c09800076a",
+    "vpsto/__init__.py": "a48c6b92a0b0d856900082d26181f17490d6146c4028237c9c331da37619af97",
+    "vpsto/obf.py": "4203b3fe8f40cad7e940960ee08f22bcd2b82487e06105da75dd34874a2f0b39",
+    "vpsto/vpsto.py": "c0accf1badd6b62463f10feecd9f47ccbe6865f11583168410dfacf0535f869d",
+    "vpsto/vptraj.py": "59f9e649069b0f8de78a0eee98e184e97b32abe143f1e334f81592aa5adbb18a"
+  },
+  "adapter_file_sha256": {
+    "adapter.py": "5220891b1a3a90e7548c8029f8c62aa37e3a9ea0f88d8ba8134fba9a6584f450",
+    "validate.py": "718b8c6c297b88d63462cf824eda044449e444587dd2946b94ce93f7998a7cd3",
+    "README.md": "4e8e314c7bb4a2f3e454c26ae6571edbcd73bc07486bca79d5256c7a76196e76"
+  },
+  "environment": {
+    "python": "3.12.4 (tags/v3.12.4:8e8a4ba, Jun  6 2024, 19:30:16) [MSC v.1940 64 bit (AMD64)]",
+    "numpy": "2.0.2",
+    "scipy": "1.18.1",
+    "cma": "4.5.0",
+    "shapely": "2.2.0",
+    "matplotlib": "3.11.2"
+  }
+}

@@ -1,0 +1,2 @@
+# Single source of dependency versions for the isolated CPython 3.12.4 environment.
+-r requirements.lock.txt

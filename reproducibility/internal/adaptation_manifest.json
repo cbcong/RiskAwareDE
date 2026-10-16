@@ -1,0 +1,50 @@
+{
+  "p0_estimator.py": {
+    "original": "scripts/measure_locked_estimator.py",
+    "original_sha256": "98d917714ba72995ccbffac58dd04b8169361db1b1a4b064b22b3cef64be5454",
+    "adapted_sha256": "1ba5736edfc7a53a35e468fbec0bbd6a6d6601dd3ff9beb6f21ac6e944848bfe",
+    "changes": [
+      "Explicit shared code root; no duplicate optimizer code",
+      "Portable defaults",
+      "Bounded smoke mode",
+      "Numerical comparison tolerance for stored floating values; exact collision bits",
+      "Current E protocol omits old rejected tail-risk candidate from diagnostic text"
+    ]
+  },
+  "p1_replay.py": {
+    "original": "scripts/replay_locked_terminal_controls.py",
+    "original_sha256": "1c995cb54968e872c2f1251621ab50fcafcee706ad0576347b48b52e37c3fa0f",
+    "adapted_sha256": "b42819d87534deb2ad490c30be71e49df2cc361376cdf816251756eac6e58be7",
+    "changes": [
+      "Explicit shared code root; no duplicate optimizer code",
+      "Portable defaults",
+      "Bounded smoke mode",
+      "Numerical comparison tolerance for stored floating values; exact collision bits",
+      "Current E protocol omits old rejected tail-risk candidate from diagnostic text"
+    ]
+  },
+  "p3_sensitivity.py": {
+    "original": "scripts/run_locked_main_sensitivity.py",
+    "original_sha256": "a11f4a082e39e34339a64d089c657ef0c79e4b5f64e1e3d03714887a211f8734",
+    "adapted_sha256": "e940c849d112cfa2a572860572bd3fbf38172919d2ac0c7815074f4121037383",
+    "changes": [
+      "Explicit shared code root; no duplicate optimizer code",
+      "Portable defaults",
+      "Bounded smoke mode",
+      "Numerical comparison tolerance for stored floating values; exact collision bits",
+      "Current E protocol omits old rejected tail-risk candidate from diagnostic text"
+    ]
+  },
+  "saved_diagnostics.py": {
+    "original": "scripts/analyze_locked_main_evidence.py",
+    "original_sha256": "61b54ef1ee8a02fb99614c883feae4eca6f4d35ede5f204277ebcf879913d344",
+    "adapted_sha256": "813eb0098c7177680873b839a1ab82444615e1bc88c66e377feb27122c2e51b7",
+    "changes": [
+      "Explicit shared code root; no duplicate optimizer code",
+      "Portable defaults",
+      "Bounded smoke mode",
+      "Numerical comparison tolerance for stored floating values; exact collision bits",
+      "Current E protocol omits old rejected tail-risk candidate from diagnostic text"
+    ]
+  }
+}

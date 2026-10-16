@@ -1,0 +1,21 @@
+{
+  "analysis_status": "post hoc sensitivity analysis of frozen results; not new independent optimizer runs",
+  "primary_results": "Retain the original 92-test E and 14-test P6 analyses unchanged.",
+  "inputs": ["E_run_rows.csv", "E_paired_statistics.csv", "P6_run_rows.csv", "P6_paired_statistics.csv"],
+  "cohorts_and_contrasts": "Every row of the two frozen paired-statistics tables, including adverse and null comparisons: 92 E and 14 P6 outcome contrasts.",
+  "unit": "Map; planner seeds are paired then averaged within each map. Length excludes only pairs with a nominal failure; CFR retains failures at zero.",
+  "checks": [
+    "Reconstruct the original effect and failure-exclusion count from run rows.",
+    "Reconstruct the original signed-rank p-values with original zero and tie conventions.",
+    "Compute exact two-sided signed-rank p-values by dynamic programming on doubled mid-ranks; omit absolute differences at most 1e-12; do not use mid-p.",
+    "Apply Holm correction to all 92 E outcome contrasts and all 14 P6 outcome contrasts as two separate families.",
+    "Delete each map once and recompute effects; P6 additionally recomputes all 14 exact tests and their Holm correction for each deleted map.",
+    "Compute pointwise 95 percent percentile intervals using 10000 map bootstrap replicates stratified by map family, retaining the bank in E contrasts.",
+    "For all 480 main-method paths in each cohort, count 95 percent Wilson binomial intervals that cover the empirical reporting threshold 0.825. This diagnoses Monte Carlo threshold sensitivity, not certified safety or simultaneous coverage."
+  ],
+  "bootstrap_seed": 20261014,
+  "bootstrap_resamples": 10000,
+  "figure_policy": "No figures and no changes to Figure 2.",
+  "method_policy": "No tuning, new map selection, optimizer changes, or alteration of frozen data.",
+  "planned_interpretation": "Sensitivity evidence only. Exact signed-rank inference assumes independent maps and symmetry of paired differences under its null. Deleting one map measures influence and is not fresh validation. Bootstrap coverage is conditional on this synthetic map design."
+}

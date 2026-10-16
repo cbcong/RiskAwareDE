@@ -1,0 +1,26 @@
+{
+  "upstream": "https://github.com/StanfordASL/RiskAverseTrajOpt",
+  "commit": "59b0ad029508c357b31960cc2088d973531a5f7c",
+  "license": "MIT",
+  "paper_doi": "10.1109/LRA.2023.3331889",
+  "paper_fulltext": "https://arxiv.org/html/2307.03167v2",
+  "environment": {
+    "python": "3.11.7",
+    "numpy": "1.26.4",
+    "scipy": "1.10.1",
+    "jax": "0.4.38",
+    "jaxlib": "0.4.38",
+    "osqp": "1.0.4"
+  },
+  "file_sha256": {
+    "adapter.py": "13f7e5ac12902f57ac39d5a8da0c3aab172ab4c525821e820f7860545cb5b600",
+    "run_native_smoke.py": "d968d780679aa0f81e12ae724d3c6e73e8f12cdd4f9010fef32bb21d7f68c0c6",
+    "native_compat_model.py": "fdffebe2e834b533beba8e141d38e83b748436022c82e9de4b9f01b808259b50",
+    "validate_adapter.py": "1a938b293c543ff55ee718968f9c8953247d7c01042b7e3f934be9fb306f2612",
+    "README.md": "0a12961827668a71cb3a21a3aff02cb9fe65d98d6887e06ee389996c6a57f1bb",
+    "upstream/LICENSE": "082a2309012e4b3908e8ed6bfc7d664b96ce54cb859ccd9c971ba8b82ce7c51c",
+    "upstream/drone/drone_risk.py": "4d15e88850881177ee8124e6d8839673e71220cdd5e60c5d7b546d48b30ab62d",
+    "upstream/drone/drone_params.py": "678c0fca576d78370879b4fa8df0f05162d13e42d4f0e1d32f674249625b163f",
+    "upstream/drone/drone_utils.py": "6f4bdd622f216d8cc05d02298152b5b534d10fff49c47ace9d13f31861b5c67f"
+  }
+}

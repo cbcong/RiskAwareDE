@@ -1,0 +1,3 @@
+﻿reference,comparator,maps,mean_cfr_difference_pp,bootstrap95_low_pp,bootstrap95_high_pp,wins,ties,losses,exact_two_sided_p,holm_p_two_test_family
+full,risk_polish_lshade,24,1.8668437499999946,1.1645041666666605,2.6484442708333304,21,0,3,3.6597251892089844e-05,7.319450378417969e-05
+full,risk_polish_de,24,-2.1100000000000034,-2.764681250000004,-1.409895572916674,3,0,21,5.328655242919922e-05,7.319450378417969e-05

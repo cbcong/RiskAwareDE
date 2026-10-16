@@ -1,0 +1,4 @@
+﻿method,label,paths,cfr_old,cfr_new,pass_old_count,pass_new_count,old_interval_contains_target,new_interval_contains_target,pass_to_fail,fail_to_pass,new_interval_entirely_above_target,new_interval_entirely_below_target,mean_old_wilson_width_pp,mean_new_wilson_width_pp
+full,RiskAwareDE,480,0.8294291666666668,0.8300068749999999,281,287,196,28,15,21,272,180,6.3739220328832875,1.0096431681606362
+risk_polish_lshade,RT-LS,480,0.8099708333333333,0.8113384375,235,229,197,42,25,19,208,230,6.65929317904875,1.0514198948563138
+risk_polish_de,RT-DE,480,0.8515666666666668,0.851106875,347,344,162,30,21,18,328,122,6.001380073276203,0.9528078949856774
