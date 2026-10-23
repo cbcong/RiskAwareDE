@@ -1,7 +1,5 @@
 # RiskAwareDE
 
-Implementation of **Low-variance risk estimation for 3D path planning under obstacle uncertainty**, by Bocong Chen and Shuai Wu.
-
 RiskAwareDE plans three-dimensional paths through uncertain obstacle environments using three components:
 
 1. **Global search:** differential evolution searches for a feasible, short path.
